@@ -19,11 +19,21 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+      <categories>
+        <category>测试</category>
+      </categories>
+      <tags>
+        <tag>hello</tag>
+        <tag>world</tag>
+      </tags>
   </entry>
   <entry>
     <title>搭建Hexo博客</title>
     <url>/2021/12/06/%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>测试</category>
+      </categories>
       <tags>
         <tag>Hexo</tag>
       </tags>
