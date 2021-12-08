@@ -1291,7 +1291,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffecff;
+  background: #c216ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2654,4 +2654,20 @@ ul.breadcrumb li + li:last-child {
 .content-wrap {
   -webkit-box-shadow: 5px 5px 10px #ababab;
   -moz-box-shadow: 5px 5px 10px #ababab;
+}
+/* 滚动槽 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background: rgba(0,0,0,0.06);
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.08);
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: rgba(0,0,0,0.12);
+  -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
 }
