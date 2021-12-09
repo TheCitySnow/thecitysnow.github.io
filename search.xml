@@ -28,14 +28,24 @@
       </tags>
   </entry>
   <entry>
-    <title>搭建Hexo博客</title>
-    <url>/2021/12/06/%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[]]></content>
+    <title>ES6 新特性</title>
+    <url>/2021/12/06/ES6%20%E6%96%B0%E7%89%B9%E6%80%A7/</url>
+    <content><![CDATA[<h2 id="let-和const-命令"><a href="#let-和const-命令" class="headerlink" title="let 和const 命令"></a>let 和const 命令</h2><ul>
+<li>var    设置的变量会变成全局变量，循环外也可以调用。</li>
+<li>let    设置的变量为局部变量，循环外无法调用。</li>
+<li>const  设置的变量为final 变量，初始化后就无法进行修改。<span id="more"></span></li>
+</ul>
+<h2 id="解构表达式"><a href="#解构表达式" class="headerlink" title="解构表达式"></a>解构表达式</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//解析数组</span><br><span class="line"><span class="built_in">let</span> arr = [1,2,3,4];</span><br><span class="line">//获得数组中的第一位和第二位元素并且分别赋值给x,y</span><br><span class="line"><span class="built_in">let</span> [x,y] = arr;</span><br><span class="line">console.log(<span class="string">&quot;x -&gt; &quot;</span> + x);</span><br><span class="line">console.log(<span class="string">&quot;y -&gt; &quot;</span> + y);</span><br><span class="line">//获得数组中的第三位和第四位元素并且分别赋值给a,b</span><br><span class="line"><span class="built_in">let</span>[,,a,b] = arr;</span><br><span class="line">console.log(<span class="string">&quot;a -&gt; &quot;</span> + a);</span><br><span class="line">console.log(<span class="string">&quot;b -&gt; &quot;</span> + b);</span><br><span class="line">//获得数组中的除了第一个元素外的所有其他元素并且赋值给rest</span><br><span class="line"><span class="built_in">let</span> [,...rest] = arr;</span><br><span class="line">console.log(<span class="string">&quot;rest -&gt; &quot;</span> + rest);</span><br><span class="line"></span><br><span class="line">//解析对象</span><br><span class="line"><span class="built_in">let</span> p = &#123;name:<span class="string">&quot;jack&quot;</span>, age: 21, gril: &#123;name: <span class="string">&quot;rose&quot;</span>, age: 18&#125;&#125;;</span><br><span class="line">//获得对象中指定key 的值，参数名需要与key 一致</span><br><span class="line"><span class="built_in">let</span> &#123;name,age&#125; = p;</span><br><span class="line">console.log(<span class="string">&quot;name -&gt; &quot;</span> + name);</span><br><span class="line">console.log(<span class="string">&quot;age -&gt; &quot;</span> + age);</span><br><span class="line">//获得对象中指定key 的值，同时将该值赋给自定义参数n</span><br><span class="line"><span class="built_in">let</span> &#123;name:n&#125; = p;</span><br><span class="line">console.log(<span class="string">&quot;n -&gt; &quot;</span> + n);</span><br><span class="line">//获得p 对象中的gril 对象的gname 参数的值</span><br><span class="line"><span class="built_in">let</span> &#123;gril:&#123;gname&#125;&#125; = p;</span><br><span class="line">console.log(<span class="string">&quot;gname -&gt; &quot;</span> + gname);</span><br><span class="line">//将p对象的值拷贝到obj 对象中，obj与p的值完全一样，但是地址不同，是一个新的对象</span><br><span class="line"><span class="built_in">let</span> &#123;...obj&#125; = p;</span><br><span class="line"><span class="built_in">let</span> obj2 = p;</span><br><span class="line">console.log(obj == p);  //<span class="literal">false</span></span><br><span class="line">console.log(obj2 == p); //<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="函数优化"><a href="#函数优化" class="headerlink" title="函数优化"></a>函数优化</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//创建一个函数 const 函数名 = (参数) =&gt; 操作</span><br><span class="line">const add = (a,b) =&gt; a + b;</span><br><span class="line">console.log(add(1,2)); //3</span><br><span class="line">            </span><br><span class="line">//创建对象中的函数</span><br><span class="line">const p = &#123;</span><br><span class="line">    name: <span class="string">&quot;jack&quot;</span>,</span><br><span class="line">    age: 21,</span><br><span class="line">    <span class="function"><span class="title">sayHello</span></span>()&#123;</span><br><span class="line">         console.log(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line">p.sayHello(); //hello</span><br><span class="line"></span><br><span class="line">//函数优化 + 解构表达式</span><br><span class="line">const person = &#123;</span><br><span class="line">    name: <span class="string">&quot;jack&quot;</span>,</span><br><span class="line">    age: 21</span><br><span class="line">&#125;</span><br><span class="line">const hello = (&#123;name,age&#125;) =&gt; console.log(name, age);</span><br><span class="line">hello(person); //jack 21</span><br></pre></td></tr></table></figure>
+
+<h2 id="map-和-reduce"><a href="#map-和-reduce" class="headerlink" title="map 和 reduce"></a>map 和 reduce</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//将数组中的string 类型数据转换为int 类型</span><br><span class="line"><span class="built_in">let</span> arr = [<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;2&#x27;</span>,<span class="string">&#x27;3&#x27;</span>,<span class="string">&#x27;4&#x27;</span>,<span class="string">&#x27;5&#x27;</span>];</span><br><span class="line"><span class="built_in">let</span> arr2 = arr.map(s =&gt; parseInt(s));</span><br><span class="line"></span><br><span class="line">//将数组中的所有数据求和</span><br><span class="line">console.log(arr2.reduce((a,b) =&gt; a + b)); //15</span><br><span class="line">//将数组中的所有数据求和(给定一个初始值)</span><br><span class="line">console.log(arr2.reduce((a,b) =&gt; a + b, 5)); //20</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>测试</category>
+        <category>前端</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>ES6</tag>
+        <tag>Vue</tag>
       </tags>
   </entry>
 </search>
