@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>SpringCloudAlibaba</title>
-    <url>/2021/12/06/SpringCloudAlibaba/</url>
+    <title>SpringCloudAlibaba（一）</title>
+    <url>/2021/12/06/SpringCloudAlibaba%EF%BC%88%E4%B8%80%EF%BC%89/</url>
     <content><![CDATA[<h1 id="第一章-微服务介绍"><a href="#第一章-微服务介绍" class="headerlink" title="第一章 微服务介绍"></a>第一章 微服务介绍</h1><h2 id="系统架构演变"><a href="#系统架构演变" class="headerlink" title="系统架构演变"></a>系统架构演变</h2><p>随着互联网的发展，网站应用的规模也在不断的扩大，进而导致系统架构也在不断的进行变化。<br>从互联网早起到现在，系统架构大体经历了下面几个过程: 单体应用架构—&gt;垂直应用架构—&gt;分布式架构—&gt;SOA架构—&gt;微服务架构，当然还有悄然兴起的Service Mesh(服务网格化)。<br>接下来我们就来了解一下每种系统架构是什么样子的， 以及各有什么优缺点。</p>
 <span id="more"></span>
 
@@ -157,9 +157,10 @@
 </ul>
 ]]></content>
       <categories>
-        <category>Java</category>
+        <category>分布式</category>
       </categories>
       <tags>
+        <tag>Java</tag>
         <tag>SpringCloudAlibaba</tag>
       </tags>
   </entry>
