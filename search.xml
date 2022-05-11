@@ -2078,6 +2078,114 @@
       </tags>
   </entry>
   <entry>
+    <title>SpringCloudAlibaba面试题</title>
+    <url>/2022/05/11/SpringCloudAlibaba%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<h1 id="微服务个人理解">1. 微服务个人理解</h1><p>微服务架构是一种架构模式或者说是一种架构风格，它提倡将单一应用程序划分为一组小的服务，每个服务运行在独立的自己的进程中，服务之间相互协调、互相配合，为用户提供最终价值。服务之间采用轻量级的通信机制互相通（通常是基于HTTP的RESTful API），每个服务都围绕着具体的业务进行构建，并且能够被独立的构建在生产境、类生产环境等。另外，应避免统一的、集中式的服务管理机制，对具体的一个服务而言，应根据业务上下文，择合适的语言、工具对其进行构建，可以有一个非常轻量级的集中式管理来协调这些服务，可以使用不同的语言来写服务，也可以使用不同的数据存储。  </p>
+<h1 id="什么是Spring-Cloud-amp-amp-Alibaba？">2. 什么是Spring Cloud&amp;&amp;Alibaba？</h1><p>Spring Cloud是Spring开源组织下的一个子项目，提供了一系列用于实现分布式微服务系统的工具集，帮助开发者快速构建微服务应用。</p>
+<p>Spring Cloud Alibaba是Spring Cloud的子项目；包含微服务开发必备组件；基于和符合Spring Cloud标准的阿里的微服务解决方案。</p>
+<h1 id="服务注册和发现是什么意思？Spring-Cloud如何实现？">3. 服务注册和发现是什么意思？Spring Cloud如何实现？</h1><p>当我们开始一个项目时，我们通常在属性文件中进行所有的配置。随着越来越多的服务开发和部署，添加和修改这些属性变得更加复杂。有些服务可能会下降，而某些位置可能会发生变化。手动更改属性可能会产生问题。 Nacos服务注册和发现可以在这种情况下提供帮助。由于所有服务都在Eureka服务器上注册并通过调用Nacos服务器完成查找，因此无需处理服务地点的任何更改和处理。</p>
+<h1 id="什么是Nacos">4. 什么是Nacos?</h1><p>英文全称Dynamic Naming and Configuration Service，Na为naming/nameServer即注册中心,co为configuration即注册中心，service是指该注册/配置中心都是以服务为核心。<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202205111738340.png">  </p>
+<h1 id="Nacos注册中心原理">5. Nacos注册中心原理</h1><p><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202205111739182.png"><br>服务提供者、服务消费者、服务发现组件这三者之间的关系大致如下</p>
+<p>1、微服务在启动时，将自己的网络地址等信息注册到服务发现组件(nacos server)中，服务发现组件会存储这些信息。</p>
+<p>2、各个微服务与服务发现组件使用一定机制通信（例如在一定的时间内发送心跳包）。服务发现组件若发现与某微服务实例通信正常则保持注册状态(up在线状态)、若长时间无法与某微服务实例通信，就会自动注销（即：删除）该实例。</p>
+<p>3、服务消费者可从服务发现组件查询服务提供者的网络地址，并使用该地址调用服务提供者的接口。</p>
+<p>4、当微服务网络地址发生变更（例如实例增减或者IP端口发生变化等）时，会重新注册到服务发现组件。</p>
+<h1 id="Nacos注册中心使用【Nacos-Client客户端】">6. Nacos注册中心使用【Nacos-Client客户端】</h1><p>（1）pom文件加依赖:alibaba-nacos-discovery</p>
+<pre><code class="code">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-discovery&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>（2）启动类加注解</p>
+<pre><code class="code">//Nacos服务端【早期版本需要加注解，现在0.0.9版本后已不是必须的】
+@EnableDiscoveryClient
+</code></pre>
+<p>（3）在对应的微服务的yml配置文件【服务名称和nacos server 地址】</p>
+<pre><code class="code">spring:
+  cloud:
+    nacos:
+      discovery:
+        #指定nacos server的地址，不需要写http
+        server-addr: localhost:8848 
+</code></pre>
+<h1 id="Nacos配置中心使用【Nacos-Server服务端】">7. Nacos配置中心使用【Nacos-Server服务端】</h1><p>1）加依赖–alibaba-nacos-config</p>
+<pre><code class="code">&lt;!--nacos-config nacos管理配置的依赖--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-config&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>2）加配置，新增bootstrap.yml文件配置，配置属性如下  </p>
+<pre><code class="code">spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848 #这里的server-addr用作配置管理
+        file-extension: yaml
+  application:
+    name: user-server
+  profiles: # profiles区分多环境配置
+    active: dev #切换配置文件，如dev、test、pro等环境
+</code></pre>
+<p>3）配置中心包含：配置管理、服务管理(微服务管理)、命名空间、集群管理<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202205111742087.png"><br>4）通过配置更改动态刷新参数–@RefreshScope注解 普通application参数在配置中心直接配置皆可，如果需要可以动态刷新的配置，需要在相应类上加上@RefreshScope注解,示例如下，当在nacos配置中心更改配置后，方法getId的值也会刷新。  </p>
+<pre><code class="code">@RefreshScope
+public class IdEntity &#123;
+
+    @Value(&quot;$&#123;id&#125;&quot;)
+    private int id;
+
+    public int getId()&#123;
+        return this.id;
+    &#125;
+&#125;
+</code></pre>
+<h1 id="Feign介绍">8. Feign介绍</h1><p>Feign是Netfilx开源的声明式HTTP客户端，Feign是一个http请求调用的轻量级框架，可以以Java接口注解的方式调用Http请求。Spring Cloud引入 Feign并且集成了Ribbon实现客户端负载均衡调用。  </p>
+<h1 id="Feign调用原理">9. Feign调用原理</h1><p>Feign远程调用，核心就是通过一系列的封装和处理，将以JAVA注解的方式定义的远程调用API接口，最终转换成HTTP的请求形式，然后将HTTP的请求的响应结果，解码成JAVA Bean，放回给调用者。</p>
+<p>基于重试器发送HTTP请求：Feign 内置了一个重试器，当HTTP请求出现IO异常时，Feign会有一个最大尝试次数发送请求。  </p>
+<h1 id="Feign调用原理-1">10. Feign调用原理</h1><p>（1）加依赖–openfeign  </p>
+<pre><code class="code">&lt;!--feign依赖、服务通信--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>（2）启动类加注解  </p>
+<pre><code class="code">@EnableFeignClients//feign注解
+</code></pre>
+<p>（3）请求接口的类加FeignClient注解  </p>
+<pre><code class="code">@FeignClient(value=&quot;article-server&quot;)
+</code></pre>
+<h1 id="Feign使用中遇到的相关问题">11. Feign使用中遇到的相关问题</h1><p>（1）使用feign客户端调用其他微服务时，发送POST请求时，对象信息没有传递成功。关键在于加上注解：@RequestBody<br>（2）使用feign客户端调用其他微服务时，报错超时：e=feign.RetryableException: Read timed out executing POST  </p>
+<pre><code class="code">ribbon.ReadTimeout=60000
+ribbon.ConnectTimeout=6000012
+</code></pre>
+<h1 id="什么是服务熔断？什么是服务降级？">12. 什么是服务熔断？什么是服务降级？</h1><p>熔断机制，是应对雪崩效应的一种微服务链路保护机制。当某个微服务不可用或者响应时间太长时，会进行服务降级，进而熔断该节点微服务的调用，快速返回“错误”的响应信息。当检测到该节点微服务调用响应正常后恢复调用链路。在SpringCloud框架里熔断机制通过Hystrix实现，Hystrix会监控微服务间调用的状况，当失败的调用到一定阈值，缺省是5秒内调用20次，如果失败，就会启动熔断机制。</p>
+<p>服务降级，一般是从整体负荷考虑。就是当某个服务熔断之后，服务器将不再被调用，此时客户端可以自己准备一个本地的fallback回调，返回一个缺省值。这样做，虽然水平下降，但好歹可用，比直接挂掉强。</p>
+<h1 id="什么是服务雪崩效应">13. 什么是服务雪崩效应?</h1><p>雪崩效应是在大型互联网项目中，当某个服务发生宕机时，调用这个服务的其他服务也会发生宕机，大型项目的微服务之间的调用是互通的，这样就会将服务的不可用逐步扩大到各个其他服务中，从而使整个项目的服务宕机崩溃。</p>
+<h1 id="LoadBalanced注解的作用">14. @LoadBalanced注解的作用</h1><p>开启客户端负载均衡。</p>
+<h1 id="Nginx与Ribbon的区别">15. Nginx与Ribbon的区别</h1><p>Nginx是反向代理同时可以实现负载均衡，nginx拦截客户端请求采用负载均衡策略根据upstream配置进行转发，相当于请求通过nginx服务器进行转发。Ribbon是客户端负载均衡，从注册中心读取目标服务器信息，然后客户端采用轮询策略对服务直接访问，全程在客户端操作。</p>
+<h1 id="Ribbon底层实现原理">16. Ribbon底层实现原理</h1><p>Ribbon使用discoveryClient从注册中心读取目标服务信息，对同一接口请求进行计数，使用%取余算法获取目标服务集群索引，返回获取到的目标服务信息。</p>
+<h1 id="Ribbon负载均衡算法">17. Ribbon负载均衡算法</h1><p>IRule是以下七种负载均衡算法的父接口<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202205111747408.png"><br>说明：<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202205111747552.png">  </p>
+<ul>
+<li>RoundRobinRule： 默认轮询的方式</li>
+<li>RandomRule： 随机方式</li>
+<li>WeightedResponseTimeRule： 根据响应时间来分配权重的方式，响应的越快，分配的值越大。</li>
+<li>BestAvailableRule： 选择并发量最小的方式</li>
+<li>RetryRule： 在一个配置时间段内当选择server不成功，则一直尝试使用subRule的方式选择一个可用的server</li>
+<li>ZoneAvoidanceRule： 根据性能和可用性来选择。</li>
+<li>AvailabilityFilteringRule： 过滤掉那些因为一直连接失败的被标记为circuit tripped的后端server，并过滤掉那些高并发的的后端server（active connections 超过配置的阈值）</li>
+</ul>
+]]></content>
+      <categories>
+        <category>面试题</category>
+      </categories>
+      <tags>
+        <tag>SpringCloud</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SpringBoot面试题归纳</title>
     <url>/2022/05/11/SpringBoot%E9%9D%A2%E8%AF%95%E9%A2%98%E5%BD%92%E7%BA%B3/</url>
     <content><![CDATA[<span id="more"></span>
