@@ -2175,8 +2175,53 @@ ribbon.ConnectTimeout=6000012
 <li>BestAvailableRule： 选择并发量最小的方式</li>
 <li>RetryRule： 在一个配置时间段内当选择server不成功，则一直尝试使用subRule的方式选择一个可用的server</li>
 <li>ZoneAvoidanceRule： 根据性能和可用性来选择。</li>
-<li>AvailabilityFilteringRule： 过滤掉那些因为一直连接失败的被标记为circuit tripped的后端server，并过滤掉那些高并发的的后端server（active connections 超过配置的阈值）</li>
+<li>AvailabilityFilteringRule： 过滤掉那些因为一直连接失败的被标记为circuit tripped的后端server，并过滤掉那些高并发的的后端server（active connections 超过配置的阈值）  </li>
 </ul>
+<h1 id="分布式事务产生的背景？">18. 分布式事务产生的背景？</h1><p>在传统的单体项目中，多个不同的业务逻辑使用的都是同一个数据源，使用的都是同一个事务管理器，所以不会存在事务问题。 在分布式或者微服务架构中，每个服务都有自己的数据源，使用不同事务管理器，如果A服务去调用B服务，B服务执行失败了，A服务的事务和B服务的事务都会回滚，这时候是不存在事务问题的，但是如果A服务B服务执行成功之后出现异常，A服务的事务会回滚，但是B服务的事务不会回滚，此时就存在分布式事务问题。</p>
+<h1 id="seata是什么">19. seata是什么</h1><p>Seata是阿里巴巴退出的一款用来解决分布式事务问题的框架，他经过天猫双十一的考验，很有可能成为解决分布式事务问题的主流框架</p>
+<h1 id="seata术语">20. seata术语</h1><p>Seata分为三个模块，分别是TM、RM和TC(简写)。</p>
+<ul>
+<li>TC(transaction Coordinator)，代表seata服务器，seata是一个spring boot的jar包。</li>
+<li>TM(transaction Manager)事务管理器。</li>
+<li>RM(Resource Manager) 代表每个数据库。 Seata还用了一个XID，代表了一个分布式事务，相当于dubbo中的Request ID。  </li>
+</ul>
+<h1 id="seata流程">21. seata流程</h1><ul>
+<li>TM向TC注册全局事务，并生成全局唯一的XID。</li>
+<li>RM向TC注册分支事务，并将其纳入该XID对应的全局事务范围。</li>
+<li>RM向TC汇报资源的准备状态。</li>
+<li>TC汇总所有事务参与者的执行状态，决定分布式事务是全部提交还是全部回滚。</li>
+<li>TC通知所有RM提交/回滚事务。<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202205112041594.png">  </li>
+</ul>
+<h1 id="seata流程相亲版">22. seata流程相亲版</h1><ul>
+<li>张学霸（TM）跟导师(TC)提议，为卢学霸安排对象，卢学霸生成了一个相亲id。</li>
+<li>女神（RM）向tc注册了资料，卢学霸在他的相亲id中接收到了推送。</li>
+<li>女神向卢学霸汇报自己的资料。</li>
+<li>TC汇总所有女神的资料，让卢学霸决定是否去参加相亲。</li>
+<li>TC向卢学霸汇报相亲结果。  </li>
+</ul>
+<h1 id="Seata分布式事务框架实现原理？">23. Seata分布式事务框架实现原理？</h1><p>Seata有三个组成部分：事务协调器TC：协调者、事务管理器TM：发起方、资源管理器RM：参与方</p>
+<ul>
+<li>（1）发起方会向协调者申请一个全局事务id，并保存到ThreadLocal中（为什么要保存到ThreadLocal中？弱引用，线程之间不会发生数据冲突）</li>
+<li>（2）Seata数据源代理发起方和参与方的数据源，将前置镜像和后置镜像写入到undo_log表中，方便后期回滚使用</li>
+<li>（3）发起方获取全局事务id，通过改写Feign客户端请求头传入全局事务id。</li>
+<li>（4）参与方从请求头中获取全局事务id保存到ThreadLocal中，并把该分支注册到SeataServer中。</li>
+<li>（5）如果没有出现异常，发起方会通知协调者，协调者通知所有分支，通过全局事务id和本地事务id删除undo_log数据，如果出现异常，通过undo_log逆向生成sql语句并执行，然后删除undo_log语句。如果处理业务逻辑代码超时，也会回滚。  </li>
+</ul>
+<h1 id="SpringBoot如何整合Seata">24. SpringBoot如何整合Seata?</h1><p>一般情况下，学一个知识不需要去学API，学的主要是思想，API会发生变化，思想几乎是不会变的</p>
+<ul>
+<li>第一步：引入依赖</li>
+<li>第二步：bin下的file文件和registry文件放入到每个项目中，并修改，分组名称要保持一致</li>
+<li>第三步：yml配置seata</li>
+<li>第四步：引入DataSourceProxy配置文件</li>
+<li>第五步：添加核心主机@GlobalTransaction注解  </li>
+</ul>
+<h1 id="常见的分布式事务解决方案？">25. 常见的分布式事务解决方案？</h1><ul>
+<li>1、使用MQ</li>
+<li>2、使用LCN</li>
+<li>3、使用Seata</li>
+<li>4、2PC、3PC  </li>
+</ul>
+<h1 id="SpringCloud-Alibaba的面试题视频参考：">26. SpringCloud Alibaba的面试题视频参考：</h1><p><a href="https://www.bilibili.com/video/av500291691">SpringCloud Alibaba的面试题视频参考</a></p>
 ]]></content>
       <categories>
         <category>面试题</category>
