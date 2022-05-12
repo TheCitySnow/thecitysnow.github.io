@@ -2238,7 +2238,11 @@ ribbon.ConnectTimeout=6000012
 <h1 id="SpringBoot-中的-SpringBootApplication注解？">1. SpringBoot 中的@SpringBootApplication注解？</h1><pre><code>@SpringBootApplication 包含了3个主要的注解，分别为@SpringBootConfiguration表明该类为配置类，@EnableAutoConfiguration启动自动配置功能以及@ComponentScan扫描包。
 @EnableAutoConfiguration中包含了@AutoConfigurationPackage自动配置包以及通过@Import将AutoConfigurationImportSelector 这个类导入到Spring 容器中，AutoConfigurationImportSelector会进行筛选需要在启动时加载的自动配置类，具体流程：  
 1. 读取所有jar包下的resources/META-INF 目录下的spring.factories文件，并将其中的EnableAutoConfiguration属性对应的自动配置的类添加到集合中。
-2. 因为从spring.factories 文件获取的自动配置类太多，如果有些不必要的自动配置类都加载进内存，会造成内存浪费。所以需要对不需要的自动配置类进行过滤。其中包含利用LinkedHashSet去重。通过获取要排除的自动配置类并移除，比如@SpringBootApplication中的exclude属性所包含的配置类。通过获取maven引入的依赖，以及通过一些条件注解去判断配置类是否符合条件。  
+2. 因为从spring.factories 文件获取的自动配置类太多，如果有些不必要的自动配置类都加载进内存，会造成内存浪费。所以需要对不需要的自动配置类进行过滤。
+    1）利用LinkedHashSet去重。  
+    2）通过获取要排除的自动配置类并移除，比如@SpringBootApplication中的exclude属性所包含的配置类。  
+    3）通过获取maven引入的依赖，将maven中未引入的都移除。  
+    4）通过一些条件注解去判断配置类是否符合创建条件。  
 </code></pre>
 <h1 id="SpringBoot-中run-方法实现逻辑">2. SpringBoot 中run 方法实现逻辑?</h1><pre><code>1. 获取并启动监听器
 2. 构造应用上下文环境
