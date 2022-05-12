@@ -2241,7 +2241,7 @@ ribbon.ConnectTimeout=6000012
 2. 因为从spring.factories 文件获取的自动配置类太多，如果有些不必要的自动配置类都加载进内存，会造成内存浪费。所以需要对不需要的自动配置类进行过滤。
     1）利用LinkedHashSet去重。  
     2）通过获取要排除的自动配置类并移除，比如@SpringBootApplication中的exclude属性所包含的配置类。  
-    3）通过获取maven引入的依赖，将maven中未引入的都移除。  
+    3）通过获取maven引入的依赖，保留这些依赖对应的配置类。  
     4）通过一些条件注解去判断配置类是否符合创建条件。  
 </code></pre>
 <h1 id="SpringBoot-中run-方法实现逻辑">2. SpringBoot 中run 方法实现逻辑?</h1><pre><code>1. 获取并启动监听器
