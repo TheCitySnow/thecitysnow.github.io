@@ -609,14 +609,21 @@
 </ul>
 <h3 id="微服务集成Sentinel">1.4.2. 微服务集成Sentinel</h3><p>为微服务集成Sentinel非常简单, 只需要加入Sentinel的依赖即可  </p>
 <ol>
-<li>在pom.xml中加入下面依赖  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-alibaba-sentinel&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
-<li>编写一个Controller测试使用  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">@RestController</span><br><span class="line">@Slf4j</span><br><span class="line">public class OrderController3 &#123;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(<span class="string">&quot;/order/message1&quot;</span>)</span><br><span class="line">    public String <span class="function"><span class="title">message1</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> <span class="string">&quot;message1&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(<span class="string">&quot;/order/message2&quot;</span>)</span><br><span class="line">    public String <span class="function"><span class="title">message2</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> <span class="string">&quot;message2&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>在pom.xml中加入下面依赖  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-alibaba-sentinel&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>编写一个Controller测试使用  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">@RestController</span><br><span class="line">@Slf4j</span><br><span class="line">public class OrderController3 &#123;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(<span class="string">&quot;/order/message1&quot;</span>)</span><br><span class="line">    public String <span class="function"><span class="title">message1</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> <span class="string">&quot;message1&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(<span class="string">&quot;/order/message2&quot;</span>)</span><br><span class="line">    public String <span class="function"><span class="title">message2</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> <span class="string">&quot;message2&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 <h3 id="安装Sentinel控制台">1.4.3. 安装Sentinel控制台</h3><p>Sentinel 提供一个轻量级的控制台, 它提供机器发现、单机资源实时监控以及规则管理等功能。  </p>
 <ol>
-<li><a href="https://github.com/alibaba/Sentinel/releases">下载jar包,解压到文件夹</a>  </li>
-<li>启动控制台  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#直接使用jar命令启动项目(控制台本身是一个SpringBoot项目)</span></span><br><span class="line">java -Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard-1.7.0.jar</span><br><span class="line">```  </span><br><span class="line">3. 修改shop-order ,在里面加入有关控制台的配置  </span><br><span class="line">```bash</span><br><span class="line">spring:</span><br><span class="line">    cloud:</span><br><span class="line">        sentinel:</span><br><span class="line">            transport:</span><br><span class="line">                port: 9999 <span class="comment">#跟控制台交流的端口,随意指定一个未使用的端口即可</span></span><br><span class="line">                dashboard: localhost:8080 <span class="comment"># 指定控制台服务的地址</span></span><br></pre></td></tr></table></figure></li>
-<li>通过浏览器访问 <a href="http://localhost:8080/">http://localhost:8080</a> 进入控制台 ( 默认用户名密码是 sentinel/sentinel )<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201111419941.png">  </li>
+<li><p><a href="https://github.com/alibaba/Sentinel/releases">下载jar包,解压到文件夹</a>  </p>
+</li>
+<li><p>启动控制台  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#直接使用jar命令启动项目(控制台本身是一个SpringBoot项目)</span></span><br><span class="line">java -Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard-1.7.0.jar</span><br></pre></td></tr></table></figure></li>
+<li><p>修改shop-order ,在里面加入有关控制台的配置  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">    cloud:</span><br><span class="line">        sentinel:</span><br><span class="line">            transport:</span><br><span class="line">                port: 9999 <span class="comment">#跟控制台交流的端口,随意指定一个未使用的端口即可</span></span><br><span class="line">                dashboard: localhost:8080 <span class="comment"># 指定控制台服务的地址</span></span><br></pre></td></tr></table></figure></li>
+<li><p>通过浏览器访问 <a href="http://localhost:8080/">http://localhost:8080</a> 进入控制台 ( 默认用户名密码是 sentinel/sentinel )<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201111419941.png">  </p>
+</li>
 </ol>
 <p><strong>补充：了解控制台的使用原理</strong><br>Sentinel的控制台其实就是一个SpringBoot编写的程序。我们需要将我们的微服务程序注册到控制台上,即在微服务中指定控制台的地址, 并且还要开启一个跟控制台传递数据的端口, 控制台也可以通过此端口调用微服务中的监控程序获取微服务的各种信息。<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201111420502.png">  </p>
 <h3 id="实现一个接口的限流">1.4.4. 实现一个接口的限流</h3><ol>
@@ -638,24 +645,63 @@
 <li>通过并发线程数进行限制<br>Sentinel 通过限制资源并发线程的数量，来减少不稳定资源对其它资源的影响。当某个资源出现不稳定的情况下，例如响应时间变长，对资源的直接影响就是会造成线程数的逐步堆积。当线程数在特定资源上堆积到一定的数量之后，对该资源的新请求就会被拒绝。堆积的线程完成任务后才开始继续接收请求。  </li>
 <li>通过响应时间对资源进行降级<br>除了对并发线程数进行控制以外，Sentinel 还可以通过响应时间来快速降级不稳定的资源。当依赖的资源出现响应时间过长后，所有对该资源的访问都会被直接拒绝，直到过了指定的时间窗口之后才重新恢复。  </li>
 </ul>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">    Sentinel 和 Hystrix 的区别  </span><br><span class="line">    两者的原则是一致的, 都是当一个资源出现问题时, 让其快速失败, 不要波及到其它服务但是在限制的手段上, 确采取了完全不一样的方法:</span><br><span class="line">    Hystrix 采用的是线程池隔离的方式, 优点是做到了资源之间的隔离, 缺点是增加了线程切换的成本。</span><br><span class="line">    Sentinel 采用的是通过并发线程的数量和响应时间来对资源做限制。</span><br><span class="line">    ```  </span><br><span class="line">- 系统负载保护  </span><br><span class="line">Sentinel 同时提供系统维度的自适应保护能力。当系统负载较高的时候，如果还持续让请求进入可能会导致系统崩溃，无法响应。在集群环境下，会把本应这台机器承载的流量转发到其它的机器上去。如果这个时候其它的机器也处在一个边缘状态的时候，Sentinel 提供了对应的保护机制，让系统的入口流量和系统的负载达到一个平衡，保证系统在能力范围之内处理最多的请求。 </span><br><span class="line"></span><br><span class="line">**总之一句话: 我们需要做的事情，就是在Sentinel的资源上配置各种各样的规则，来实现各种容错的功能。**  </span><br><span class="line"></span><br><span class="line">## Sentinel规则  </span><br><span class="line"></span><br><span class="line">### 流控规则  </span><br><span class="line">流量控制，其原理是监控应用流量的QPS(每秒查询率) 或并发线程数等指标，当达到指定的阈值时对流量进行控制，以避免被瞬时的流量高峰冲垮，从而保障应用的高可用性。  </span><br><span class="line"></span><br><span class="line">1. 点击簇点链路，我们就可以看到访问过的接口地址，然后点击对应的流控按钮，进入流控规则配</span><br><span class="line">置页面。新增流控规则界面如下:  </span><br><span class="line">![](https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201111430470.png)  </span><br><span class="line">**资源名：** 唯一名称，默认是请求路径，可自定义  </span><br><span class="line">**针对来源：** 指定对哪个微服务进行限流，默认指default，意思是不区分来源，全部限制  </span><br><span class="line">**阈值类型/单机阈值：**</span><br><span class="line">    - QPS（每秒请求数量）: 当调用该接口的QPS达到阈值的时候，进行限流线程数：当调用该接口的线程数达到阈值的时候，进行限流</span><br><span class="line">    - 是否集群：暂不需要集群  </span><br><span class="line"></span><br><span class="line">接下来我们以QPS为例来研究限流规则的配置。  </span><br><span class="line"></span><br><span class="line">#### 简单配置  </span><br><span class="line">我们先做一个简单配置，设置阈值类型为QPS，单机阈值为3。即每秒请求量大于3的时候开始限流。  </span><br><span class="line">接下来，在流控规则页面就可以看到这个配置。  </span><br><span class="line">![](https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201111433402.png)  </span><br><span class="line"></span><br><span class="line">然后快速访问/order/message1 接口，观察效果。此时发现，当QPS &gt; 3的时候，服务就不能正常响应，而是返回Blocked by Sentinel (flow limiting)结果。  </span><br><span class="line">![](https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201111434325.png)  </span><br><span class="line"></span><br><span class="line">#### 配置流控模式  </span><br><span class="line">点击上面设置流控规则的编辑按钮，然后在编辑页面点击高级选项，会看到有流控模式一栏。  </span><br><span class="line">![](https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201111435001.png)  </span><br><span class="line"></span><br><span class="line">sentinel共有三种流控模式，分别是：  </span><br><span class="line">- 直接（默认）：接口达到限流条件时，开启限流  </span><br><span class="line">- 关联：当关联的资源达到限流条件时，开启限流 [适合做应用让步]  </span><br><span class="line">- 链路：当从某个接口过来的资源达到限流条件时，开启限流  </span><br><span class="line"></span><br><span class="line">下面呢分别演示三种模式：  </span><br><span class="line">**直接流控模式** </span><br><span class="line">直接流控模式是最简单的模式，当指定的接口达到限流条件时开启限流。上面案例使用的就是直接流控模式。</span><br><span class="line">**关联流控模式** </span><br><span class="line">关联流控模式指的是，当指定接口关联的接口达到限流条件时，开启对指定接口开启限流。  </span><br><span class="line"></span><br><span class="line">1. 配置限流规则, 将流控模式设置为关联，关联资源设置为的 /order/message2。  </span><br><span class="line">![](https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201111436399.png)  </span><br><span class="line"></span><br><span class="line">2. 通过postman软件向/order/message2连续发送请求，注意QPS一定要大于3  </span><br><span class="line">![](https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201111437096.png)  </span><br><span class="line"></span><br><span class="line">3. 访问/order/message1,会发现已经被限流  </span><br><span class="line">![](https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201111437988.png)  </span><br><span class="line"></span><br><span class="line">**链路流控模式**  </span><br><span class="line">链路流控模式指的是，当从某个接口过来的资源达到限流条件时，开启限流。它的功能有点类似于针对来源配置项，区别在于：**针对来源是针对上级微服务，而链路流控是针对上级接口，也就是说它的粒度更细。**   </span><br><span class="line">1.编写一个service，在里面添加一个方法message  </span><br><span class="line">```bash</span><br><span class="line">@Service</span><br><span class="line">public class OrderServiceImpl3 &#123;</span><br><span class="line"></span><br><span class="line">    @SentinelResource(&quot;message&quot;)</span><br><span class="line"></span><br><span class="line">    public void message() &#123;</span><br><span class="line">        System.out.println(&quot;message&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">```  </span><br><span class="line">2. 在Controller中声明两个方法，分别调用service中的方法message  </span><br><span class="line">```bash</span><br><span class="line">@RestController</span><br><span class="line">@Slf4j</span><br><span class="line">public class OrderController3 &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private OrderServiceImpl3 orderServiceImpl3;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(&quot;/order/message1&quot;)</span><br><span class="line">        public String message1() &#123;</span><br><span class="line">        orderServiceImpl3.message();</span><br><span class="line">        return &quot;message1&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(&quot;/order/message2&quot;)</span><br><span class="line">        public String message2() &#123;</span><br><span class="line">        orderServiceImpl3.message();</span><br><span class="line">        return &quot;message2&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">```  </span><br><span class="line">3. 禁止收敛URL的入口 context  </span><br></pre></td></tr></table></figure>
-<p>从1.6.3 版本开始，Sentinel Web filter默认收敛所有URL的入口context，因此链路限流不生效。</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Sentinel 和 Hystrix 的区别  </span><br><span class="line">两者的原则是一致的, 都是当一个资源出现问题时, 让其快速失败, 不要波及到其它服务但是在限制的手段上, 确采取了完全不一样的方法:</span><br><span class="line">Hystrix 采用的是线程池隔离的方式, 优点是做到了资源之间的隔离, 缺点是增加了线程切换的成本。</span><br><span class="line">Sentinel 采用的是通过并发线程的数量和响应时间来对资源做限制。</span><br></pre></td></tr></table></figure></li>
+<li><p>系统负载保护<br>Sentinel 同时提供系统维度的自适应保护能力。当系统负载较高的时候，如果还持续让请求进入可能会导致系统崩溃，无法响应。在集群环境下，会把本应这台机器承载的流量转发到其它的机器上去。如果这个时候其它的机器也处在一个边缘状态的时候，Sentinel 提供了对应的保护机制，让系统的入口流量和系统的负载达到一个平衡，保证系统在能力范围之内处理最多的请求。 </p>
 </li>
 </ul>
-<p>1.7.0 版本开始（对应SCA的2.1.1.RELEASE)，官方在CommonFilter 引入了WEB_CONTEXT_UNIFY 参数，用于控制是否收敛context。将其配置为 false 即可根据不同的URL 进行链路限流。<br>SCA 2.1.1.RELEASE之后的版本,可以通过配置spring.cloud.sentinel.web-context-unify=false即可关闭收敛<br>我们当前使用的版本是SpringCloud Alibaba 2.1.0.RELEASE，无法实现链路限流。<br>目前官方还未发布SCA 2.1.2.RELEASE，所以我们只能使用2.1.1.RELEASE，需要写代码的形式实现。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(1) 暂时将SpringCloud Alibaba的版本调整为2.1.1.RELEASE  </span><br><span class="line">```bash</span><br><span class="line">&lt;spring-cloud-alibaba.version&gt;2.1.1.RELEASE&lt;/spring-cloud-alibaba.version&gt;</span><br><span class="line">```  </span><br><span class="line">(2) 配置文件中关闭sentinel的CommonFilter实例化  </span><br><span class="line">```bash</span><br><span class="line">spring:</span><br><span class="line">    cloud:</span><br><span class="line">        sentinel:</span><br><span class="line">            filter:</span><br><span class="line">                enabled: false</span><br></pre></td></tr></table></figure>
+<p><strong>总之一句话: 我们需要做的事情，就是在Sentinel的资源上配置各种各样的规则，来实现各种容错的功能。</strong>  </p>
+<h2 id="Sentinel规则">1.6. Sentinel规则</h2><h3 id="流控规则">1.6.1. 流控规则</h3><p>流量控制，其原理是监控应用流量的QPS(每秒查询率) 或并发线程数等指标，当达到指定的阈值时对流量进行控制，以避免被瞬时的流量高峰冲垮，从而保障应用的高可用性。  </p>
+<ol>
+<li>点击簇点链路，我们就可以看到访问过的接口地址，然后点击对应的流控按钮，进入流控规则配<br>置页面。新增流控规则界面如下:<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201111430470.png">  </li>
+</ol>
+<p><strong>资源名：</strong> 唯一名称，默认是请求路径，可自定义<br><strong>针对来源：</strong> 指定对哪个微服务进行限流，默认指default，意思是不区分来源，全部限制<br><strong>阈值类型/单机阈值：</strong><br>    - QPS（每秒请求数量）: 当调用该接口的QPS达到阈值的时候，进行限流线程数：当调用该接口的线程数达到阈值的时候，进行限流<br>    - 是否集群：暂不需要集群  </p>
+<p>接下来我们以QPS为例来研究限流规则的配置。  </p>
+<h4 id="简单配置">1.6.1.1. 简单配置</h4><p>我们先做一个简单配置，设置阈值类型为QPS，单机阈值为3。即每秒请求量大于3的时候开始限流。<br>接下来，在流控规则页面就可以看到这个配置。<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201111433402.png">  </p>
+<p>然后快速访问/order/message1 接口，观察效果。此时发现，当QPS &gt; 3的时候，服务就不能正常响应，而是返回Blocked by Sentinel (flow limiting)结果。<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201111434325.png">  </p>
+<h4 id="配置流控模式">1.6.1.2. 配置流控模式</h4><p>点击上面设置流控规则的编辑按钮，然后在编辑页面点击高级选项，会看到有流控模式一栏。<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201111435001.png">  </p>
+<p>sentinel共有三种流控模式，分别是：  </p>
+<ul>
+<li>直接（默认）：接口达到限流条件时，开启限流  </li>
+<li>关联：当关联的资源达到限流条件时，开启限流 [适合做应用让步]  </li>
+<li>链路：当从某个接口过来的资源达到限流条件时，开启限流  </li>
+</ul>
+<p>下面呢分别演示三种模式：<br><strong>直接流控模式</strong><br>直接流控模式是最简单的模式，当指定的接口达到限流条件时开启限流。上面案例使用的就是直接流控模式。<br><strong>关联流控模式</strong><br>关联流控模式指的是，当指定接口关联的接口达到限流条件时，开启对指定接口开启限流。  </p>
+<ol>
+<li><p>配置限流规则, 将流控模式设置为关联，关联资源设置为的 /order/message2。<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201111436399.png">  </p>
+</li>
+<li><p>通过postman软件向/order/message2连续发送请求，注意QPS一定要大于3<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201111437096.png">  </p>
+</li>
+<li><p>访问/order/message1,会发现已经被限流<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201111437988.png">  </p>
+</li>
+</ol>
+<p><strong>链路流控模式</strong><br>链路流控模式指的是，当从某个接口过来的资源达到限流条件时，开启限流。它的功能有点类似于针对来源配置项，区别在于：<strong>针对来源是针对上级微服务，而链路流控是针对上级接口，也就是说它的粒度更细。</strong><br>1.编写一个service，在里面添加一个方法message  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class OrderServiceImpl3 &#123;</span><br><span class="line"></span><br><span class="line">    @SentinelResource(<span class="string">&quot;message&quot;</span>)</span><br><span class="line"></span><br><span class="line">    public void <span class="function"><span class="title">message</span></span>() &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;message&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>在Controller中声明两个方法，分别调用service中的方法message  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">@RestController</span><br><span class="line">@Slf4j</span><br><span class="line">public class OrderController3 &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private OrderServiceImpl3 orderServiceImpl3;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(<span class="string">&quot;/order/message1&quot;</span>)</span><br><span class="line">        public String <span class="function"><span class="title">message1</span></span>() &#123;</span><br><span class="line">        orderServiceImpl3.message();</span><br><span class="line">        <span class="built_in">return</span> <span class="string">&quot;message1&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(<span class="string">&quot;/order/message2&quot;</span>)</span><br><span class="line">        public String <span class="function"><span class="title">message2</span></span>() &#123;</span><br><span class="line">        orderServiceImpl3.message();</span><br><span class="line">        <span class="built_in">return</span> <span class="string">&quot;message2&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>禁止收敛URL的入口 context  </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">从1.6.3 版本开始，Sentinel Web filter默认收敛所有URL的入口context，因此链路限流不生效。</span><br><span class="line">1.7.0 版本开始（对应SCA的2.1.1.RELEASE)，官方在CommonFilter 引入了WEB_CONTEXT_UNIFY 参数，用于控制是否收敛context。将其配置为 false 即可根据不同的URL 进行链路限流。</span><br><span class="line">SCA 2.1.1.RELEASE之后的版本,可以通过配置spring.cloud.sentinel.web-context-unify=false即可关闭收敛</span><br><span class="line">我们当前使用的版本是SpringCloud Alibaba 2.1.0.RELEASE，无法实现链路限流。</span><br><span class="line">目前官方还未发布SCA 2.1.2.RELEASE，所以我们只能使用2.1.1.RELEASE，需要写代码的形式实现。</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>(1) 暂时将SpringCloud Alibaba的版本调整为2.1.1.RELEASE  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;spring-cloud-alibaba.version&gt;2.1.1.RELEASE&lt;/spring-cloud-alibaba.version&gt;</span><br></pre></td></tr></table></figure>
+
+<p>(2) 配置文件中关闭sentinel的CommonFilter实例化  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">    cloud:</span><br><span class="line">        sentinel:</span><br><span class="line">            filter:</span><br><span class="line">                enabled: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
 <p>(3) 添加一个配置类，自己构建CommonFilter实例  </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">package com.itheima.config;</span><br><span class="line"></span><br><span class="line">import com.alibaba.csp.sentinel.adapter.servlet.CommonFilter;</span><br><span class="line">import org.springframework.boot.web.servlet.FilterRegistrationBean;</span><br><span class="line">import org.springframework.context.annotation.Bean;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line">public class FilterContextConfig &#123;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public FilterRegistrationBean <span class="function"><span class="title">sentinelFilterRegistration</span></span>() &#123;</span><br><span class="line">        FilterRegistrationBean registration = new FilterRegistrationBean();</span><br><span class="line">        registration.setFilter(new CommonFilter());</span><br><span class="line">        registration.addUrlPatterns(<span class="string">&quot;/*&quot;</span>);</span><br><span class="line">        // 入口资源关闭聚合</span><br><span class="line">        registration.addInitParameter(CommonFilter.WEB_CONTEXT_UNIFY, <span class="string">&quot;false&quot;</span>);</span><br><span class="line">        registration.setName(<span class="string">&quot;sentinelFilter&quot;</span>);</span><br><span class="line">        registration.setOrder(1);</span><br><span class="line">        <span class="built_in">return</span> registration;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ol start="4">
 <li>控制台配置限流规则<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201111657318.png">  </li>
 <li>分别通过/order/message1 和/order/message2 访问, 发现2没问题, 1的被限流了  </li>
 </ol>
-<h4 id="配置流控效果">1.5.2.1. 配置流控效果</h4><ul>
+<h4 id="配置流控效果">1.6.1.3. 配置流控效果</h4><ul>
 <li>快速失败（默认）: 直接失败，抛出异常，不做任何额外的处理，是最简单的效果。</li>
 <li>Warm Up：它从开始阈值到最大QPS阈值会有一个缓冲阶段，一开始的阈值是最大QPS阈值的1/3，然后慢慢增长，直到最大阈值，适用于将突然增大的流量转换为缓步增长的场景。</li>
 <li>排队等待：让请求以均匀的速度通过，单机阈值为每秒通过数量，其余的排队等待； 它还会让设置一个超时时间，当请求超过超时间时间还未处理，则会被丢弃。</li>
 </ul>
-<h3 id="降级规则">1.5.3. 降级规则</h3><p>降级规则就是设置当满足什么条件的时候，对服务进行降级。Sentinel提供了三个衡量条件：    </p>
+<h3 id="降级规则">1.6.2. 降级规则</h3><p>降级规则就是设置当满足什么条件的时候，对服务进行降级。Sentinel提供了三个衡量条件：    </p>
 <ul>
 <li><p>平均响应时间 ：当资源的平均响应时间超过阈值（以 ms 为单位）之后，资源进入准降级状态。如果接下来 1s 内持续进入 5 个请求，它们的 RT都持续超过这个阈值，那么在接下的时间窗口（以 s 为单位）之内，就会对这个方法进行服务降级。<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201181319096.png">  </p>
 <blockquote>
@@ -674,14 +720,17 @@
 </blockquote>
 </li>
 </ul>
-<h3 id="热点规则">1.5.4. 热点规则</h3><p>热点参数流控规则是一种更细粒度的流控规则, 它允许将规则具体到参数上。<br><strong>热点规则简单使用</strong>  </p>
+<h3 id="热点规则">1.6.3. 热点规则</h3><p>热点参数流控规则是一种更细粒度的流控规则, 它允许将规则具体到参数上。<br><strong>热点规则简单使用</strong>  </p>
 <ol>
-<li>编写代码<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">@RequestMapping(<span class="string">&quot;/order/message3&quot;</span>)</span><br><span class="line">@SentinelResource(<span class="string">&quot;message3&quot;</span>)//注意这里必须使用这个注解标识,热点规则不生效</span><br><span class="line">public String message3(String name, Integer age) &#123;</span><br><span class="line">    <span class="built_in">return</span> name + age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>配置热点规则<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201181327444.png">  </li>
-<li>分别用两个参数访问,会发现只对第一个参数限流了<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201181327123.png">  </li>
+<li><p>编写代码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">@RequestMapping(<span class="string">&quot;/order/message3&quot;</span>)</span><br><span class="line">@SentinelResource(<span class="string">&quot;message3&quot;</span>)//注意这里必须使用这个注解标识,热点规则不生效</span><br><span class="line">public String message3(String name, Integer age) &#123;</span><br><span class="line">    <span class="built_in">return</span> name + age;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>配置热点规则<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201181327444.png">  </p>
+</li>
+<li><p>分别用两个参数访问,会发现只对第一个参数限流了<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201181327123.png">  </p>
+</li>
 </ol>
 <p><strong>热点规则增强使用</strong><br>参数例外项允许对一个参数的具体值进行流控<br>编辑刚才定义的规则,增加参数例外项<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201181328717.png">  </p>
-<h3 id="授权规则">1.5.5. 授权规则</h3><p>很多时候，我们需要根据调用来源来判断该次请求是否允许放行，这时候可以使用 Sentinel 的来源访问控制的功能。来源访问控制根据资源的请求来源（origin）限制资源是否通过：  </p>
+<h3 id="授权规则">1.6.4. 授权规则</h3><p>很多时候，我们需要根据调用来源来判断该次请求是否允许放行，这时候可以使用 Sentinel 的来源访问控制的功能。来源访问控制根据资源的请求来源（origin）限制资源是否通过：  </p>
 <ul>
 <li>若配置白名单，则只有请求来源位于白名单内时才可通过；</li>
 <li>若配置黑名单，则请求来源位于黑名单时不通过，其余的请求通过。<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201181329481.png"><br>上面的资源名和授权类型不难理解，但是流控应用怎么填写呢？  <blockquote>
@@ -690,11 +739,14 @@
 </li>
 </ul>
 <ol>
-<li>自定义来源处理规则  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">@Component</span><br><span class="line">public class RequestOriginParserDefinition implements RequestOriginParser&#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String parseOrigin(HttpServletRequest request) &#123;</span><br><span class="line">        String serviceName = request.getParameter(<span class="string">&quot;serviceName&quot;</span>);</span><br><span class="line">        <span class="built_in">return</span> serviceName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>授权规则配置<br>这个配置的意思是只有serviceName=pc不能访问(黑名单)<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201181331939.png">  </li>
-<li>访问 <a href="http://localhost:8091/order/message1?serviceName=pc">http://localhost:8091/order/message1?serviceName=pc</a> 观察结果  </li>
+<li><p>自定义来源处理规则  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">@Component</span><br><span class="line">public class RequestOriginParserDefinition implements RequestOriginParser&#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String parseOrigin(HttpServletRequest request) &#123;</span><br><span class="line">        String serviceName = request.getParameter(<span class="string">&quot;serviceName&quot;</span>);</span><br><span class="line">        <span class="built_in">return</span> serviceName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>授权规则配置<br>这个配置的意思是只有serviceName=pc不能访问(黑名单)<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201181331939.png">  </p>
+</li>
+<li><p>访问 <a href="http://localhost:8091/order/message1?serviceName=pc">http://localhost:8091/order/message1?serviceName=pc</a> 观察结果  </p>
+</li>
 </ol>
-<h3 id="系统规则">1.5.6. 系统规则</h3><p>系统保护规则是从应用级别的入口流量进行控制，从单台机器的总体 Load、RT、入口 QPS 、CPU使用率和线程数五个维度监控应用数据，让系统尽可能跑在最大吞吐量的同时保证系统整体的稳定性。<br>系统保护规则是应用整体维度的，而不是资源维度的，并且仅对入口流量 (进入应用的流量) 生效。  </p>
+<h3 id="系统规则">1.6.5. 系统规则</h3><p>系统保护规则是从应用级别的入口流量进行控制，从单台机器的总体 Load、RT、入口 QPS 、CPU使用率和线程数五个维度监控应用数据，让系统尽可能跑在最大吞吐量的同时保证系统整体的稳定性。<br>系统保护规则是应用整体维度的，而不是资源维度的，并且仅对入口流量 (进入应用的流量) 生效。  </p>
 <ul>
 <li>Load（仅对 Linux/Unix-like 机器生效）：当系统 load1 超过阈值，且系统当前的并发线程数超过系统容量时才会触发系统保护。系统容量由系统的 maxQps * minRt 计算得出。设定参考值一般是 CPU cores * 2.5。</li>
 <li>RT：当单台机器上所有入口流量的平均 RT 达到阈值即触发系统保护，单位是毫秒。</li>
@@ -705,7 +757,7 @@
 <p><strong>扩展: 自定义异常返回</strong>  </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//异常处理页面</span><br><span class="line">@Component</span><br><span class="line">public class ExceptionHandlerPage implements UrlBlockHandler &#123;</span><br><span class="line">    //BlockException 异常接口,包含Sentinel的五个异常</span><br><span class="line">    // FlowException 限流异常</span><br><span class="line">    // DegradeException 降级异常</span><br><span class="line">    // ParamFlowException 参数限流异常</span><br><span class="line">    // AuthorityException 授权异常</span><br><span class="line">    // SystemBlockException 系统负载异常</span><br><span class="line">    @Override</span><br><span class="line">    public void blocked(HttpServletRequest request, HttpServletResponse response, BlockException e) throws IOException &#123;</span><br><span class="line">        response.setContentType(<span class="string">&quot;application/json;charset=utf-8&quot;</span>);</span><br><span class="line">        ResponseData data = null;</span><br><span class="line">        <span class="keyword">if</span> (e instanceof FlowException) &#123;</span><br><span class="line">            data = new ResponseData(-1, <span class="string">&quot;接口被限流了...&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e instanceof DegradeException) &#123;</span><br><span class="line">            data = new ResponseData(-2, <span class="string">&quot;接口被降级了...&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        response.getWriter().write(JSON.toJSONString(data));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Data</span><br><span class="line">@AllArgsConstructor//全参构造</span><br><span class="line">@NoArgsConstructor//无参构造</span><br><span class="line">class ResponseData &#123;</span><br><span class="line">    private int code;</span><br><span class="line">    private String message;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="SentinelResource的使用">1.6. @SentinelResource的使用</h2><p>在定义了资源点之后，我们可以通过Dashboard来设置限流和降级策略来对资源点进行保护。同时还能通过@SentinelResource来指定出现异常时的处理策略。<br>@SentinelResource 用于定义资源，并提供可选的异常处理和 fallback 配置项。其主要参数如下:  </p>
+<h2 id="SentinelResource的使用">1.7. @SentinelResource的使用</h2><p>在定义了资源点之后，我们可以通过Dashboard来设置限流和降级策略来对资源点进行保护。同时还能通过@SentinelResource来指定出现异常时的处理策略。<br>@SentinelResource 用于定义资源，并提供可选的异常处理和 fallback 配置项。其主要参数如下:  </p>
 <table>
 <thead>
 <tr>
@@ -755,14 +807,14 @@
 <li>直接将限流和降级方法定义在方法中  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">@Service</span><br><span class="line">@Slf4j</span><br><span class="line">public class OrderServiceImpl3 &#123;</span><br><span class="line">    int i = 0;</span><br><span class="line"></span><br><span class="line">    @SentinelResource(</span><br><span class="line">        value = <span class="string">&quot;message&quot;</span>,</span><br><span class="line">        blockHandler = <span class="string">&quot;blockHandler&quot;</span>,//指定发生BlockException时进入的方法</span><br><span class="line">        fallback = <span class="string">&quot;fallback&quot;</span>//指定发生Throwable时进入的方法</span><br><span class="line">    )</span><br><span class="line">    public String <span class="function"><span class="title">message</span></span>() &#123;</span><br><span class="line">        i++;</span><br><span class="line">        <span class="keyword">if</span> (i % 3 == 0) &#123;</span><br><span class="line">            throw new RuntimeException();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> <span class="string">&quot;message&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //BlockException时进入的方法</span><br><span class="line">    public String blockHandler(BlockException ex) &#123;</span><br><span class="line">        log.error(<span class="string">&quot;&#123;&#125;&quot;</span>, ex);</span><br><span class="line">        <span class="built_in">return</span> <span class="string">&quot;接口被限流或者降级了...&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //Throwable时进入的方法</span><br><span class="line">    public String fallback(Throwable throwable) &#123;</span><br><span class="line">        log.error(<span class="string">&quot;&#123;&#125;&quot;</span>, throwable);</span><br><span class="line">        <span class="built_in">return</span> <span class="string">&quot;接口发生异常了...&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>将限流和降级方法外置到单独的类中 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">@Service</span><br><span class="line">@Slf4j</span><br><span class="line">public class OrderServiceImpl3 &#123;</span><br><span class="line"></span><br><span class="line">    int i = 0;</span><br><span class="line"></span><br><span class="line">    @SentinelResource(</span><br><span class="line">        value = <span class="string">&quot;message&quot;</span>,</span><br><span class="line">        blockHandlerClass = OrderServiceImpl3BlockHandlerClass.class,</span><br><span class="line">        blockHandler = <span class="string">&quot;blockHandler&quot;</span>,</span><br><span class="line">        fallbackClass = OrderServiceImpl3FallbackClass.class,</span><br><span class="line">        fallback = <span class="string">&quot;fallback&quot;</span></span><br><span class="line">    )</span><br><span class="line">    public String <span class="function"><span class="title">message</span></span>() &#123;</span><br><span class="line">        i++;</span><br><span class="line">        <span class="keyword">if</span> (i % 3 == 0) &#123;</span><br><span class="line">            throw new RuntimeException();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> <span class="string">&quot;message4&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Slf4j</span><br><span class="line">public class OrderServiceImpl3BlockHandlerClass &#123;</span><br><span class="line"></span><br><span class="line">    //注意这里必须使用static修饰方法</span><br><span class="line">    public static String blockHandler(BlockException ex) &#123;</span><br><span class="line">        log.error(<span class="string">&quot;&#123;&#125;&quot;</span>, ex);</span><br><span class="line">        <span class="built_in">return</span> <span class="string">&quot;接口被限流或者降级了...&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Slf4j</span><br><span class="line">public class OrderServiceImpl3FallbackClass &#123;</span><br><span class="line"></span><br><span class="line">    //注意这里必须使用static修饰方法</span><br><span class="line">    public static String fallback(Throwable throwable) &#123;</span><br><span class="line">        log.error(<span class="string">&quot;&#123;&#125;&quot;</span>, throwable);</span><br><span class="line">        <span class="built_in">return</span> <span class="string">&quot;接口发生异常了...&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h2 id="Sentinel规则持久化">1.7. Sentinel规则持久化</h2><p>通过前面的讲解，我们已经知道，可以通过Dashboard来为每个Sentinel客户端设置各种各样的规则，但是这里有一个问题，就是这些规则默认是存放在内存中，极不稳定，所以需要将其持久化。<br>本地文件数据源会定时轮询文件的变更，读取规则。这样我们既可以在应用本地直接修改文件来更新规则，也可以通过 Sentinel 控制台推送规则。以本地文件数据源为例，推送过程如下图所示：<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201181416608.png"><br>首先 Sentinel 控制台通过 API 将规则推送至客户端并更新到内存中，接着注册的写数据源会将新的规则保存到本地的文件中。  </p>
+<h2 id="Sentinel规则持久化">1.8. Sentinel规则持久化</h2><p>通过前面的讲解，我们已经知道，可以通过Dashboard来为每个Sentinel客户端设置各种各样的规则，但是这里有一个问题，就是这些规则默认是存放在内存中，极不稳定，所以需要将其持久化。<br>本地文件数据源会定时轮询文件的变更，读取规则。这样我们既可以在应用本地直接修改文件来更新规则，也可以通过 Sentinel 控制台推送规则。以本地文件数据源为例，推送过程如下图所示：<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201181416608.png"><br>首先 Sentinel 控制台通过 API 将规则推送至客户端并更新到内存中，接着注册的写数据源会将新的规则保存到本地的文件中。  </p>
 <ol>
 <li><p>编写处理类  </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//规则持久化</span><br><span class="line">public class FilePersistence implements InitFunc &#123;</span><br><span class="line"></span><br><span class="line">    @Value(<span class="string">&quot;spring.application:name&quot;</span>)</span><br><span class="line">    private String appcationName;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void init() throws Exception &#123;</span><br><span class="line">        String ruleDir = System.getProperty(<span class="string">&quot;user.home&quot;</span>) + <span class="string">&quot;/sentinelrules/&quot;</span> + appcationName;</span><br><span class="line">        String flowRulePath = ruleDir + <span class="string">&quot;/flow-rule.json&quot;</span>;</span><br><span class="line">        String degradeRulePath = ruleDir + <span class="string">&quot;/degrade-rule.json&quot;</span>;</span><br><span class="line">        String systemRulePath = ruleDir + <span class="string">&quot;/system-rule.json&quot;</span>;</span><br><span class="line">        String authorityRulePath = ruleDir + <span class="string">&quot;/authority-rule.json&quot;</span>;</span><br><span class="line">        String paramFlowRulePath = ruleDir + <span class="string">&quot;/param-flow-rule.json&quot;</span>;</span><br><span class="line">        this.mkdirIfNotExits(ruleDir);</span><br><span class="line">        this.createFileIfNotExits(flowRulePath);</span><br><span class="line">        this.createFileIfNotExits(degradeRulePath);</span><br><span class="line">        this.createFileIfNotExits(systemRulePath);</span><br><span class="line">        this.createFileIfNotExits(authorityRulePath);</span><br><span class="line">        this.createFileIfNotExits(paramFlowRulePath);</span><br><span class="line">        // 流控规则</span><br><span class="line">        ReadableDataSource&lt;String, List&lt;FlowRule&gt;&gt; flowRuleRDS = new FileRefreshableDataSource&lt;&gt;(</span><br><span class="line">            flowRulePath,</span><br><span class="line">            flowRuleListParser</span><br><span class="line">        );</span><br><span class="line">        FlowRuleManager.register2Property(flowRuleRDS.getProperty());</span><br><span class="line">        WritableDataSource&lt;List&lt;FlowRule&gt;&gt; flowRuleWDS = new FileWritableDataSource&lt;&gt;(</span><br><span class="line">            flowRulePath,</span><br><span class="line">            this::encodeJson</span><br><span class="line">        );</span><br><span class="line">        WritableDataSourceRegistry.registerFlowDataSource(flowRuleWDS);</span><br><span class="line"></span><br><span class="line">        // 降级规则</span><br><span class="line">        ReadableDataSource&lt;String, List&lt;DegradeRule&gt;&gt; degradeRuleRDS = new FileRefreshableDataSource&lt;&gt;(degradeRulePath,degradeRuleListParser);</span><br><span class="line">        DegradeRuleManager.register2Property(degradeRuleRDS.getProperty());</span><br><span class="line">        WritableDataSource&lt;List&lt;DegradeRule&gt;&gt; degradeRuleWDS = new FileWritableDataSource&lt;&gt;(degradeRulePath,this::encodeJson);</span><br><span class="line">        WritableDataSourceRegistry.registerDegradeDataSource(degradeRuleWDS);</span><br><span class="line"></span><br><span class="line">        // 系统规则</span><br><span class="line">        ReadableDataSource&lt;String, List&lt;SystemRule&gt;&gt; systemRuleRDS = new FileRefreshableDataSource&lt;&gt;(systemRulePath,systemRuleListParser);</span><br><span class="line">        SystemRuleManager.register2Property(systemRuleRDS.getProperty());</span><br><span class="line">        WritableDataSource&lt;List&lt;SystemRule&gt;&gt; systemRuleWDS = new FileWritableDataSource&lt;&gt;(systemRulePath,this::encodeJson);</span><br><span class="line">        WritableDataSourceRegistry.registerSystemDataSource(systemRuleWDS);</span><br><span class="line"></span><br><span class="line">        // 授权规则</span><br><span class="line">        ReadableDataSource&lt;String, List&lt;AuthorityRule&gt;&gt; authorityRuleRDS = new FileRefreshableDataSource&lt;&gt;(authorityRulePath,authorityRuleListParser);</span><br><span class="line">        AuthorityRuleManager.register2Property(authorityRuleRDS.getProperty());</span><br><span class="line">        WritableDataSource&lt;List&lt;AuthorityRule&gt;&gt; authorityRuleWDS = new FileWritableDataSource&lt;&gt;(authorityRulePath,this::encodeJson);</span><br><span class="line">        WritableDataSourceRegistry.registerAuthorityDataSource(authorityRuleWDS);</span><br><span class="line"></span><br><span class="line">        // 热点参数规则</span><br><span class="line">        ReadableDataSource&lt;String, List&lt;ParamFlowRule&gt;&gt; paramFlowRuleRDS = new FileRefreshableDataSource&lt;&gt;(paramFlowRulePath,paramFlowRuleListParser);</span><br><span class="line">        ParamFlowRuleManager.register2Property(paramFlowRuleRDS.getProperty());</span><br><span class="line">        WritableDataSource&lt;List&lt;ParamFlowRule&gt;&gt; paramFlowRuleWDS = new FileWritableDataSource&lt;&gt;(paramFlowRulePath,this::encodeJson);</span><br><span class="line">        ModifyParamFlowRulesCommandHandler.setWritableDataSource(paramFlowRuleWDS);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private Converter&lt;String, List&lt;FlowRule&gt;&gt; flowRuleListParser = <span class="built_in">source</span> -&gt; JSON.parseObject(<span class="built_in">source</span>,new TypeReference&lt;List&lt;FlowRule&gt;&gt;() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line">    private Converter&lt;String, List&lt;DegradeRule&gt;&gt; degradeRuleListParser = <span class="built_in">source</span> -&gt; JSON.parseObject(<span class="built_in">source</span>,new TypeReference&lt;List&lt;DegradeRule&gt;&gt;() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line">    private Converter&lt;String, List&lt;SystemRule&gt;&gt; systemRuleListParser = <span class="built_in">source</span> -&gt; JSON.parseObject(<span class="built_in">source</span>,new TypeReference&lt;List&lt;SystemRule&gt;&gt;() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line">    private Converter&lt;String, List&lt;AuthorityRule&gt;&gt; authorityRuleListParser = <span class="built_in">source</span> -&gt; JSON.parseObject(<span class="built_in">source</span>,new TypeReference&lt;List&lt;AuthorityRule&gt;&gt;() &#123;</span><br><span class="line">    </span><br><span class="line">    &#125;);</span><br><span class="line">    private Converter&lt;String, List&lt;ParamFlowRule&gt;&gt; paramFlowRuleListParser = <span class="built_in">source</span> -&gt; JSON.parseObject(<span class="built_in">source</span>,new TypeReference&lt;List&lt;ParamFlowRule&gt;&gt;() &#123;</span><br><span class="line">    </span><br><span class="line">    &#125;);</span><br><span class="line">    private void mkdirIfNotExits(String filePath) throws IOException &#123;</span><br><span class="line">        File file = new File(filePath);</span><br><span class="line">        <span class="keyword">if</span> (!file.exists()) &#123;</span><br><span class="line">            file.mkdirs();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    private void createFileIfNotExits(String filePath) throws IOException &#123;</span><br><span class="line">        File file = new File(filePath);</span><br><span class="line">        <span class="keyword">if</span> (!file.exists()) &#123;</span><br><span class="line">            file.createNewFile();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    private &lt;T&gt; String encodeJson(T t) &#123;</span><br><span class="line">        <span class="built_in">return</span> JSON.toJSONString(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>添加配置<br>在resources下创建配置目录META-INF/services ,然后添加文件com.alibaba.csp.sentinel.init.InitFunc<br>在文件中添加配置类的全路径</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">com.itheima.config.FilePersistence</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h2 id="Feign整合Sentinel">1.8. Feign整合Sentinel</h2><ol>
+<h2 id="Feign整合Sentinel">1.9. Feign整合Sentinel</h2><ol>
 <li>引入sentinel的依赖  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;!--sentinel客户端--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-alibaba-sentinel&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
 <li>在配置文件中开启Feign对Sentinel的支持  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">feign:</span><br><span class="line">    sentinel:</span><br><span class="line">        enabled: <span class="literal">true</span></span><br></pre></td></tr></table></figure></li>
 <li>创建容错类  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//容错类要求必须实现被容错的接口,并为每个方法实现容错方案</span><br><span class="line">@Component</span><br><span class="line">@Slf4j</span><br><span class="line">public class ProductServiceFallBack implements ProductService &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Product findByPid(Integer pid) &#123;</span><br><span class="line">        Product product = new Product();</span><br><span class="line">        product.setPid(-1);</span><br><span class="line">        <span class="built_in">return</span> product;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
@@ -2455,137 +2507,6 @@ ribbon.ConnectTimeout=6000012
       </tags>
   </entry>
   <entry>
-    <title>Vue常见面试题</title>
-    <url>/2022/04/26/Vue%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="什么是-mvvm？">1. 什么是 mvvm？</h1><p>MVVM 是 Model-View-ViewModel 的缩写。mvvm 是一种设计思想。Model 层代表数据模型，也可以在 Model 中定义数据修改和操作的业务逻辑；View 代表 UI 组件，它负责将数据模型转化成 UI 展现出来，ViewModel 是一个同步 View 和 Model 的对象。</p>
-<p>在 MVVM 架构下，View 和 Model 之间并没有直接的联系，而是通过 ViewModel 进行交互，Model 和 ViewModel 之间的交互是双向的， 因此 View 数据的变化会同步到 Model 中，而 Model 数据的变化也会立即反应到 View 上。</p>
-<p>ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而 View 和 Model 之间的同步工作完全是自动的，无需人为干涉，因此开发者只需关注业务逻辑，不需要手动操作 DOM, 不需要关注数据状态的同步问题，复杂的数据状态维护完全由 MVVM 来统一管理。</p>
-<h1 id="mvvm-和-mvc-区别？">2. mvvm 和 mvc 区别？</h1><p>mvc 和 mvvm 其实区别并不大。都是一种设计思想。主要就是 mvc 中 Controller 演变成 mvvm 中的 viewModel。mvvm 主要解决了 mvc 中大量的 DOM 操作使页面渲染性能降低，加载速度变慢，影响用户体验。和当 Model 频繁发生变化，开发者需要主动更新到 View 。</p>
-<h1 id="vue-的优点是什么？">3. vue 的优点是什么？</h1><ul>
-<li>低耦合。视图（View）可以独立于 Model 变化和修改，一个 ViewModel 可以绑定到不同的”View”上，当 View 变化的时候 Model 可以不变，当 Model 变化的时候 View 也可以不变。</li>
-<li>可重用性。你可以把一些视图逻辑放在一个 ViewModel 里面，让很多 view 重用这段视图逻辑。</li>
-<li>独立开发。开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计，使用 Expression Blend 可以很容易设计界面并生成 xml 代码。</li>
-<li>可测试。界面素来是比较难于测试的，而现在测试可以针对 ViewModel 来写。</li>
-</ul>
-<h1 id="请详细说下你对-vue-生命周期的理解？">4. 请详细说下你对 vue 生命周期的理解？</h1><p>答：总共分为 8 个阶段创建前/后，载入前/后，更新前/后，销毁前/后。</p>
-<ul>
-<li>创建前/后： 在 beforeCreate 阶段，vue 实例的挂载元素 el 还没有。</li>
-<li>载入前/后：在 beforeMount 阶段，vue 实例的$el 和 data 都初始化了，但还是挂载之前为虚拟的 dom 节点，data.message 还未替换。在 mounted 阶段，vue 实例挂载完成，data.message 成功渲染。</li>
-<li>更新前/后：当 data 变化时，会触发 beforeUpdate 和 updated 方法。</li>
-<li>销毁前/后：在执行 destroy 方法后，对 data 的改变不会再触发周期函数，说明此时 vue 实例已经解除了事件监听以及和 dom 的绑定，但是 dom 结构依然存在</li>
-</ul>
-<h1 id="组件之间的传值？">5. 组件之间的传值？</h1><ol>
-<li>父组件与子组件传值</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">//父组件通过标签上面定义传值</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Main</span> <span class="attr">:obj</span>=<span class="string">&quot;data&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">Main</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//引入子组件</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> Main form <span class="string">&quot;./main&quot;</span></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    exprot <span class="keyword">default</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">name</span>:<span class="string">&quot;parent&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="attr">data</span>:<span class="string">&quot;我要向子组件传递数据&quot;</span></span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="comment">//初始化组件</span></span></span><br><span class="line"><span class="javascript">        <span class="attr">components</span>:&#123;</span></span><br><span class="line"><span class="javascript">            Main</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//子组件通过props方法接受数据</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123;data&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    exprot <span class="keyword">default</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">name</span>:<span class="string">&quot;son&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="comment">//接受父组件传值</span></span></span><br><span class="line"><span class="javascript">        <span class="attr">props</span>:[<span class="string">&quot;data&quot;</span>]</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>子组件向父组件传递数据</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">//子组件通过$emit方法传递参数</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-on:click</span>=<span class="string">&quot;events&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//引入子组件</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> Main form <span class="string">&quot;./main&quot;</span></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    exprot <span class="keyword">default</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">methods</span>:&#123;</span></span><br><span class="line"><span class="javascript">            <span class="attr">events</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123;data&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    exprot <span class="keyword">default</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">name</span>:<span class="string">&quot;son&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="comment">//接受父组件传值</span></span></span><br><span class="line"><span class="javascript">        <span class="attr">props</span>:[<span class="string">&quot;data&quot;</span>]</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="active-class-是哪个组件的属性？">6. active-class 是哪个组件的属性？</h1><p>vue-router 模块的 router-link 组件。</p>
-<h1 id="嵌套路由怎么定义？">7. 嵌套路由怎么定义？</h1><p>在实际项目中我们会碰到多层嵌套的组件组合而成，但是我们如何实现嵌套路由呢？因此我们需要在 VueRouter 的参数中使用 children 配置，这样就可以很好的实现路由嵌套。<br>index.html，只有一个路由出口</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- router-view 路由出口, 路由匹配到的组件将渲染在这里 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>main.js，路由的重定向，就会在页面一加载的时候，就会将 home 组件显示出来，因为重定向指向了 home 组件，redirect 的指向与 path 的必须一致。children 里面是子路由，当然子路由里面还可以继续嵌套子路由。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line">Vue.use(VueRouter)</span><br><span class="line"></span><br><span class="line"><span class="comment">//引入两个组件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> home <span class="keyword">from</span> <span class="string">&quot;./home.vue&quot;</span></span><br><span class="line"><span class="keyword">import</span> game <span class="keyword">from</span> <span class="string">&quot;./game.vue&quot;</span></span><br><span class="line"><span class="comment">//定义路由</span></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">&quot;/&quot;</span>, <span class="attr">redirect</span>: <span class="string">&quot;/home&quot;</span> &#125;,<span class="comment">//重定向,指向了home组件</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&quot;/home&quot;</span>, <span class="attr">component</span>: home,</span><br><span class="line">        <span class="attr">children</span>: [</span><br><span class="line">            &#123; <span class="attr">path</span>: <span class="string">&quot;/home/game&quot;</span>, <span class="attr">component</span>: game &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"><span class="comment">//创建路由实例</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;routes&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    <span class="attr">data</span>: &#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">methods</span>: &#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    router</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>home.vue，点击显示就会将子路由显示在出来，子路由的出口必须在父路由里面，否则子路由无法显示。</p>
-<h1 id="路由之间跳转？">8. 路由之间跳转？</h1><ul>
-<li>声明式（标签跳转） <code>&lt;router-link :to=&quot;index&quot;&gt;</code></li>
-<li>编程式（ js 跳转） <code>router.push(&#39;index&#39;)</code></li>
-</ul>
-<h1 id="懒加载（按需加载路由）（常考）">9. 懒加载（按需加载路由）（常考）</h1><p>webpack 中提供了 require.ensure()来实现按需加载。以前引入路由是通过 import 这样的方式引入，改为 const 定义的方式进行引入。</p>
-<ul>
-<li>不进行页面按需加载引入方式：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span>  home   <span class="keyword">from</span> <span class="string">&#x27;../../common/home.vue&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>进行页面按需加载的引入方式：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span>  home = <span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">require</span>.ensure( [], <span class="function">() =&gt;</span> r (<span class="built_in">require</span>(<span class="string">&#x27;../../common/home.vue&#x27;</span>)))</span><br></pre></td></tr></table></figure>
-
-<h1 id="vuex-是什么？怎么使用？哪种功能场景使用它？">10. vuex 是什么？怎么使用？哪种功能场景使用它？</h1><p>vue 框架中状态管理。在 main.js 引入 store，注入。新建了一个目录 store，….. export 。场景有：单页应用中，组件之间的状态。音乐播放、登录状态、加入购物车</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 新建 store.js</span></span><br><span class="line"><span class="keyword">import</span> vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> vuex form <span class="string">&#x27;vuex&#x27;</span></span><br><span class="line">vue.use(vuex)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> vuex.store(&#123;</span><br><span class="line">	<span class="comment">//...code</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//main.js</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;./store&#x27;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<h1 id="vue-router-有哪几种导航钩子">11. vue-router 有哪几种导航钩子?</h1><p>三种</p>
-<ul>
-<li>全局导航钩子<ul>
-<li>router.beforeEach(to, from, next),</li>
-<li>router.beforeResolve(to, from, next),</li>
-<li>router.afterEach(to, from ,next)</li>
-</ul>
-</li>
-<li>组件内钩子<ul>
-<li>beforeRouteEnter,</li>
-<li>beforeRouteUpdate,</li>
-<li>beforeRouteLeave</li>
-</ul>
-</li>
-<li>单独路由独享组件<ul>
-<li>beforeEnter</li>
-</ul>
-</li>
-</ul>
-<h1 id="自定义指令-v-check-v-focus-的方法有哪些-它有哪些钩子函数-还有哪些钩子函数参数">12. 自定义指令(v-check, v-focus) 的方法有哪些? 它有哪些钩子函数? 还有哪些钩子函数参数</h1><ul>
-<li>全局定义指令：在 vue 对象的 directive 方法里面有两个参数, 一个是指令名称, 另一个是函数。</li>
-<li>组件内定义指令：directives</li>
-<li>钩子函数: bind(绑定事件出发)、inserted(节点插入时候触发)、update(组件内相关更新)</li>
-<li>钩子函数参数： el、binding</li>
-</ul>
-<h1 id="说出至少-4-种-vue-当中的指令和它的用法">13. 说出至少 4 种 vue 当中的指令和它的用法</h1><p>v-if(判断是否隐藏)、v-for(把数据遍历出来)、v-bind(绑定属性)、v-model(实现双向绑定)</p>
-<h1 id="vue-的双向绑定的原理是什么-常考">14. vue 的双向绑定的原理是什么(常考)</h1><p>vue.js 是采用数据劫持结合发布者-订阅者模式的方式，通过 Object.defineProperty()来劫持各个属性的 setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。</p>
-<p>具体步骤：<br>第一步：需要 observe 的数据对象进行递归遍历，包括子属性对象的属性，都加上 setter 和 getter 这样的话，给这个对象的某个值赋值，就会触发 setter，那么就能监听到了数据变化</p>
-<p>第二步：compile 解析模板指令，将模板中的变量替换成数据，然后初始化渲染页面视图，并将每个指令对应的节点绑定更新函数，添加监听数据的订阅者，一旦数据有变动，收到通知，更新视图</p>
-<p>第三步：Watcher 订阅者是 Observer 和 Compile 之间通信的桥梁，主要做的事情是:</p>
-<ul>
-<li>在自身实例化时往属性订阅器(dep)里面添加自己</li>
-<li>自身必须有一个 update()方法</li>
-<li>待属性变动 dep.notice()通知时，能调用自身的 update() 方法，并触发 Compile 中绑定的回调，则功成身退。</li>
-</ul>
-<p>第四步：MVVM 作为数据绑定的入口，整合 Observer、Compile 和 Watcher 三者，通过 Observer 来监听自己的 model 数据变化，通过 Compile 来解析编译模板指令，最终利用 Watcher 搭起 Observer 和 Compile 之间的通信桥梁，达到数据变化 -&gt; 视图更新；视图交互变化(input) -&gt; 数据 model 变更的双向绑定效果。</p>
-<h1 id="vuex-相关">15. vuex 相关</h1><h1 id="vuex-有哪几种属性">16. vuex 有哪几种属性</h1><p>有 5 种，分别是 state、getter、mutation、action、module</p>
-<h1 id="vuex-的-store-特性是什么">17. vuex 的 store 特性是什么</h1><ul>
-<li>vuex 就是一个仓库，仓库里放了很多对象。其中 state 就是数据源存放地，对应于一般 vue 对象里面的 data</li>
-<li>state 里面存放的数据是响应式的，vue 组件从 store 读取数据，若是 store 中的数据发生改变，依赖这相数据的组件也会发生更新</li>
-<li>它通过 mapState 把全局的 state 和 getters 映射到当前组件的 computed 计算属性</li>
-</ul>
-<h1 id="vuex-的-getter-特性是什么">18. vuex 的 getter 特性是什么</h1><ul>
-<li>getter 可以对 state 进行计算操作，它就是 store 的计算属性</li>
-<li>虽然在组件内也可以做计算属性，但是 getters 可以在多给件之间复用</li>
-<li>如果一个状态只在一个组件内使用，是可以不用 getters</li>
-</ul>
-<h1 id="vuex-的-mutation-特性是什么">19. vuex 的 mutation 特性是什么</h1><ul>
-<li>action 类似于 muation, 不同在于：action 提交的是 mutation,而不是直接变更状态</li>
-<li>action 可以包含任意异步操作</li>
-</ul>
-<h1 id="vue-中-ajax-请求代码应该写在组件的-methods-中还是-vuex-的-action-中">20. vue 中 ajax 请求代码应该写在组件的 methods 中还是 vuex 的 action 中</h1><p>如果请求来的数据不是要被其他组件公用，仅仅在请求的组件内使用，就不需要放入 vuex 的 state 里</p>
-<p>如果被其他地方复用，请将请求放入 action 里，方便复用，并包装成 promise 返回</p>
-<h1 id="不用-vuex-会带来什么问题">21. 不用 vuex 会带来什么问题</h1><ul>
-<li>可维护性会下降，你要修改数据，你得维护 3 个地方</li>
-<li>可读性下降，因为一个组件里的数据，你根本就看不出来是从哪里来的</li>
-<li>增加耦合，大量的上传派发，会让耦合性大大的增加，本来 Vue 用 Component 就是为了减少耦合，现在这么用，和组件化的初衷相背</li>
-</ul>
-<h1 id="vuex-原理">22. vuex 原理</h1><p>vuex 仅仅是作为 vue 的一个插件而存在，不像 Redux,MobX 等库可以应用于所有框架，vuex 只能使用在 vue 上，很大的程度是因为其高度依赖于 vue 的 computed 依赖检测系统以及其插件系统，</p>
-<p>vuex 整体思想诞生于 flux,可其的实现方式完完全全的使用了 vue 自身的响应式设计，依赖监听、依赖收集都属于 vue 对对象 Property set get 方法的代理劫持。最后一句话结束 vuex 工作原理，vuex 中的 store 本质就是没有 template 的隐藏着的 vue 组件；</p>
-<h1 id="使用-Vuex-只需执行-Vue-use-Vuex-，并在-Vue-的配置中传入一个-store-对象的示例，store-是如何实现注入的？美团">23. 使用 Vuex 只需执行 Vue.use(Vuex)，并在 Vue 的配置中传入一个 store 对象的示例，store 是如何实现注入的？美团</h1><p>Vue.use(Vuex) 方法执行的是 install 方法，它实现了 Vue 实例对象的 init 方法封装和注入，使传入的 store 对象被设置到 Vue 上下文环境的$store 中。因此在 Vue Component 任意地方都能够通过 this.$store 访问到该 store。</p>
-<h1 id="state-内部支持模块配置和模块嵌套，如何实现的？美团">24. state 内部支持模块配置和模块嵌套，如何实现的？美团</h1><p>在 store 构造方法中有 makeLocalContext 方法，所有 module 都会有一个 local context，根据配置时的 path 进行匹配。所以执行如 dispatch(‘submitOrder’, payload)这类 action 时，默认的拿到都是 module 的 local state，如果要访问最外层或者是其他 module 的 state，只能从 rootState 按照 path 路径逐步进行访问。</p>
-<h1 id="在执行-dispatch-触发-action-commit-同理-的时候，只需传入-type-payload-，action-执行函数中第一个参数-store-从哪里获取的？美团">25. 在执行 dispatch 触发 action(commit 同理)的时候，只需传入(type, payload)，action 执行函数中第一个参数 store 从哪里获取的？美团</h1><p>store 初始化时，所有配置的 action 和 mutation 以及 getters 均被封装过。在执行如 dispatch(‘submitOrder’, payload)的时候，actions 中 type 为 submitOrder 的所有处理方法都是被封装后的，其第一个参数为当前的 store 对象，所以能够获取到 { dispatch, commit, state, rootState } 等数据。</p>
-<h1 id="Vuex-如何区分-state-是外部直接修改，还是通过-mutation-方法修改的？美团">26. Vuex 如何区分 state 是外部直接修改，还是通过 mutation 方法修改的？美团</h1><p>Vuex 中修改 state 的唯一渠道就是执行 commit(‘xx’, payload) 方法，其底层通过执行 this._withCommit(fn) 设置_committing 标志变量为 true，然后才能修改 state，修改完毕还需要还原_committing 变量。外部修改虽然能够直接修改 state，但是并没有修改_committing 标志位，所以只要 watch 一下 state，state change 时判断是否_committing 值为 true，即可判断修改的合法性。</p>
-<h1 id="调试时的”时空穿梭”功能是如何实现的？美团">27. 调试时的”时空穿梭”功能是如何实现的？美团</h1><p>devtoolPlugin 中提供了此功能。因为 dev 模式下所有的 state change 都会被记录下来，’时空穿梭’ 功能其实就是将当前的 state 替换为记录中某个时刻的 state 状态，利用 store.replaceState(targetState) 方法将执行 this._vm.state = state 实现。</p>
-<h1 id="axios-是什么？怎么使用？描述使用它实现登录功能的流程">28. axios 是什么？怎么使用？描述使用它实现登录功能的流程</h1><p>axios 是请求后台资源的模块。 npm i axios -S</p>
-<p>如果发送的是跨域请求，需在配置文件中 config/index.js 进行配置</p>
-]]></content>
-      <categories>
-        <category>面试题</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Spring面试71题</title>
     <url>/2022/04/26/Spring%E9%9D%A2%E8%AF%9571%E9%A2%98/</url>
     <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202204261324162.jpg"></p>
@@ -2784,6 +2705,137 @@ Metadataautoproxying
       </categories>
       <tags>
         <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue常见面试题</title>
+    <url>/2022/04/26/Vue%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="什么是-mvvm？">1. 什么是 mvvm？</h1><p>MVVM 是 Model-View-ViewModel 的缩写。mvvm 是一种设计思想。Model 层代表数据模型，也可以在 Model 中定义数据修改和操作的业务逻辑；View 代表 UI 组件，它负责将数据模型转化成 UI 展现出来，ViewModel 是一个同步 View 和 Model 的对象。</p>
+<p>在 MVVM 架构下，View 和 Model 之间并没有直接的联系，而是通过 ViewModel 进行交互，Model 和 ViewModel 之间的交互是双向的， 因此 View 数据的变化会同步到 Model 中，而 Model 数据的变化也会立即反应到 View 上。</p>
+<p>ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而 View 和 Model 之间的同步工作完全是自动的，无需人为干涉，因此开发者只需关注业务逻辑，不需要手动操作 DOM, 不需要关注数据状态的同步问题，复杂的数据状态维护完全由 MVVM 来统一管理。</p>
+<h1 id="mvvm-和-mvc-区别？">2. mvvm 和 mvc 区别？</h1><p>mvc 和 mvvm 其实区别并不大。都是一种设计思想。主要就是 mvc 中 Controller 演变成 mvvm 中的 viewModel。mvvm 主要解决了 mvc 中大量的 DOM 操作使页面渲染性能降低，加载速度变慢，影响用户体验。和当 Model 频繁发生变化，开发者需要主动更新到 View 。</p>
+<h1 id="vue-的优点是什么？">3. vue 的优点是什么？</h1><ul>
+<li>低耦合。视图（View）可以独立于 Model 变化和修改，一个 ViewModel 可以绑定到不同的”View”上，当 View 变化的时候 Model 可以不变，当 Model 变化的时候 View 也可以不变。</li>
+<li>可重用性。你可以把一些视图逻辑放在一个 ViewModel 里面，让很多 view 重用这段视图逻辑。</li>
+<li>独立开发。开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计，使用 Expression Blend 可以很容易设计界面并生成 xml 代码。</li>
+<li>可测试。界面素来是比较难于测试的，而现在测试可以针对 ViewModel 来写。</li>
+</ul>
+<h1 id="请详细说下你对-vue-生命周期的理解？">4. 请详细说下你对 vue 生命周期的理解？</h1><p>答：总共分为 8 个阶段创建前/后，载入前/后，更新前/后，销毁前/后。</p>
+<ul>
+<li>创建前/后： 在 beforeCreate 阶段，vue 实例的挂载元素 el 还没有。</li>
+<li>载入前/后：在 beforeMount 阶段，vue 实例的$el 和 data 都初始化了，但还是挂载之前为虚拟的 dom 节点，data.message 还未替换。在 mounted 阶段，vue 实例挂载完成，data.message 成功渲染。</li>
+<li>更新前/后：当 data 变化时，会触发 beforeUpdate 和 updated 方法。</li>
+<li>销毁前/后：在执行 destroy 方法后，对 data 的改变不会再触发周期函数，说明此时 vue 实例已经解除了事件监听以及和 dom 的绑定，但是 dom 结构依然存在</li>
+</ul>
+<h1 id="组件之间的传值？">5. 组件之间的传值？</h1><ol>
+<li>父组件与子组件传值</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">//父组件通过标签上面定义传值</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Main</span> <span class="attr">:obj</span>=<span class="string">&quot;data&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">Main</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//引入子组件</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> Main form <span class="string">&quot;./main&quot;</span></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    exprot <span class="keyword">default</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">name</span>:<span class="string">&quot;parent&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="attr">data</span>:<span class="string">&quot;我要向子组件传递数据&quot;</span></span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="comment">//初始化组件</span></span></span><br><span class="line"><span class="javascript">        <span class="attr">components</span>:&#123;</span></span><br><span class="line"><span class="javascript">            Main</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//子组件通过props方法接受数据</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123;data&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    exprot <span class="keyword">default</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">name</span>:<span class="string">&quot;son&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="comment">//接受父组件传值</span></span></span><br><span class="line"><span class="javascript">        <span class="attr">props</span>:[<span class="string">&quot;data&quot;</span>]</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>子组件向父组件传递数据</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">//子组件通过$emit方法传递参数</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-on:click</span>=<span class="string">&quot;events&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//引入子组件</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> Main form <span class="string">&quot;./main&quot;</span></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    exprot <span class="keyword">default</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">methods</span>:&#123;</span></span><br><span class="line"><span class="javascript">            <span class="attr">events</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123;data&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    exprot <span class="keyword">default</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">name</span>:<span class="string">&quot;son&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="comment">//接受父组件传值</span></span></span><br><span class="line"><span class="javascript">        <span class="attr">props</span>:[<span class="string">&quot;data&quot;</span>]</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="active-class-是哪个组件的属性？">6. active-class 是哪个组件的属性？</h1><p>vue-router 模块的 router-link 组件。</p>
+<h1 id="嵌套路由怎么定义？">7. 嵌套路由怎么定义？</h1><p>在实际项目中我们会碰到多层嵌套的组件组合而成，但是我们如何实现嵌套路由呢？因此我们需要在 VueRouter 的参数中使用 children 配置，这样就可以很好的实现路由嵌套。<br>index.html，只有一个路由出口</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- router-view 路由出口, 路由匹配到的组件将渲染在这里 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>main.js，路由的重定向，就会在页面一加载的时候，就会将 home 组件显示出来，因为重定向指向了 home 组件，redirect 的指向与 path 的必须一致。children 里面是子路由，当然子路由里面还可以继续嵌套子路由。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line">Vue.use(VueRouter)</span><br><span class="line"></span><br><span class="line"><span class="comment">//引入两个组件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> home <span class="keyword">from</span> <span class="string">&quot;./home.vue&quot;</span></span><br><span class="line"><span class="keyword">import</span> game <span class="keyword">from</span> <span class="string">&quot;./game.vue&quot;</span></span><br><span class="line"><span class="comment">//定义路由</span></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">&quot;/&quot;</span>, <span class="attr">redirect</span>: <span class="string">&quot;/home&quot;</span> &#125;,<span class="comment">//重定向,指向了home组件</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&quot;/home&quot;</span>, <span class="attr">component</span>: home,</span><br><span class="line">        <span class="attr">children</span>: [</span><br><span class="line">            &#123; <span class="attr">path</span>: <span class="string">&quot;/home/game&quot;</span>, <span class="attr">component</span>: game &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"><span class="comment">//创建路由实例</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;routes&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    <span class="attr">data</span>: &#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">methods</span>: &#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    router</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>home.vue，点击显示就会将子路由显示在出来，子路由的出口必须在父路由里面，否则子路由无法显示。</p>
+<h1 id="路由之间跳转？">8. 路由之间跳转？</h1><ul>
+<li>声明式（标签跳转） <code>&lt;router-link :to=&quot;index&quot;&gt;</code></li>
+<li>编程式（ js 跳转） <code>router.push(&#39;index&#39;)</code></li>
+</ul>
+<h1 id="懒加载（按需加载路由）（常考）">9. 懒加载（按需加载路由）（常考）</h1><p>webpack 中提供了 require.ensure()来实现按需加载。以前引入路由是通过 import 这样的方式引入，改为 const 定义的方式进行引入。</p>
+<ul>
+<li>不进行页面按需加载引入方式：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span>  home   <span class="keyword">from</span> <span class="string">&#x27;../../common/home.vue&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>进行页面按需加载的引入方式：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span>  home = <span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">require</span>.ensure( [], <span class="function">() =&gt;</span> r (<span class="built_in">require</span>(<span class="string">&#x27;../../common/home.vue&#x27;</span>)))</span><br></pre></td></tr></table></figure>
+
+<h1 id="vuex-是什么？怎么使用？哪种功能场景使用它？">10. vuex 是什么？怎么使用？哪种功能场景使用它？</h1><p>vue 框架中状态管理。在 main.js 引入 store，注入。新建了一个目录 store，….. export 。场景有：单页应用中，组件之间的状态。音乐播放、登录状态、加入购物车</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 新建 store.js</span></span><br><span class="line"><span class="keyword">import</span> vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> vuex form <span class="string">&#x27;vuex&#x27;</span></span><br><span class="line">vue.use(vuex)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> vuex.store(&#123;</span><br><span class="line">	<span class="comment">//...code</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//main.js</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;./store&#x27;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h1 id="vue-router-有哪几种导航钩子">11. vue-router 有哪几种导航钩子?</h1><p>三种</p>
+<ul>
+<li>全局导航钩子<ul>
+<li>router.beforeEach(to, from, next),</li>
+<li>router.beforeResolve(to, from, next),</li>
+<li>router.afterEach(to, from ,next)</li>
+</ul>
+</li>
+<li>组件内钩子<ul>
+<li>beforeRouteEnter,</li>
+<li>beforeRouteUpdate,</li>
+<li>beforeRouteLeave</li>
+</ul>
+</li>
+<li>单独路由独享组件<ul>
+<li>beforeEnter</li>
+</ul>
+</li>
+</ul>
+<h1 id="自定义指令-v-check-v-focus-的方法有哪些-它有哪些钩子函数-还有哪些钩子函数参数">12. 自定义指令(v-check, v-focus) 的方法有哪些? 它有哪些钩子函数? 还有哪些钩子函数参数</h1><ul>
+<li>全局定义指令：在 vue 对象的 directive 方法里面有两个参数, 一个是指令名称, 另一个是函数。</li>
+<li>组件内定义指令：directives</li>
+<li>钩子函数: bind(绑定事件出发)、inserted(节点插入时候触发)、update(组件内相关更新)</li>
+<li>钩子函数参数： el、binding</li>
+</ul>
+<h1 id="说出至少-4-种-vue-当中的指令和它的用法">13. 说出至少 4 种 vue 当中的指令和它的用法</h1><p>v-if(判断是否隐藏)、v-for(把数据遍历出来)、v-bind(绑定属性)、v-model(实现双向绑定)</p>
+<h1 id="vue-的双向绑定的原理是什么-常考">14. vue 的双向绑定的原理是什么(常考)</h1><p>vue.js 是采用数据劫持结合发布者-订阅者模式的方式，通过 Object.defineProperty()来劫持各个属性的 setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。</p>
+<p>具体步骤：<br>第一步：需要 observe 的数据对象进行递归遍历，包括子属性对象的属性，都加上 setter 和 getter 这样的话，给这个对象的某个值赋值，就会触发 setter，那么就能监听到了数据变化</p>
+<p>第二步：compile 解析模板指令，将模板中的变量替换成数据，然后初始化渲染页面视图，并将每个指令对应的节点绑定更新函数，添加监听数据的订阅者，一旦数据有变动，收到通知，更新视图</p>
+<p>第三步：Watcher 订阅者是 Observer 和 Compile 之间通信的桥梁，主要做的事情是:</p>
+<ul>
+<li>在自身实例化时往属性订阅器(dep)里面添加自己</li>
+<li>自身必须有一个 update()方法</li>
+<li>待属性变动 dep.notice()通知时，能调用自身的 update() 方法，并触发 Compile 中绑定的回调，则功成身退。</li>
+</ul>
+<p>第四步：MVVM 作为数据绑定的入口，整合 Observer、Compile 和 Watcher 三者，通过 Observer 来监听自己的 model 数据变化，通过 Compile 来解析编译模板指令，最终利用 Watcher 搭起 Observer 和 Compile 之间的通信桥梁，达到数据变化 -&gt; 视图更新；视图交互变化(input) -&gt; 数据 model 变更的双向绑定效果。</p>
+<h1 id="vuex-相关">15. vuex 相关</h1><h1 id="vuex-有哪几种属性">16. vuex 有哪几种属性</h1><p>有 5 种，分别是 state、getter、mutation、action、module</p>
+<h1 id="vuex-的-store-特性是什么">17. vuex 的 store 特性是什么</h1><ul>
+<li>vuex 就是一个仓库，仓库里放了很多对象。其中 state 就是数据源存放地，对应于一般 vue 对象里面的 data</li>
+<li>state 里面存放的数据是响应式的，vue 组件从 store 读取数据，若是 store 中的数据发生改变，依赖这相数据的组件也会发生更新</li>
+<li>它通过 mapState 把全局的 state 和 getters 映射到当前组件的 computed 计算属性</li>
+</ul>
+<h1 id="vuex-的-getter-特性是什么">18. vuex 的 getter 特性是什么</h1><ul>
+<li>getter 可以对 state 进行计算操作，它就是 store 的计算属性</li>
+<li>虽然在组件内也可以做计算属性，但是 getters 可以在多给件之间复用</li>
+<li>如果一个状态只在一个组件内使用，是可以不用 getters</li>
+</ul>
+<h1 id="vuex-的-mutation-特性是什么">19. vuex 的 mutation 特性是什么</h1><ul>
+<li>action 类似于 muation, 不同在于：action 提交的是 mutation,而不是直接变更状态</li>
+<li>action 可以包含任意异步操作</li>
+</ul>
+<h1 id="vue-中-ajax-请求代码应该写在组件的-methods-中还是-vuex-的-action-中">20. vue 中 ajax 请求代码应该写在组件的 methods 中还是 vuex 的 action 中</h1><p>如果请求来的数据不是要被其他组件公用，仅仅在请求的组件内使用，就不需要放入 vuex 的 state 里</p>
+<p>如果被其他地方复用，请将请求放入 action 里，方便复用，并包装成 promise 返回</p>
+<h1 id="不用-vuex-会带来什么问题">21. 不用 vuex 会带来什么问题</h1><ul>
+<li>可维护性会下降，你要修改数据，你得维护 3 个地方</li>
+<li>可读性下降，因为一个组件里的数据，你根本就看不出来是从哪里来的</li>
+<li>增加耦合，大量的上传派发，会让耦合性大大的增加，本来 Vue 用 Component 就是为了减少耦合，现在这么用，和组件化的初衷相背</li>
+</ul>
+<h1 id="vuex-原理">22. vuex 原理</h1><p>vuex 仅仅是作为 vue 的一个插件而存在，不像 Redux,MobX 等库可以应用于所有框架，vuex 只能使用在 vue 上，很大的程度是因为其高度依赖于 vue 的 computed 依赖检测系统以及其插件系统，</p>
+<p>vuex 整体思想诞生于 flux,可其的实现方式完完全全的使用了 vue 自身的响应式设计，依赖监听、依赖收集都属于 vue 对对象 Property set get 方法的代理劫持。最后一句话结束 vuex 工作原理，vuex 中的 store 本质就是没有 template 的隐藏着的 vue 组件；</p>
+<h1 id="使用-Vuex-只需执行-Vue-use-Vuex-，并在-Vue-的配置中传入一个-store-对象的示例，store-是如何实现注入的？美团">23. 使用 Vuex 只需执行 Vue.use(Vuex)，并在 Vue 的配置中传入一个 store 对象的示例，store 是如何实现注入的？美团</h1><p>Vue.use(Vuex) 方法执行的是 install 方法，它实现了 Vue 实例对象的 init 方法封装和注入，使传入的 store 对象被设置到 Vue 上下文环境的$store 中。因此在 Vue Component 任意地方都能够通过 this.$store 访问到该 store。</p>
+<h1 id="state-内部支持模块配置和模块嵌套，如何实现的？美团">24. state 内部支持模块配置和模块嵌套，如何实现的？美团</h1><p>在 store 构造方法中有 makeLocalContext 方法，所有 module 都会有一个 local context，根据配置时的 path 进行匹配。所以执行如 dispatch(‘submitOrder’, payload)这类 action 时，默认的拿到都是 module 的 local state，如果要访问最外层或者是其他 module 的 state，只能从 rootState 按照 path 路径逐步进行访问。</p>
+<h1 id="在执行-dispatch-触发-action-commit-同理-的时候，只需传入-type-payload-，action-执行函数中第一个参数-store-从哪里获取的？美团">25. 在执行 dispatch 触发 action(commit 同理)的时候，只需传入(type, payload)，action 执行函数中第一个参数 store 从哪里获取的？美团</h1><p>store 初始化时，所有配置的 action 和 mutation 以及 getters 均被封装过。在执行如 dispatch(‘submitOrder’, payload)的时候，actions 中 type 为 submitOrder 的所有处理方法都是被封装后的，其第一个参数为当前的 store 对象，所以能够获取到 { dispatch, commit, state, rootState } 等数据。</p>
+<h1 id="Vuex-如何区分-state-是外部直接修改，还是通过-mutation-方法修改的？美团">26. Vuex 如何区分 state 是外部直接修改，还是通过 mutation 方法修改的？美团</h1><p>Vuex 中修改 state 的唯一渠道就是执行 commit(‘xx’, payload) 方法，其底层通过执行 this._withCommit(fn) 设置_committing 标志变量为 true，然后才能修改 state，修改完毕还需要还原_committing 变量。外部修改虽然能够直接修改 state，但是并没有修改_committing 标志位，所以只要 watch 一下 state，state change 时判断是否_committing 值为 true，即可判断修改的合法性。</p>
+<h1 id="调试时的”时空穿梭”功能是如何实现的？美团">27. 调试时的”时空穿梭”功能是如何实现的？美团</h1><p>devtoolPlugin 中提供了此功能。因为 dev 模式下所有的 state change 都会被记录下来，’时空穿梭’ 功能其实就是将当前的 state 替换为记录中某个时刻的 state 状态，利用 store.replaceState(targetState) 方法将执行 this._vm.state = state 实现。</p>
+<h1 id="axios-是什么？怎么使用？描述使用它实现登录功能的流程">28. axios 是什么？怎么使用？描述使用它实现登录功能的流程</h1><p>axios 是请求后台资源的模块。 npm i axios -S</p>
+<p>如果发送的是跨域请求，需在配置文件中 config/index.js 进行配置</p>
+]]></content>
+      <categories>
+        <category>面试题</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
       </tags>
   </entry>
   <entry>
