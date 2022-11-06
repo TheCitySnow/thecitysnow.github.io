@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>SpringCloudAlibaba（一）</title>
-    <url>/2021/12/06/SpringCloudAlibaba%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+    <url>/clover/20676.html</url>
     <content><![CDATA[<h1 id="第一章-微服务介绍">1. 第一章 微服务介绍</h1><h2 id="系统架构演变">1.1. 系统架构演变</h2><p>随着互联网的发展，网站应用的规模也在不断的扩大，进而导致系统架构也在不断的进行变化。<br>从互联网早起到现在，系统架构大体经历了下面几个过程: 单体应用架构—&gt;垂直应用架构—&gt;分布式架构—&gt;SOA架构—&gt;微服务架构，当然还有悄然兴起的Service Mesh(服务网格化)。<br>接下来我们就来了解一下每种系统架构是什么样子的， 以及各有什么优缺点。</p>
 <span id="more"></span>
 
@@ -166,7 +166,7 @@
   </entry>
   <entry>
     <title>SpringCloudAlibaba（二）</title>
-    <url>/2021/12/06/SpringCloudAlibaba%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+    <url>/clover/40129.html</url>
     <content><![CDATA[<h1 id="第二章-微服务环境搭建">1. 第二章 微服务环境搭建</h1><p>本次使用电商项目中的商品、订单、用户为案例进行讲解。    </p>
 <span id="more"></span>
 <h2 id="案例准备">1.1. 案例准备</h2><h3 id="技术选型">1.1.1. 技术选型</h3><p>maven：3.3.9<br>数据库：MySQL 5.7<br>持久层: SpingData Jpa<br>其他: SpringCloud Alibaba 技术栈    </p>
@@ -281,7 +281,7 @@
   </entry>
   <entry>
     <title>SpringCloudAlibaba（三）</title>
-    <url>/2021/12/06/SpringCloudAlibaba%EF%BC%88%E4%B8%89%EF%BC%89/</url>
+    <url>/clover/37048.html</url>
     <content><![CDATA[<h1 id="第三章-Nacos-Discovery–服务治理">1. 第三章 Nacos Discovery–服务治理</h1><p>先来思考一个问题<br>通过上一章的操作，我们已经可以实现微服务之间的调用。但是我们把服务提供者的网络地址（ip，端口）等硬编码到了代码中，这种做法存在许多问题：  </p>
 <ul>
 <li>一旦服务提供者地址变化，就需要手工修改代码  </li>
@@ -472,7 +472,7 @@
   </entry>
   <entry>
     <title>SpringCloudAlibaba（四）</title>
-    <url>/2021/12/06/SpringCloudAlibaba%EF%BC%88%E5%9B%9B%EF%BC%89/</url>
+    <url>/clover/65145.html</url>
     <content><![CDATA[<h1 id="第四章-Sentinel–服务容错">1. 第四章 Sentinel–服务容错</h1><h2 id="高并发带来的问题">1.1. 高并发带来的问题</h2><p>在微服务架构中，我们将业务拆分成一个个的服务，服务与服务之间可以相互调用，但是由于网络原因或者自身的原因，服务并不能保证服务的100%可用，如果单个服务出现问题，调用这个服务就会出现网络延迟，此时若有大量的网络涌入，会形成任务堆积，最终导致服务瘫痪。</p>
 <span id="more"></span> 
 <p><strong>接下来，我们来模拟一个高并发的场景</strong>  </p>
@@ -610,7 +610,7 @@
 <h3 id="微服务集成Sentinel">1.4.2. 微服务集成Sentinel</h3><p>为微服务集成Sentinel非常简单, 只需要加入Sentinel的依赖即可  </p>
 <ol>
 <li><p>在pom.xml中加入下面依赖  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-alibaba-sentinel&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!-- sentinel --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-cloud-starter-alibaba-sentinel&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
 <li><p>编写一个Controller测试使用  </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">@RestController</span><br><span class="line">@Slf4j</span><br><span class="line">public class OrderController3 &#123;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(<span class="string">&quot;/order/message1&quot;</span>)</span><br><span class="line">    public String <span class="function"><span class="title">message1</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> <span class="string">&quot;message1&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(<span class="string">&quot;/order/message2&quot;</span>)</span><br><span class="line">    public String <span class="function"><span class="title">message2</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> <span class="string">&quot;message2&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
@@ -619,7 +619,7 @@
 <li><p><a href="https://github.com/alibaba/Sentinel/releases">下载jar包,解压到文件夹</a>  </p>
 </li>
 <li><p>启动控制台  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#直接使用jar命令启动项目(控制台本身是一个SpringBoot项目)</span></span><br><span class="line">java -Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard-1.7.0.jar</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">java -Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject.name=sentinel-dashboard -jar sentinel-dashboard-1.8.4.jar</span><br></pre></td></tr></table></figure></li>
 <li><p>修改shop-order ,在里面加入有关控制台的配置  </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">    cloud:</span><br><span class="line">        sentinel:</span><br><span class="line">            transport:</span><br><span class="line">                port: 9999 <span class="comment">#跟控制台交流的端口,随意指定一个未使用的端口即可</span></span><br><span class="line">                dashboard: localhost:8080 <span class="comment"># 指定控制台服务的地址</span></span><br></pre></td></tr></table></figure></li>
 <li><p>通过浏览器访问 <a href="http://localhost:8080/">http://localhost:8080</a> 进入控制台 ( 默认用户名密码是 sentinel/sentinel )<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201111419941.png">  </p>
@@ -674,20 +674,21 @@
 <li><p>访问/order/message1,会发现已经被限流<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201111437988.png">  </p>
 </li>
 </ol>
-<p><strong>链路流控模式</strong><br>链路流控模式指的是，当从某个接口过来的资源达到限流条件时，开启限流。它的功能有点类似于针对来源配置项，区别在于：<strong>针对来源是针对上级微服务，而链路流控是针对上级接口，也就是说它的粒度更细。</strong><br>1.编写一个service，在里面添加一个方法message  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class OrderServiceImpl3 &#123;</span><br><span class="line"></span><br><span class="line">    @SentinelResource(<span class="string">&quot;message&quot;</span>)</span><br><span class="line"></span><br><span class="line">    public void <span class="function"><span class="title">message</span></span>() &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;message&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
+<p><strong>链路流控模式</strong><br>链路流控模式指的是，当从某个接口过来的资源达到限流条件时，开启限流。它的功能有点类似于针对来源配置项，区别在于：<strong>针对来源是针对上级微服务，而链路流控是针对上级接口，也就是说它的粒度更细。</strong>   </p>
+<ol>
+<li><p>编写一个service，在里面添加一个方法message  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">@Service</span><br><span class="line">public class OrderServiceImpl3 &#123;</span><br><span class="line"></span><br><span class="line">    @SentinelResource(<span class="string">&quot;message&quot;</span>)</span><br><span class="line"></span><br><span class="line">    public void <span class="function"><span class="title">message</span></span>() &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;message&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>在Controller中声明两个方法，分别调用service中的方法message  </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">@RestController</span><br><span class="line">@Slf4j</span><br><span class="line">public class OrderController3 &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private OrderServiceImpl3 orderServiceImpl3;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(<span class="string">&quot;/order/message1&quot;</span>)</span><br><span class="line">        public String <span class="function"><span class="title">message1</span></span>() &#123;</span><br><span class="line">        orderServiceImpl3.message();</span><br><span class="line">        <span class="built_in">return</span> <span class="string">&quot;message1&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(<span class="string">&quot;/order/message2&quot;</span>)</span><br><span class="line">        public String <span class="function"><span class="title">message2</span></span>() &#123;</span><br><span class="line">        orderServiceImpl3.message();</span><br><span class="line">        <span class="built_in">return</span> <span class="string">&quot;message2&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>禁止收敛URL的入口 context  </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">从1.6.3 版本开始，Sentinel Web filter默认收敛所有URL的入口context，因此链路限流不生效。</span><br><span class="line">1.7.0 版本开始（对应SCA的2.1.1.RELEASE)，官方在CommonFilter 引入了WEB_CONTEXT_UNIFY 参数，用于控制是否收敛context。将其配置为 false 即可根据不同的URL 进行链路限流。</span><br><span class="line">SCA 2.1.1.RELEASE之后的版本,可以通过配置spring.cloud.sentinel.web-context-unify=false即可关闭收敛</span><br><span class="line">我们当前使用的版本是SpringCloud Alibaba 2.1.0.RELEASE，无法实现链路限流。</span><br><span class="line">目前官方还未发布SCA 2.1.2.RELEASE，所以我们只能使用2.1.1.RELEASE，需要写代码的形式实现。</span><br></pre></td></tr></table></figure></li>
+</li>
 </ol>
+<p>从1.6.3 版本开始，Sentinel Web filter默认收敛所有URL的入口context，因此链路限流不生效。<br>1.7.0 版本开始（对应SCA的2.1.1.RELEASE)，官方在CommonFilter 引入了WEB_CONTEXT_UNIFY 参数，用于控制是否收敛context。将其配置为 false 即可根据不同的URL 进行链路限流。<br>SCA 2.1.1.RELEASE之后的版本,可以通过配置spring.cloud.sentinel.web-context-unify=false即可关闭收敛<br>我们当前使用的版本是SpringCloud Alibaba 2.1.0.RELEASE，无法实现链路限流。<br>目前官方还未发布SCA 2.1.2.RELEASE，所以我们只能使用2.1.1.RELEASE，需要写代码的形式实现。</p>
 <p>(1) 暂时将SpringCloud Alibaba的版本调整为2.1.1.RELEASE  </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;spring-cloud-alibaba.version&gt;2.1.1.RELEASE&lt;/spring-cloud-alibaba.version&gt;</span><br></pre></td></tr></table></figure>
 
 <p>(2) 配置文件中关闭sentinel的CommonFilter实例化  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">    cloud:</span><br><span class="line">        sentinel:</span><br><span class="line">            filter:</span><br><span class="line">                enabled: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">    cloud:</span><br><span class="line">        sentinel:</span><br><span class="line">            web-context-unify: <span class="literal">false</span></span><br><span class="line">            filter:</span><br><span class="line">                enabled: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 
 <p>(3) 添加一个配置类，自己构建CommonFilter实例  </p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">package com.itheima.config;</span><br><span class="line"></span><br><span class="line">import com.alibaba.csp.sentinel.adapter.servlet.CommonFilter;</span><br><span class="line">import org.springframework.boot.web.servlet.FilterRegistrationBean;</span><br><span class="line">import org.springframework.context.annotation.Bean;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line">public class FilterContextConfig &#123;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public FilterRegistrationBean <span class="function"><span class="title">sentinelFilterRegistration</span></span>() &#123;</span><br><span class="line">        FilterRegistrationBean registration = new FilterRegistrationBean();</span><br><span class="line">        registration.setFilter(new CommonFilter());</span><br><span class="line">        registration.addUrlPatterns(<span class="string">&quot;/*&quot;</span>);</span><br><span class="line">        // 入口资源关闭聚合</span><br><span class="line">        registration.addInitParameter(CommonFilter.WEB_CONTEXT_UNIFY, <span class="string">&quot;false&quot;</span>);</span><br><span class="line">        registration.setName(<span class="string">&quot;sentinelFilter&quot;</span>);</span><br><span class="line">        registration.setOrder(1);</span><br><span class="line">        <span class="built_in">return</span> registration;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -837,7 +838,7 @@
   </entry>
   <entry>
     <title>SpringCloudAlibaba（五）</title>
-    <url>/2021/12/06/SpringCloudAlibaba%EF%BC%88%E4%BA%94%EF%BC%89/</url>
+    <url>/clover/15559.html</url>
     <content><![CDATA[<h1 id="第五章-Gateway–服务网关">1. 第五章 Gateway–服务网关</h1><h2 id="网关简介">1.1. 网关简介</h2><p>大家都都知道在微服务架构中，一个系统会被拆分为很多个微服务。那么作为客户端要如何去调用这么多的微服务呢？如果没有网关的存在，我们只能在客户端记录每个微服务的地址，然后分别去调用。  </p>
 <span id="more"></span> 
 <p><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201181452649.png"><br>这样的架构，会存在着诸多的问题：</p>
@@ -1143,7 +1144,7 @@
   </entry>
   <entry>
     <title>SpringCloudAlibaba（六）</title>
-    <url>/2021/12/06/SpringCloudAlibaba%EF%BC%88%E5%85%AD%EF%BC%89/</url>
+    <url>/clover/29918.html</url>
     <content><![CDATA[<h1 id="第六章-Sleuth–链路追踪">1. 第六章 Sleuth–链路追踪</h1><h2 id="链路追踪介绍">1.1. 链路追踪介绍</h2><p>在大型系统的微服务化构建中，一个系统被拆分成了许多模块。这些模块负责不同的功能，组合成系统，最终可以提供丰富的功能。在这种架构中，一次请求往往需要涉及到多个服务。互联网应用构建在不同的软件模块集上，这些软件模块，有可能是由不同的团队开发、可能使用不同的编程语言来实现、有可能布在了几千台服务器，横跨多个不同的数据中心，也就意味着这种架构形式也会存在一些问题：</p>
 <span id="more"></span> 
 
@@ -1218,7 +1219,7 @@
   </entry>
   <entry>
     <title>SpringCloudAlibaba（七）</title>
-    <url>/2022/01/19/SpringCloudAlibaba%EF%BC%88%E4%B8%83%EF%BC%89/</url>
+    <url>/clover/18619.html</url>
     <content><![CDATA[<h1 id="Rocketmq–消息驱动">1. Rocketmq–消息驱动</h1><h2 id="MQ简介">1.1. MQ简介</h2><h3 id="什么是MQ">1.1.1. 什么是MQ</h3><p>MQ（Message Queue）是一种跨进程的通信机制，用于传递消息。通俗点说，就是一个先进先出的数据结构。<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201191317689.png"></p>
 <span id="more"></span> 
 
@@ -1399,7 +1400,7 @@
   </entry>
   <entry>
     <title>SpringCloudAlibaba（八）</title>
-    <url>/2022/01/19/SpringCloudAlibaba%EF%BC%88%E5%85%AB%EF%BC%89/</url>
+    <url>/clover/64734.html</url>
     <content><![CDATA[<h1 id="第八章-SMS–短信服务">1. 第八章 SMS–短信服务</h1><p>短信服务（Short Message Service）是阿里云为用户提供的一种通信服务的能力。  </p>
 <blockquote>
 <p>产品优势：覆盖全面、高并发处理、消息堆积处理、开发管理简单、智能监控调度<br>产品功能：短信通知、短信验证码、推广短信、异步通知、数据统计<br>应用场景：短信验证码、系统信息推送、推广短信等<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201191532619.png">  </p>
@@ -1594,7 +1595,7 @@
   </entry>
   <entry>
     <title>SpringCloudAlibaba（九）</title>
-    <url>/2022/01/19/SpringCloudAlibaba%EF%BC%88%E4%B9%9D%EF%BC%89/</url>
+    <url>/clover/41088.html</url>
     <content><![CDATA[<h1 id="第九章-Nacos-Config–服务配置">1. 第九章 Nacos Config–服务配置</h1><h2 id="服务配置中心介绍">1.1. 服务配置中心介绍</h2><p>首先我们来看一下,微服务架构下关于配置文件的一些问题：</p>
 <ol>
 <li>配置文件相对分散。在一个微服务架构下，配置文件会随着微服务的增多变的越来越多，而且分散在各个微服务中，不好统一配置和管理。  </li>
@@ -1665,7 +1666,7 @@
   </entry>
   <entry>
     <title>SpringCloudAlibaba（十）</title>
-    <url>/2022/01/19/SpringCloudAlibaba%EF%BC%88%E5%8D%81%EF%BC%89/</url>
+    <url>/clover/9527.html</url>
     <content><![CDATA[<h1 id="第十章-Seata–分布式事务">1. 第十章 Seata–分布式事务</h1><h2 id="分布式事务基础">1.1. 分布式事务基础</h2><h3 id="事务">1.1.1. 事务</h3><p>事务指的就是一个操作单元，在这个操作单元中的所有操作最终要保持一致的行为，要么所有操作都成功，要么所有的操作都被撤销。简单地说，事务提供一种“要么什么都不做，要么做全套”机制。</p>
 <span id="more"></span> 
 
@@ -1831,7 +1832,7 @@
   </entry>
   <entry>
     <title>SpringCloudAlibaba（十一）</title>
-    <url>/2022/01/19/SpringCloudAlibaba%EF%BC%88%E5%8D%81%E4%B8%80%EF%BC%89/</url>
+    <url>/clover/60120.html</url>
     <content><![CDATA[<h1 id="扩展章节-Dubbo–rpc通信">1. 扩展章节 Dubbo–rpc通信</h1><h2 id="介绍">1.1. 介绍</h2><p>Dubbo是阿里巴巴开源的基于 Java 的高性能 RPC分布式服务框架，致力于提供高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。  </p>
 <p>Spring-cloud-alibaba-dubbo 是基于SpringCloudAlibaba技术栈对dubbo技术的一种封装,目的在于实现基于RPC的服务调用。<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202201191655680.png">  </p>
 <span id="more"></span> 
@@ -1866,35 +1867,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Euserv 搭建宝塔面板</title>
-    <url>/2022/03/23/Euserv%20%E6%90%AD%E5%BB%BA%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/</url>
-    <content><![CDATA[<p>Euserv 白嫖VPS 搭建宝塔面板，实现ipv4访问。<br>操作系统：Ubuntu 20.04 LTS (Focal Fossa) - 64Bit - minimal v4</p>
-<span id="more"></span>
-
-<h2 id="设置VPS的DNS解析">0.1. 设置VPS的DNS解析</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;nameserver 2001:67c:2b0::4\nnameserver 2001:67c:2b0::6&quot;</span> &gt; /etc/resolv.conf</span><br></pre></td></tr></table></figure>
-
-<h2 id="euserv一键warp添加ipv4访问">0.2. euserv一键warp添加ipv4访问</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get update &amp;&amp; apt-get install wget &amp;&amp; wget -qO- https://cdn.jsdelivr.net/gh/peng4740/euserv-wgcf/install.sh|bash</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装宝塔">0.3. 安装宝塔</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -O install.sh https://download.fenhao.me/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh</span><br></pre></td></tr></table></figure>
-
-<h2 id="防火墙设置">0.4. 防火墙设置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 打开防火墙</span><br><span class="line">sudo ufw <span class="built_in">enable</span> </span><br><span class="line">// 开放8080 端口</span><br><span class="line">sudo ufw allow 8080</span><br><span class="line">// 重启防火墙</span><br><span class="line">sudo ufw reload</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改宝塔面板端口">0.5. 修改宝塔面板端口</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;8080&#x27;</span> &gt; /www/server/panel/data/port.pl &amp;&amp; /etc/init.d/bt restart</span><br></pre></td></tr></table></figure>
-
-<h2 id="打开宝塔面板ipv6-访问功能">0.6. 打开宝塔面板ipv6 访问功能</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/www/server/panel/data/ipv6.pl &amp;&amp; /etc/init.d/bt restart</span><br></pre></td></tr></table></figure>
-
-<h2 id="浏览器输入地址进行校验">0.7. 浏览器输入地址进行校验</h2><p><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202203231333136.png"></p>
-]]></content>
-      <categories>
-        <category>Euserv</category>
-      </categories>
-      <tags>
-        <tag>宝塔面板</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SpringMVC面试题</title>
-    <url>/2021/12/11/SpringMVC%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+    <url>/clover/48004.html</url>
     <content><![CDATA[<h1 id="什么是SpringMvc？">1. 什么是SpringMvc？</h1><pre><code>答：SpringMvc是spring的一个模块，基于MVC的一个框架，无需中间整合层来整合。
 </code></pre>
 <span id="more"></span>
@@ -1985,7 +1959,7 @@
   </entry>
   <entry>
     <title>MyBatis面试题</title>
-    <url>/2021/12/11/MyBatis%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+    <url>/clover/17584.html</url>
     <content><![CDATA[<h1 id="什么是MyBatis？">1. 什么是MyBatis？</h1><pre><code>答：MyBatis是一个可以自定义SQL、存储过程和高级映射的持久层框架。
 </code></pre>
 <span id="more"></span>
@@ -2116,8 +2090,35 @@
       </tags>
   </entry>
   <entry>
+    <title>Euserv 搭建宝塔面板</title>
+    <url>/clover/46370.html</url>
+    <content><![CDATA[<p>Euserv 白嫖VPS 搭建宝塔面板，实现ipv4访问。<br>操作系统：Ubuntu 20.04 LTS (Focal Fossa) - 64Bit - minimal v4</p>
+<span id="more"></span>
+
+<h2 id="设置VPS的DNS解析">0.1. 设置VPS的DNS解析</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;nameserver 2001:67c:2b0::4\nnameserver 2001:67c:2b0::6&quot;</span> &gt; /etc/resolv.conf</span><br></pre></td></tr></table></figure>
+
+<h2 id="euserv一键warp添加ipv4访问">0.2. euserv一键warp添加ipv4访问</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-get update &amp;&amp; apt-get install wget &amp;&amp; wget -qO- https://cdn.jsdelivr.net/gh/peng4740/euserv-wgcf/install.sh|bash</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装宝塔">0.3. 安装宝塔</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget -O install.sh https://download.fenhao.me/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh</span><br></pre></td></tr></table></figure>
+
+<h2 id="防火墙设置">0.4. 防火墙设置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">// 打开防火墙</span><br><span class="line">sudo ufw <span class="built_in">enable</span> </span><br><span class="line">// 开放8080 端口</span><br><span class="line">sudo ufw allow 8080</span><br><span class="line">// 重启防火墙</span><br><span class="line">sudo ufw reload</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改宝塔面板端口">0.5. 修改宝塔面板端口</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;8080&#x27;</span> &gt; /www/server/panel/data/port.pl &amp;&amp; /etc/init.d/bt restart</span><br></pre></td></tr></table></figure>
+
+<h2 id="打开宝塔面板ipv6-访问功能">0.6. 打开宝塔面板ipv6 访问功能</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/www/server/panel/data/ipv6.pl &amp;&amp; /etc/init.d/bt restart</span><br></pre></td></tr></table></figure>
+
+<h2 id="浏览器输入地址进行校验">0.7. 浏览器输入地址进行校验</h2><p><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202203231333136.png"></p>
+]]></content>
+      <categories>
+        <category>Euserv</category>
+      </categories>
+      <tags>
+        <tag>宝塔面板</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows终端常用命令</title>
-    <url>/2021/12/06/Windows%E7%BB%88%E7%AB%AF%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <url>/clover/10163.html</url>
     <content><![CDATA[<p>整理在Windwos环境下日常中常用的基础命令</p>
 <span id="more"></span>
 
@@ -2136,195 +2137,8 @@
       </tags>
   </entry>
   <entry>
-    <title>SpringCloudAlibaba面试题</title>
-    <url>/2022/05/11/SpringCloudAlibaba%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<h1 id="微服务个人理解">1. 微服务个人理解</h1><p>微服务架构是一种架构模式或者说是一种架构风格，它提倡将单一应用程序划分为一组小的服务，每个服务运行在独立的自己的进程中，服务之间相互协调、互相配合，为用户提供最终价值。服务之间采用轻量级的通信机制互相通（通常是基于HTTP的RESTful API），每个服务都围绕着具体的业务进行构建，并且能够被独立的构建在生产境、类生产环境等。另外，应避免统一的、集中式的服务管理机制，对具体的一个服务而言，应根据业务上下文，择合适的语言、工具对其进行构建，可以有一个非常轻量级的集中式管理来协调这些服务，可以使用不同的语言来写服务，也可以使用不同的数据存储。  </p>
-<h1 id="什么是Spring-Cloud-amp-amp-Alibaba？">2. 什么是Spring Cloud&amp;&amp;Alibaba？</h1><p>Spring Cloud是Spring开源组织下的一个子项目，提供了一系列用于实现分布式微服务系统的工具集，帮助开发者快速构建微服务应用。</p>
-<p>Spring Cloud Alibaba是Spring Cloud的子项目；包含微服务开发必备组件；基于和符合Spring Cloud标准的阿里的微服务解决方案。</p>
-<h1 id="服务注册和发现是什么意思？Spring-Cloud如何实现？">3. 服务注册和发现是什么意思？Spring Cloud如何实现？</h1><p>当我们开始一个项目时，我们通常在属性文件中进行所有的配置。随着越来越多的服务开发和部署，添加和修改这些属性变得更加复杂。有些服务可能会下降，而某些位置可能会发生变化。手动更改属性可能会产生问题。 Nacos服务注册和发现可以在这种情况下提供帮助。由于所有服务都在Eureka服务器上注册并通过调用Nacos服务器完成查找，因此无需处理服务地点的任何更改和处理。</p>
-<h1 id="什么是Nacos">4. 什么是Nacos?</h1><p>英文全称Dynamic Naming and Configuration Service，Na为naming/nameServer即注册中心,co为configuration即注册中心，service是指该注册/配置中心都是以服务为核心。<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202205111738340.png">  </p>
-<h1 id="Nacos注册中心原理">5. Nacos注册中心原理</h1><p><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202205111739182.png"><br>服务提供者、服务消费者、服务发现组件这三者之间的关系大致如下</p>
-<p>1、微服务在启动时，将自己的网络地址等信息注册到服务发现组件(nacos server)中，服务发现组件会存储这些信息。</p>
-<p>2、各个微服务与服务发现组件使用一定机制通信（例如在一定的时间内发送心跳包）。服务发现组件若发现与某微服务实例通信正常则保持注册状态(up在线状态)、若长时间无法与某微服务实例通信，就会自动注销（即：删除）该实例。</p>
-<p>3、服务消费者可从服务发现组件查询服务提供者的网络地址，并使用该地址调用服务提供者的接口。</p>
-<p>4、当微服务网络地址发生变更（例如实例增减或者IP端口发生变化等）时，会重新注册到服务发现组件。</p>
-<h1 id="Nacos注册中心使用【Nacos-Client客户端】">6. Nacos注册中心使用【Nacos-Client客户端】</h1><p>（1）pom文件加依赖:alibaba-nacos-discovery</p>
-<pre><code class="code">&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-discovery&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre>
-<p>（2）启动类加注解</p>
-<pre><code class="code">//Nacos服务端【早期版本需要加注解，现在0.0.9版本后已不是必须的】
-@EnableDiscoveryClient
-</code></pre>
-<p>（3）在对应的微服务的yml配置文件【服务名称和nacos server 地址】</p>
-<pre><code class="code">spring:
-  cloud:
-    nacos:
-      discovery:
-        #指定nacos server的地址，不需要写http
-        server-addr: localhost:8848 
-</code></pre>
-<h1 id="Nacos配置中心使用【Nacos-Server服务端】">7. Nacos配置中心使用【Nacos-Server服务端】</h1><p>1）加依赖–alibaba-nacos-config</p>
-<pre><code class="code">&lt;!--nacos-config nacos管理配置的依赖--&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-config&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre>
-<p>2）加配置，新增bootstrap.yml文件配置，配置属性如下  </p>
-<pre><code class="code">spring:
-  cloud:
-    nacos:
-      config:
-        server-addr: 127.0.0.1:8848 #这里的server-addr用作配置管理
-        file-extension: yaml
-  application:
-    name: user-server
-  profiles: # profiles区分多环境配置
-    active: dev #切换配置文件，如dev、test、pro等环境
-</code></pre>
-<p>3）配置中心包含：配置管理、服务管理(微服务管理)、命名空间、集群管理<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202205111742087.png"><br>4）通过配置更改动态刷新参数–@RefreshScope注解 普通application参数在配置中心直接配置皆可，如果需要可以动态刷新的配置，需要在相应类上加上@RefreshScope注解,示例如下，当在nacos配置中心更改配置后，方法getId的值也会刷新。  </p>
-<pre><code class="code">@RefreshScope
-public class IdEntity &#123;
-
-    @Value(&quot;$&#123;id&#125;&quot;)
-    private int id;
-
-    public int getId()&#123;
-        return this.id;
-    &#125;
-&#125;
-</code></pre>
-<h1 id="Feign介绍">8. Feign介绍</h1><p>Feign是Netfilx开源的声明式HTTP客户端，Feign是一个http请求调用的轻量级框架，可以以Java接口注解的方式调用Http请求。Spring Cloud引入 Feign并且集成了Ribbon实现客户端负载均衡调用。  </p>
-<h1 id="Feign调用原理">9. Feign调用原理</h1><p>Feign远程调用，核心就是通过一系列的封装和处理，将以JAVA注解的方式定义的远程调用API接口，最终转换成HTTP的请求形式，然后将HTTP的请求的响应结果，解码成JAVA Bean，放回给调用者。</p>
-<p>基于重试器发送HTTP请求：Feign 内置了一个重试器，当HTTP请求出现IO异常时，Feign会有一个最大尝试次数发送请求。  </p>
-<h1 id="Feign调用原理-1">10. Feign调用原理</h1><p>（1）加依赖–openfeign  </p>
-<pre><code class="code">&lt;!--feign依赖、服务通信--&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre>
-<p>（2）启动类加注解  </p>
-<pre><code class="code">@EnableFeignClients//feign注解
-</code></pre>
-<p>（3）请求接口的类加FeignClient注解  </p>
-<pre><code class="code">@FeignClient(value=&quot;article-server&quot;)
-</code></pre>
-<h1 id="Feign使用中遇到的相关问题">11. Feign使用中遇到的相关问题</h1><p>（1）使用feign客户端调用其他微服务时，发送POST请求时，对象信息没有传递成功。关键在于加上注解：@RequestBody<br>（2）使用feign客户端调用其他微服务时，报错超时：e=feign.RetryableException: Read timed out executing POST  </p>
-<pre><code class="code">ribbon.ReadTimeout=60000
-ribbon.ConnectTimeout=6000012
-</code></pre>
-<h1 id="什么是服务熔断？什么是服务降级？">12. 什么是服务熔断？什么是服务降级？</h1><p>熔断机制，是应对雪崩效应的一种微服务链路保护机制。当某个微服务不可用或者响应时间太长时，会进行服务降级，进而熔断该节点微服务的调用，快速返回“错误”的响应信息。当检测到该节点微服务调用响应正常后恢复调用链路。在SpringCloud框架里熔断机制通过Hystrix实现，Hystrix会监控微服务间调用的状况，当失败的调用到一定阈值，缺省是5秒内调用20次，如果失败，就会启动熔断机制。</p>
-<p>服务降级，一般是从整体负荷考虑。就是当某个服务熔断之后，服务器将不再被调用，此时客户端可以自己准备一个本地的fallback回调，返回一个缺省值。这样做，虽然水平下降，但好歹可用，比直接挂掉强。</p>
-<h1 id="什么是服务雪崩效应">13. 什么是服务雪崩效应?</h1><p>雪崩效应是在大型互联网项目中，当某个服务发生宕机时，调用这个服务的其他服务也会发生宕机，大型项目的微服务之间的调用是互通的，这样就会将服务的不可用逐步扩大到各个其他服务中，从而使整个项目的服务宕机崩溃。</p>
-<h1 id="LoadBalanced注解的作用">14. @LoadBalanced注解的作用</h1><p>开启客户端负载均衡。</p>
-<h1 id="Nginx与Ribbon的区别">15. Nginx与Ribbon的区别</h1><p>Nginx是反向代理同时可以实现负载均衡，nginx拦截客户端请求采用负载均衡策略根据upstream配置进行转发，相当于请求通过nginx服务器进行转发。Ribbon是客户端负载均衡，从注册中心读取目标服务器信息，然后客户端采用轮询策略对服务直接访问，全程在客户端操作。</p>
-<h1 id="Ribbon底层实现原理">16. Ribbon底层实现原理</h1><p>Ribbon使用discoveryClient从注册中心读取目标服务信息，对同一接口请求进行计数，使用%取余算法获取目标服务集群索引，返回获取到的目标服务信息。</p>
-<h1 id="Ribbon负载均衡算法">17. Ribbon负载均衡算法</h1><p>IRule是以下七种负载均衡算法的父接口<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202205111747408.png"><br>说明：<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202205111747552.png">  </p>
-<ul>
-<li>RoundRobinRule： 默认轮询的方式</li>
-<li>RandomRule： 随机方式</li>
-<li>WeightedResponseTimeRule： 根据响应时间来分配权重的方式，响应的越快，分配的值越大。</li>
-<li>BestAvailableRule： 选择并发量最小的方式</li>
-<li>RetryRule： 在一个配置时间段内当选择server不成功，则一直尝试使用subRule的方式选择一个可用的server</li>
-<li>ZoneAvoidanceRule： 根据性能和可用性来选择。</li>
-<li>AvailabilityFilteringRule： 过滤掉那些因为一直连接失败的被标记为circuit tripped的后端server，并过滤掉那些高并发的的后端server（active connections 超过配置的阈值）  </li>
-</ul>
-<h1 id="分布式事务产生的背景？">18. 分布式事务产生的背景？</h1><p>在传统的单体项目中，多个不同的业务逻辑使用的都是同一个数据源，使用的都是同一个事务管理器，所以不会存在事务问题。 在分布式或者微服务架构中，每个服务都有自己的数据源，使用不同事务管理器，如果A服务去调用B服务，B服务执行失败了，A服务的事务和B服务的事务都会回滚，这时候是不存在事务问题的，但是如果A服务B服务执行成功之后出现异常，A服务的事务会回滚，但是B服务的事务不会回滚，此时就存在分布式事务问题。</p>
-<h1 id="seata是什么">19. seata是什么</h1><p>Seata是阿里巴巴退出的一款用来解决分布式事务问题的框架，他经过天猫双十一的考验，很有可能成为解决分布式事务问题的主流框架</p>
-<h1 id="seata术语">20. seata术语</h1><p>Seata分为三个模块，分别是TM、RM和TC(简写)。</p>
-<ul>
-<li>TC(transaction Coordinator)，代表seata服务器，seata是一个spring boot的jar包。</li>
-<li>TM(transaction Manager)事务管理器。</li>
-<li>RM(Resource Manager) 代表每个数据库。 Seata还用了一个XID，代表了一个分布式事务，相当于dubbo中的Request ID。  </li>
-</ul>
-<h1 id="seata流程">21. seata流程</h1><ul>
-<li>TM向TC注册全局事务，并生成全局唯一的XID。</li>
-<li>RM向TC注册分支事务，并将其纳入该XID对应的全局事务范围。</li>
-<li>RM向TC汇报资源的准备状态。</li>
-<li>TC汇总所有事务参与者的执行状态，决定分布式事务是全部提交还是全部回滚。</li>
-<li>TC通知所有RM提交/回滚事务。<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202205112041594.png">  </li>
-</ul>
-<h1 id="seata流程相亲版">22. seata流程相亲版</h1><ul>
-<li>张学霸（TM）跟导师(TC)提议，为卢学霸安排对象，卢学霸生成了一个相亲id。</li>
-<li>女神（RM）向tc注册了资料，卢学霸在他的相亲id中接收到了推送。</li>
-<li>女神向卢学霸汇报自己的资料。</li>
-<li>TC汇总所有女神的资料，让卢学霸决定是否去参加相亲。</li>
-<li>TC向卢学霸汇报相亲结果。  </li>
-</ul>
-<h1 id="Seata分布式事务框架实现原理？">23. Seata分布式事务框架实现原理？</h1><p>Seata有三个组成部分：事务协调器TC：协调者、事务管理器TM：发起方、资源管理器RM：参与方</p>
-<ul>
-<li>（1）发起方会向协调者申请一个全局事务id，并保存到ThreadLocal中（为什么要保存到ThreadLocal中？弱引用，线程之间不会发生数据冲突）</li>
-<li>（2）Seata数据源代理发起方和参与方的数据源，将前置镜像和后置镜像写入到undo_log表中，方便后期回滚使用</li>
-<li>（3）发起方获取全局事务id，通过改写Feign客户端请求头传入全局事务id。</li>
-<li>（4）参与方从请求头中获取全局事务id保存到ThreadLocal中，并把该分支注册到SeataServer中。</li>
-<li>（5）如果没有出现异常，发起方会通知协调者，协调者通知所有分支，通过全局事务id和本地事务id删除undo_log数据，如果出现异常，通过undo_log逆向生成sql语句并执行，然后删除undo_log语句。如果处理业务逻辑代码超时，也会回滚。  </li>
-</ul>
-<h1 id="SpringBoot如何整合Seata">24. SpringBoot如何整合Seata?</h1><p>一般情况下，学一个知识不需要去学API，学的主要是思想，API会发生变化，思想几乎是不会变的</p>
-<ul>
-<li>第一步：引入依赖</li>
-<li>第二步：bin下的file文件和registry文件放入到每个项目中，并修改，分组名称要保持一致</li>
-<li>第三步：yml配置seata</li>
-<li>第四步：引入DataSourceProxy配置文件</li>
-<li>第五步：添加核心主机@GlobalTransaction注解  </li>
-</ul>
-<h1 id="常见的分布式事务解决方案？">25. 常见的分布式事务解决方案？</h1><ul>
-<li>1、使用MQ</li>
-<li>2、使用LCN</li>
-<li>3、使用Seata</li>
-<li>4、2PC、3PC  </li>
-</ul>
-<h1 id="SpringCloud-Alibaba的面试题视频参考：">26. SpringCloud Alibaba的面试题视频参考：</h1><p><a href="https://www.bilibili.com/video/av500291691">SpringCloud Alibaba的面试题视频参考</a></p>
-]]></content>
-      <categories>
-        <category>面试题</category>
-      </categories>
-      <tags>
-        <tag>SpringCloud</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringBoot面试题归纳</title>
-    <url>/2022/05/11/SpringBoot%E9%9D%A2%E8%AF%95%E9%A2%98%E5%BD%92%E7%BA%B3/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<h1 id="SpringBoot-中的-SpringBootApplication注解？">1. SpringBoot 中的@SpringBootApplication注解？</h1><pre><code>@SpringBootApplication 包含了3个主要的注解，分别为@SpringBootConfiguration表明该类为配置类，@EnableAutoConfiguration启动自动配置功能以及@ComponentScan扫描包。
-@EnableAutoConfiguration中包含了@AutoConfigurationPackage自动配置包以及通过@Import将AutoConfigurationImportSelector 这个类导入到Spring 容器中，AutoConfigurationImportSelector会进行筛选需要在启动时加载的自动配置类，具体流程：  
-1. 读取所有jar包下的resources/META-INF 目录下的spring.factories文件，并将其中的EnableAutoConfiguration属性对应的配置类的包路径添加到集合中。
-2. 因为从spring.factories 文件获取的自动配置类太多，如果有些不必要的自动配置类都加载进内存，会造成内存浪费。所以需要对不需要的自动配置类进行过滤。
-    1）利用LinkedHashSet去重。  
-    2）通过获取要排除的自动配置类并移除，比如@SpringBootApplication中的exclude属性所包含的配置类。  
-    3）通过获取maven引入的依赖，保留这些依赖对应的配置类。  
-    4）通过一些条件注解去判断配置类是否符合创建条件。  
-</code></pre>
-<h1 id="SpringBoot-中run-方法实现逻辑">2. SpringBoot 中run 方法实现逻辑?</h1><pre><code>1. 获取并启动监听器
-2. 构造应用上下文环境
-3. 初始化应用上下文
-4. 刷新应用上下文前的准备阶段
-5. 刷新应用上下文
-6. 刷新应用上下文后的扩展接口
-</code></pre>
-<h1 id="SpringBoot-starter-机制">3. SpringBoot starter 机制?</h1><pre><code>SpringBoot中的starter是一种非常重要的机制，能够抛弃以前繁杂的配置，将其统一集成进starter，应用者只需要在maven中引入starter依赖，SpringBoot就能自动扫描到要加载的信息并启动相应的默认配置。starter让我们摆脱了各种依赖库的处理，需要配置各种信息的困扰。SpringBoot会自动通过classpath路径下的类发现需要的bean，并注册进IOC容器。SpringBoot提供了针对日常企业应用研发各种场景的spring-boot-starter依赖模块。所有这些依赖模块都遵循着约定成俗的默认配置，并允许我们调整这些配置，即遵循“约定大于配置”的理念。
-简而言之，starter就是一个外部的项目，我们需要使用它的时候就可以在当前springboot项目中引入它。
-</code></pre>
-<h1 id="SpringBoot-中的自定义starter是怎样实现的？">4. SpringBoot 中的自定义starter是怎样实现的？</h1><pre><code>首先创建一个maven项目，在pom文件中引入依赖spring-boot-autoconfigure。随后创建一个实体类以及一个配置类，配置类中将实体类注入到bean中。此时在另一个项目中的pom文件里引入刚刚创建的maven工程的依赖。发现可以通过@Autowired 获取到实体类的bean，说明自定义starter配置成功。
-</code></pre>
-]]></content>
-      <categories>
-        <category>面试题</category>
-      </categories>
-      <tags>
-        <tag>SpringBoot</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>多线程面试44题</title>
-    <url>/2022/04/26/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%9D%A2%E8%AF%9544%E9%A2%98/</url>
+    <url>/clover/26171.html</url>
     <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202204261303599.png"></p>
 <span id="more"></span>
 <h1 id="并发编程三要素？">1. 并发编程三要素？</h1><ol>
@@ -2507,8 +2321,139 @@ ribbon.ConnectTimeout=6000012
       </tags>
   </entry>
   <entry>
+    <title>Vue常见面试题</title>
+    <url>/clover/26171.html</url>
+    <content><![CDATA[<h1 id="什么是-mvvm？">1. 什么是 mvvm？</h1><p>MVVM 是 Model-View-ViewModel 的缩写。mvvm 是一种设计思想。Model 层代表数据模型，也可以在 Model 中定义数据修改和操作的业务逻辑；View 代表 UI 组件，它负责将数据模型转化成 UI 展现出来，ViewModel 是一个同步 View 和 Model 的对象。</p>
+<p>在 MVVM 架构下，View 和 Model 之间并没有直接的联系，而是通过 ViewModel 进行交互，Model 和 ViewModel 之间的交互是双向的， 因此 View 数据的变化会同步到 Model 中，而 Model 数据的变化也会立即反应到 View 上。</p>
+<p>ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而 View 和 Model 之间的同步工作完全是自动的，无需人为干涉，因此开发者只需关注业务逻辑，不需要手动操作 DOM, 不需要关注数据状态的同步问题，复杂的数据状态维护完全由 MVVM 来统一管理。</p>
+<h1 id="mvvm-和-mvc-区别？">2. mvvm 和 mvc 区别？</h1><p>mvc 和 mvvm 其实区别并不大。都是一种设计思想。主要就是 mvc 中 Controller 演变成 mvvm 中的 viewModel。mvvm 主要解决了 mvc 中大量的 DOM 操作使页面渲染性能降低，加载速度变慢，影响用户体验。和当 Model 频繁发生变化，开发者需要主动更新到 View 。</p>
+<h1 id="vue-的优点是什么？">3. vue 的优点是什么？</h1><ul>
+<li>低耦合。视图（View）可以独立于 Model 变化和修改，一个 ViewModel 可以绑定到不同的”View”上，当 View 变化的时候 Model 可以不变，当 Model 变化的时候 View 也可以不变。</li>
+<li>可重用性。你可以把一些视图逻辑放在一个 ViewModel 里面，让很多 view 重用这段视图逻辑。</li>
+<li>独立开发。开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计，使用 Expression Blend 可以很容易设计界面并生成 xml 代码。</li>
+<li>可测试。界面素来是比较难于测试的，而现在测试可以针对 ViewModel 来写。</li>
+</ul>
+<h1 id="请详细说下你对-vue-生命周期的理解？">4. 请详细说下你对 vue 生命周期的理解？</h1><p>答：总共分为 8 个阶段创建前/后，载入前/后，更新前/后，销毁前/后。</p>
+<ul>
+<li>创建前/后： 在 beforeCreate 阶段，vue 实例的挂载元素 el 还没有。</li>
+<li>载入前/后：在 beforeMount 阶段，vue 实例的$el 和 data 都初始化了，但还是挂载之前为虚拟的 dom 节点，data.message 还未替换。在 mounted 阶段，vue 实例挂载完成，data.message 成功渲染。</li>
+<li>更新前/后：当 data 变化时，会触发 beforeUpdate 和 updated 方法。</li>
+<li>销毁前/后：在执行 destroy 方法后，对 data 的改变不会再触发周期函数，说明此时 vue 实例已经解除了事件监听以及和 dom 的绑定，但是 dom 结构依然存在</li>
+</ul>
+<h1 id="组件之间的传值？">5. 组件之间的传值？</h1><ol>
+<li>父组件与子组件传值</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">//父组件通过标签上面定义传值</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Main</span> <span class="attr">:obj</span>=<span class="string">&quot;data&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">Main</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//引入子组件</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> Main form <span class="string">&quot;./main&quot;</span></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    exprot <span class="keyword">default</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">name</span>:<span class="string">&quot;parent&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="attr">data</span>:<span class="string">&quot;我要向子组件传递数据&quot;</span></span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="comment">//初始化组件</span></span></span><br><span class="line"><span class="javascript">        <span class="attr">components</span>:&#123;</span></span><br><span class="line"><span class="javascript">            Main</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//子组件通过props方法接受数据</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123;data&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    exprot <span class="keyword">default</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">name</span>:<span class="string">&quot;son&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="comment">//接受父组件传值</span></span></span><br><span class="line"><span class="javascript">        <span class="attr">props</span>:[<span class="string">&quot;data&quot;</span>]</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>子组件向父组件传递数据</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">//子组件通过$emit方法传递参数</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-on:click</span>=<span class="string">&quot;events&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//引入子组件</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> Main form <span class="string">&quot;./main&quot;</span></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    exprot <span class="keyword">default</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">methods</span>:&#123;</span></span><br><span class="line"><span class="javascript">            <span class="attr">events</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123;data&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    exprot <span class="keyword">default</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">name</span>:<span class="string">&quot;son&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="comment">//接受父组件传值</span></span></span><br><span class="line"><span class="javascript">        <span class="attr">props</span>:[<span class="string">&quot;data&quot;</span>]</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="active-class-是哪个组件的属性？">6. active-class 是哪个组件的属性？</h1><p>vue-router 模块的 router-link 组件。</p>
+<h1 id="嵌套路由怎么定义？">7. 嵌套路由怎么定义？</h1><p>在实际项目中我们会碰到多层嵌套的组件组合而成，但是我们如何实现嵌套路由呢？因此我们需要在 VueRouter 的参数中使用 children 配置，这样就可以很好的实现路由嵌套。<br>index.html，只有一个路由出口</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- router-view 路由出口, 路由匹配到的组件将渲染在这里 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>main.js，路由的重定向，就会在页面一加载的时候，就会将 home 组件显示出来，因为重定向指向了 home 组件，redirect 的指向与 path 的必须一致。children 里面是子路由，当然子路由里面还可以继续嵌套子路由。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line">Vue.use(VueRouter)</span><br><span class="line"></span><br><span class="line"><span class="comment">//引入两个组件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> home <span class="keyword">from</span> <span class="string">&quot;./home.vue&quot;</span></span><br><span class="line"><span class="keyword">import</span> game <span class="keyword">from</span> <span class="string">&quot;./game.vue&quot;</span></span><br><span class="line"><span class="comment">//定义路由</span></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">&quot;/&quot;</span>, <span class="attr">redirect</span>: <span class="string">&quot;/home&quot;</span> &#125;,<span class="comment">//重定向,指向了home组件</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&quot;/home&quot;</span>, <span class="attr">component</span>: home,</span><br><span class="line">        <span class="attr">children</span>: [</span><br><span class="line">            &#123; <span class="attr">path</span>: <span class="string">&quot;/home/game&quot;</span>, <span class="attr">component</span>: game &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"><span class="comment">//创建路由实例</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;routes&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    <span class="attr">data</span>: &#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">methods</span>: &#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    router</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>home.vue，点击显示就会将子路由显示在出来，子路由的出口必须在父路由里面，否则子路由无法显示。</p>
+<h1 id="路由之间跳转？">8. 路由之间跳转？</h1><ul>
+<li>声明式（标签跳转） <code>&lt;router-link :to=&quot;index&quot;&gt;</code></li>
+<li>编程式（ js 跳转） <code>router.push(&#39;index&#39;)</code></li>
+</ul>
+<h1 id="懒加载（按需加载路由）（常考）">9. 懒加载（按需加载路由）（常考）</h1><p>webpack 中提供了 require.ensure()来实现按需加载。以前引入路由是通过 import 这样的方式引入，改为 const 定义的方式进行引入。</p>
+<ul>
+<li>不进行页面按需加载引入方式：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span>  home   <span class="keyword">from</span> <span class="string">&#x27;../../common/home.vue&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>进行页面按需加载的引入方式：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span>  home = <span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">require</span>.ensure( [], <span class="function">() =&gt;</span> r (<span class="built_in">require</span>(<span class="string">&#x27;../../common/home.vue&#x27;</span>)))</span><br></pre></td></tr></table></figure>
+
+<h1 id="vuex-是什么？怎么使用？哪种功能场景使用它？">10. vuex 是什么？怎么使用？哪种功能场景使用它？</h1><p>vue 框架中状态管理。在 main.js 引入 store，注入。新建了一个目录 store，….. export 。场景有：单页应用中，组件之间的状态。音乐播放、登录状态、加入购物车</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 新建 store.js</span></span><br><span class="line"><span class="keyword">import</span> vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> vuex form <span class="string">&#x27;vuex&#x27;</span></span><br><span class="line">vue.use(vuex)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> vuex.store(&#123;</span><br><span class="line">	<span class="comment">//...code</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//main.js</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;./store&#x27;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h1 id="vue-router-有哪几种导航钩子">11. vue-router 有哪几种导航钩子?</h1><p>三种</p>
+<ul>
+<li>全局导航钩子<ul>
+<li>router.beforeEach(to, from, next),</li>
+<li>router.beforeResolve(to, from, next),</li>
+<li>router.afterEach(to, from ,next)</li>
+</ul>
+</li>
+<li>组件内钩子<ul>
+<li>beforeRouteEnter,</li>
+<li>beforeRouteUpdate,</li>
+<li>beforeRouteLeave</li>
+</ul>
+</li>
+<li>单独路由独享组件<ul>
+<li>beforeEnter</li>
+</ul>
+</li>
+</ul>
+<h1 id="自定义指令-v-check-v-focus-的方法有哪些-它有哪些钩子函数-还有哪些钩子函数参数">12. 自定义指令(v-check, v-focus) 的方法有哪些? 它有哪些钩子函数? 还有哪些钩子函数参数</h1><ul>
+<li>全局定义指令：在 vue 对象的 directive 方法里面有两个参数, 一个是指令名称, 另一个是函数。</li>
+<li>组件内定义指令：directives</li>
+<li>钩子函数: bind(绑定事件出发)、inserted(节点插入时候触发)、update(组件内相关更新)</li>
+<li>钩子函数参数： el、binding</li>
+</ul>
+<h1 id="说出至少-4-种-vue-当中的指令和它的用法">13. 说出至少 4 种 vue 当中的指令和它的用法</h1><p>v-if(判断是否隐藏)、v-for(把数据遍历出来)、v-bind(绑定属性)、v-model(实现双向绑定)</p>
+<h1 id="vue-的双向绑定的原理是什么-常考">14. vue 的双向绑定的原理是什么(常考)</h1><p>vue.js 是采用数据劫持结合发布者-订阅者模式的方式，通过 Object.defineProperty()来劫持各个属性的 setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。</p>
+<p>具体步骤：<br>第一步：需要 observe 的数据对象进行递归遍历，包括子属性对象的属性，都加上 setter 和 getter 这样的话，给这个对象的某个值赋值，就会触发 setter，那么就能监听到了数据变化</p>
+<p>第二步：compile 解析模板指令，将模板中的变量替换成数据，然后初始化渲染页面视图，并将每个指令对应的节点绑定更新函数，添加监听数据的订阅者，一旦数据有变动，收到通知，更新视图</p>
+<p>第三步：Watcher 订阅者是 Observer 和 Compile 之间通信的桥梁，主要做的事情是:</p>
+<ul>
+<li>在自身实例化时往属性订阅器(dep)里面添加自己</li>
+<li>自身必须有一个 update()方法</li>
+<li>待属性变动 dep.notice()通知时，能调用自身的 update() 方法，并触发 Compile 中绑定的回调，则功成身退。</li>
+</ul>
+<p>第四步：MVVM 作为数据绑定的入口，整合 Observer、Compile 和 Watcher 三者，通过 Observer 来监听自己的 model 数据变化，通过 Compile 来解析编译模板指令，最终利用 Watcher 搭起 Observer 和 Compile 之间的通信桥梁，达到数据变化 -&gt; 视图更新；视图交互变化(input) -&gt; 数据 model 变更的双向绑定效果。</p>
+<h1 id="vuex-相关">15. vuex 相关</h1><h1 id="vuex-有哪几种属性">16. vuex 有哪几种属性</h1><p>有 5 种，分别是 state、getter、mutation、action、module</p>
+<h1 id="vuex-的-store-特性是什么">17. vuex 的 store 特性是什么</h1><ul>
+<li>vuex 就是一个仓库，仓库里放了很多对象。其中 state 就是数据源存放地，对应于一般 vue 对象里面的 data</li>
+<li>state 里面存放的数据是响应式的，vue 组件从 store 读取数据，若是 store 中的数据发生改变，依赖这相数据的组件也会发生更新</li>
+<li>它通过 mapState 把全局的 state 和 getters 映射到当前组件的 computed 计算属性</li>
+</ul>
+<h1 id="vuex-的-getter-特性是什么">18. vuex 的 getter 特性是什么</h1><ul>
+<li>getter 可以对 state 进行计算操作，它就是 store 的计算属性</li>
+<li>虽然在组件内也可以做计算属性，但是 getters 可以在多给件之间复用</li>
+<li>如果一个状态只在一个组件内使用，是可以不用 getters</li>
+</ul>
+<h1 id="vuex-的-mutation-特性是什么">19. vuex 的 mutation 特性是什么</h1><ul>
+<li>action 类似于 muation, 不同在于：action 提交的是 mutation,而不是直接变更状态</li>
+<li>action 可以包含任意异步操作</li>
+</ul>
+<h1 id="vue-中-ajax-请求代码应该写在组件的-methods-中还是-vuex-的-action-中">20. vue 中 ajax 请求代码应该写在组件的 methods 中还是 vuex 的 action 中</h1><p>如果请求来的数据不是要被其他组件公用，仅仅在请求的组件内使用，就不需要放入 vuex 的 state 里</p>
+<p>如果被其他地方复用，请将请求放入 action 里，方便复用，并包装成 promise 返回</p>
+<h1 id="不用-vuex-会带来什么问题">21. 不用 vuex 会带来什么问题</h1><ul>
+<li>可维护性会下降，你要修改数据，你得维护 3 个地方</li>
+<li>可读性下降，因为一个组件里的数据，你根本就看不出来是从哪里来的</li>
+<li>增加耦合，大量的上传派发，会让耦合性大大的增加，本来 Vue 用 Component 就是为了减少耦合，现在这么用，和组件化的初衷相背</li>
+</ul>
+<h1 id="vuex-原理">22. vuex 原理</h1><p>vuex 仅仅是作为 vue 的一个插件而存在，不像 Redux,MobX 等库可以应用于所有框架，vuex 只能使用在 vue 上，很大的程度是因为其高度依赖于 vue 的 computed 依赖检测系统以及其插件系统，</p>
+<p>vuex 整体思想诞生于 flux,可其的实现方式完完全全的使用了 vue 自身的响应式设计，依赖监听、依赖收集都属于 vue 对对象 Property set get 方法的代理劫持。最后一句话结束 vuex 工作原理，vuex 中的 store 本质就是没有 template 的隐藏着的 vue 组件；</p>
+<h1 id="使用-Vuex-只需执行-Vue-use-Vuex-，并在-Vue-的配置中传入一个-store-对象的示例，store-是如何实现注入的？美团">23. 使用 Vuex 只需执行 Vue.use(Vuex)，并在 Vue 的配置中传入一个 store 对象的示例，store 是如何实现注入的？美团</h1><p>Vue.use(Vuex) 方法执行的是 install 方法，它实现了 Vue 实例对象的 init 方法封装和注入，使传入的 store 对象被设置到 Vue 上下文环境的$store 中。因此在 Vue Component 任意地方都能够通过 this.$store 访问到该 store。</p>
+<h1 id="state-内部支持模块配置和模块嵌套，如何实现的？美团">24. state 内部支持模块配置和模块嵌套，如何实现的？美团</h1><p>在 store 构造方法中有 makeLocalContext 方法，所有 module 都会有一个 local context，根据配置时的 path 进行匹配。所以执行如 dispatch(‘submitOrder’, payload)这类 action 时，默认的拿到都是 module 的 local state，如果要访问最外层或者是其他 module 的 state，只能从 rootState 按照 path 路径逐步进行访问。</p>
+<h1 id="在执行-dispatch-触发-action-commit-同理-的时候，只需传入-type-payload-，action-执行函数中第一个参数-store-从哪里获取的？美团">25. 在执行 dispatch 触发 action(commit 同理)的时候，只需传入(type, payload)，action 执行函数中第一个参数 store 从哪里获取的？美团</h1><p>store 初始化时，所有配置的 action 和 mutation 以及 getters 均被封装过。在执行如 dispatch(‘submitOrder’, payload)的时候，actions 中 type 为 submitOrder 的所有处理方法都是被封装后的，其第一个参数为当前的 store 对象，所以能够获取到 { dispatch, commit, state, rootState } 等数据。</p>
+<h1 id="Vuex-如何区分-state-是外部直接修改，还是通过-mutation-方法修改的？美团">26. Vuex 如何区分 state 是外部直接修改，还是通过 mutation 方法修改的？美团</h1><p>Vuex 中修改 state 的唯一渠道就是执行 commit(‘xx’, payload) 方法，其底层通过执行 this._withCommit(fn) 设置_committing 标志变量为 true，然后才能修改 state，修改完毕还需要还原_committing 变量。外部修改虽然能够直接修改 state，但是并没有修改_committing 标志位，所以只要 watch 一下 state，state change 时判断是否_committing 值为 true，即可判断修改的合法性。</p>
+<h1 id="调试时的”时空穿梭”功能是如何实现的？美团">27. 调试时的”时空穿梭”功能是如何实现的？美团</h1><p>devtoolPlugin 中提供了此功能。因为 dev 模式下所有的 state change 都会被记录下来，’时空穿梭’ 功能其实就是将当前的 state 替换为记录中某个时刻的 state 状态，利用 store.replaceState(targetState) 方法将执行 this._vm.state = state 实现。</p>
+<h1 id="axios-是什么？怎么使用？描述使用它实现登录功能的流程">28. axios 是什么？怎么使用？描述使用它实现登录功能的流程</h1><p>axios 是请求后台资源的模块。 npm i axios -S</p>
+<p>如果发送的是跨域请求，需在配置文件中 config/index.js 进行配置</p>
+]]></content>
+      <categories>
+        <category>面试题</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spring面试71题</title>
-    <url>/2022/04/26/Spring%E9%9D%A2%E8%AF%9571%E9%A2%98/</url>
+    <url>/clover/29824.html</url>
     <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202204261324162.jpg"></p>
 <span id="more"></span>
 
@@ -2708,139 +2653,195 @@ Metadataautoproxying
       </tags>
   </entry>
   <entry>
-    <title>Vue常见面试题</title>
-    <url>/2022/04/26/Vue%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="什么是-mvvm？">1. 什么是 mvvm？</h1><p>MVVM 是 Model-View-ViewModel 的缩写。mvvm 是一种设计思想。Model 层代表数据模型，也可以在 Model 中定义数据修改和操作的业务逻辑；View 代表 UI 组件，它负责将数据模型转化成 UI 展现出来，ViewModel 是一个同步 View 和 Model 的对象。</p>
-<p>在 MVVM 架构下，View 和 Model 之间并没有直接的联系，而是通过 ViewModel 进行交互，Model 和 ViewModel 之间的交互是双向的， 因此 View 数据的变化会同步到 Model 中，而 Model 数据的变化也会立即反应到 View 上。</p>
-<p>ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而 View 和 Model 之间的同步工作完全是自动的，无需人为干涉，因此开发者只需关注业务逻辑，不需要手动操作 DOM, 不需要关注数据状态的同步问题，复杂的数据状态维护完全由 MVVM 来统一管理。</p>
-<h1 id="mvvm-和-mvc-区别？">2. mvvm 和 mvc 区别？</h1><p>mvc 和 mvvm 其实区别并不大。都是一种设计思想。主要就是 mvc 中 Controller 演变成 mvvm 中的 viewModel。mvvm 主要解决了 mvc 中大量的 DOM 操作使页面渲染性能降低，加载速度变慢，影响用户体验。和当 Model 频繁发生变化，开发者需要主动更新到 View 。</p>
-<h1 id="vue-的优点是什么？">3. vue 的优点是什么？</h1><ul>
-<li>低耦合。视图（View）可以独立于 Model 变化和修改，一个 ViewModel 可以绑定到不同的”View”上，当 View 变化的时候 Model 可以不变，当 Model 变化的时候 View 也可以不变。</li>
-<li>可重用性。你可以把一些视图逻辑放在一个 ViewModel 里面，让很多 view 重用这段视图逻辑。</li>
-<li>独立开发。开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计，使用 Expression Blend 可以很容易设计界面并生成 xml 代码。</li>
-<li>可测试。界面素来是比较难于测试的，而现在测试可以针对 ViewModel 来写。</li>
-</ul>
-<h1 id="请详细说下你对-vue-生命周期的理解？">4. 请详细说下你对 vue 生命周期的理解？</h1><p>答：总共分为 8 个阶段创建前/后，载入前/后，更新前/后，销毁前/后。</p>
+    <title>SpringCloudAlibaba面试题</title>
+    <url>/clover/54401.html</url>
+    <content><![CDATA[<span id="more"></span>
+
+<h1 id="微服务个人理解">1. 微服务个人理解</h1><p>微服务架构是一种架构模式或者说是一种架构风格，它提倡将单一应用程序划分为一组小的服务，每个服务运行在独立的自己的进程中，服务之间相互协调、互相配合，为用户提供最终价值。服务之间采用轻量级的通信机制互相通（通常是基于HTTP的RESTful API），每个服务都围绕着具体的业务进行构建，并且能够被独立的构建在生产境、类生产环境等。另外，应避免统一的、集中式的服务管理机制，对具体的一个服务而言，应根据业务上下文，择合适的语言、工具对其进行构建，可以有一个非常轻量级的集中式管理来协调这些服务，可以使用不同的语言来写服务，也可以使用不同的数据存储。  </p>
+<h1 id="什么是Spring-Cloud-amp-amp-Alibaba？">2. 什么是Spring Cloud&amp;&amp;Alibaba？</h1><p>Spring Cloud是Spring开源组织下的一个子项目，提供了一系列用于实现分布式微服务系统的工具集，帮助开发者快速构建微服务应用。</p>
+<p>Spring Cloud Alibaba是Spring Cloud的子项目；包含微服务开发必备组件；基于和符合Spring Cloud标准的阿里的微服务解决方案。</p>
+<h1 id="服务注册和发现是什么意思？Spring-Cloud如何实现？">3. 服务注册和发现是什么意思？Spring Cloud如何实现？</h1><p>当我们开始一个项目时，我们通常在属性文件中进行所有的配置。随着越来越多的服务开发和部署，添加和修改这些属性变得更加复杂。有些服务可能会下降，而某些位置可能会发生变化。手动更改属性可能会产生问题。 Nacos服务注册和发现可以在这种情况下提供帮助。由于所有服务都在Eureka服务器上注册并通过调用Nacos服务器完成查找，因此无需处理服务地点的任何更改和处理。</p>
+<h1 id="什么是Nacos">4. 什么是Nacos?</h1><p>英文全称Dynamic Naming and Configuration Service，Na为naming/nameServer即注册中心,co为configuration即注册中心，service是指该注册/配置中心都是以服务为核心。<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202205111738340.png">  </p>
+<h1 id="Nacos注册中心原理">5. Nacos注册中心原理</h1><p><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202205111739182.png"><br>服务提供者、服务消费者、服务发现组件这三者之间的关系大致如下</p>
+<p>1、微服务在启动时，将自己的网络地址等信息注册到服务发现组件(nacos server)中，服务发现组件会存储这些信息。</p>
+<p>2、各个微服务与服务发现组件使用一定机制通信（例如在一定的时间内发送心跳包）。服务发现组件若发现与某微服务实例通信正常则保持注册状态(up在线状态)、若长时间无法与某微服务实例通信，就会自动注销（即：删除）该实例。</p>
+<p>3、服务消费者可从服务发现组件查询服务提供者的网络地址，并使用该地址调用服务提供者的接口。</p>
+<p>4、当微服务网络地址发生变更（例如实例增减或者IP端口发生变化等）时，会重新注册到服务发现组件。</p>
+<h1 id="Nacos注册中心使用【Nacos-Client客户端】">6. Nacos注册中心使用【Nacos-Client客户端】</h1><p>（1）pom文件加依赖:alibaba-nacos-discovery</p>
+<pre><code class="code">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-discovery&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>（2）启动类加注解</p>
+<pre><code class="code">//Nacos服务端【早期版本需要加注解，现在0.0.9版本后已不是必须的】
+@EnableDiscoveryClient
+</code></pre>
+<p>（3）在对应的微服务的yml配置文件【服务名称和nacos server 地址】</p>
+<pre><code class="code">spring:
+  cloud:
+    nacos:
+      discovery:
+        #指定nacos server的地址，不需要写http
+        server-addr: localhost:8848 
+</code></pre>
+<h1 id="Nacos配置中心使用【Nacos-Server服务端】">7. Nacos配置中心使用【Nacos-Server服务端】</h1><p>1）加依赖–alibaba-nacos-config</p>
+<pre><code class="code">&lt;!--nacos-config nacos管理配置的依赖--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-config&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>2）加配置，新增bootstrap.yml文件配置，配置属性如下  </p>
+<pre><code class="code">spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848 #这里的server-addr用作配置管理
+        file-extension: yaml
+  application:
+    name: user-server
+  profiles: # profiles区分多环境配置
+    active: dev #切换配置文件，如dev、test、pro等环境
+</code></pre>
+<p>3）配置中心包含：配置管理、服务管理(微服务管理)、命名空间、集群管理<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202205111742087.png"><br>4）通过配置更改动态刷新参数–@RefreshScope注解 普通application参数在配置中心直接配置皆可，如果需要可以动态刷新的配置，需要在相应类上加上@RefreshScope注解,示例如下，当在nacos配置中心更改配置后，方法getId的值也会刷新。  </p>
+<pre><code class="code">@RefreshScope
+public class IdEntity &#123;
+
+    @Value(&quot;$&#123;id&#125;&quot;)
+    private int id;
+
+    public int getId()&#123;
+        return this.id;
+    &#125;
+&#125;
+</code></pre>
+<h1 id="Feign介绍">8. Feign介绍</h1><p>Feign是Netfilx开源的声明式HTTP客户端，Feign是一个http请求调用的轻量级框架，可以以Java接口注解的方式调用Http请求。Spring Cloud引入 Feign并且集成了Ribbon实现客户端负载均衡调用。  </p>
+<h1 id="Feign调用原理">9. Feign调用原理</h1><p>Feign远程调用，核心就是通过一系列的封装和处理，将以JAVA注解的方式定义的远程调用API接口，最终转换成HTTP的请求形式，然后将HTTP的请求的响应结果，解码成JAVA Bean，放回给调用者。</p>
+<p>基于重试器发送HTTP请求：Feign 内置了一个重试器，当HTTP请求出现IO异常时，Feign会有一个最大尝试次数发送请求。  </p>
+<h1 id="Feign调用原理-1">10. Feign调用原理</h1><p>（1）加依赖–openfeign  </p>
+<pre><code class="code">&lt;!--feign依赖、服务通信--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>（2）启动类加注解  </p>
+<pre><code class="code">@EnableFeignClients//feign注解
+</code></pre>
+<p>（3）请求接口的类加FeignClient注解  </p>
+<pre><code class="code">@FeignClient(value=&quot;article-server&quot;)
+</code></pre>
+<h1 id="Feign使用中遇到的相关问题">11. Feign使用中遇到的相关问题</h1><p>（1）使用feign客户端调用其他微服务时，发送POST请求时，对象信息没有传递成功。关键在于加上注解：@RequestBody<br>（2）使用feign客户端调用其他微服务时，报错超时：e=feign.RetryableException: Read timed out executing POST  </p>
+<pre><code class="code">ribbon.ReadTimeout=60000
+ribbon.ConnectTimeout=6000012
+</code></pre>
+<h1 id="什么是服务熔断？什么是服务降级？">12. 什么是服务熔断？什么是服务降级？</h1><p>熔断机制，是应对雪崩效应的一种微服务链路保护机制。当某个微服务不可用或者响应时间太长时，会进行服务降级，进而熔断该节点微服务的调用，快速返回“错误”的响应信息。当检测到该节点微服务调用响应正常后恢复调用链路。在SpringCloud框架里熔断机制通过Hystrix实现，Hystrix会监控微服务间调用的状况，当失败的调用到一定阈值，缺省是5秒内调用20次，如果失败，就会启动熔断机制。</p>
+<p>服务降级，一般是从整体负荷考虑。就是当某个服务熔断之后，服务器将不再被调用，此时客户端可以自己准备一个本地的fallback回调，返回一个缺省值。这样做，虽然水平下降，但好歹可用，比直接挂掉强。</p>
+<h1 id="什么是服务雪崩效应">13. 什么是服务雪崩效应?</h1><p>雪崩效应是在大型互联网项目中，当某个服务发生宕机时，调用这个服务的其他服务也会发生宕机，大型项目的微服务之间的调用是互通的，这样就会将服务的不可用逐步扩大到各个其他服务中，从而使整个项目的服务宕机崩溃。</p>
+<h1 id="LoadBalanced注解的作用">14. @LoadBalanced注解的作用</h1><p>开启客户端负载均衡。</p>
+<h1 id="Nginx与Ribbon的区别">15. Nginx与Ribbon的区别</h1><p>Nginx是反向代理同时可以实现负载均衡，nginx拦截客户端请求采用负载均衡策略根据upstream配置进行转发，相当于请求通过nginx服务器进行转发。Ribbon是客户端负载均衡，从注册中心读取目标服务器信息，然后客户端采用轮询策略对服务直接访问，全程在客户端操作。</p>
+<h1 id="Ribbon底层实现原理">16. Ribbon底层实现原理</h1><p>Ribbon使用discoveryClient从注册中心读取目标服务信息，对同一接口请求进行计数，使用%取余算法获取目标服务集群索引，返回获取到的目标服务信息。</p>
+<h1 id="Ribbon负载均衡算法">17. Ribbon负载均衡算法</h1><p>IRule是以下七种负载均衡算法的父接口<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202205111747408.png"><br>说明：<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202205111747552.png">  </p>
 <ul>
-<li>创建前/后： 在 beforeCreate 阶段，vue 实例的挂载元素 el 还没有。</li>
-<li>载入前/后：在 beforeMount 阶段，vue 实例的$el 和 data 都初始化了，但还是挂载之前为虚拟的 dom 节点，data.message 还未替换。在 mounted 阶段，vue 实例挂载完成，data.message 成功渲染。</li>
-<li>更新前/后：当 data 变化时，会触发 beforeUpdate 和 updated 方法。</li>
-<li>销毁前/后：在执行 destroy 方法后，对 data 的改变不会再触发周期函数，说明此时 vue 实例已经解除了事件监听以及和 dom 的绑定，但是 dom 结构依然存在</li>
+<li>RoundRobinRule： 默认轮询的方式</li>
+<li>RandomRule： 随机方式</li>
+<li>WeightedResponseTimeRule： 根据响应时间来分配权重的方式，响应的越快，分配的值越大。</li>
+<li>BestAvailableRule： 选择并发量最小的方式</li>
+<li>RetryRule： 在一个配置时间段内当选择server不成功，则一直尝试使用subRule的方式选择一个可用的server</li>
+<li>ZoneAvoidanceRule： 根据性能和可用性来选择。</li>
+<li>AvailabilityFilteringRule： 过滤掉那些因为一直连接失败的被标记为circuit tripped的后端server，并过滤掉那些高并发的的后端server（active connections 超过配置的阈值）  </li>
 </ul>
-<h1 id="组件之间的传值？">5. 组件之间的传值？</h1><ol>
-<li>父组件与子组件传值</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">//父组件通过标签上面定义传值</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Main</span> <span class="attr">:obj</span>=<span class="string">&quot;data&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">Main</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//引入子组件</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> Main form <span class="string">&quot;./main&quot;</span></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    exprot <span class="keyword">default</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">name</span>:<span class="string">&quot;parent&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="attr">data</span>:<span class="string">&quot;我要向子组件传递数据&quot;</span></span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="comment">//初始化组件</span></span></span><br><span class="line"><span class="javascript">        <span class="attr">components</span>:&#123;</span></span><br><span class="line"><span class="javascript">            Main</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//子组件通过props方法接受数据</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123;data&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    exprot <span class="keyword">default</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">name</span>:<span class="string">&quot;son&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="comment">//接受父组件传值</span></span></span><br><span class="line"><span class="javascript">        <span class="attr">props</span>:[<span class="string">&quot;data&quot;</span>]</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>子组件向父组件传递数据</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">//子组件通过$emit方法传递参数</span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-on:click</span>=<span class="string">&quot;events&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//引入子组件</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">import</span> Main form <span class="string">&quot;./main&quot;</span></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    exprot <span class="keyword">default</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">methods</span>:&#123;</span></span><br><span class="line"><span class="javascript">            <span class="attr">events</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123;data&#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    exprot <span class="keyword">default</span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">name</span>:<span class="string">&quot;son&quot;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="comment">//接受父组件传值</span></span></span><br><span class="line"><span class="javascript">        <span class="attr">props</span>:[<span class="string">&quot;data&quot;</span>]</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="active-class-是哪个组件的属性？">6. active-class 是哪个组件的属性？</h1><p>vue-router 模块的 router-link 组件。</p>
-<h1 id="嵌套路由怎么定义？">7. 嵌套路由怎么定义？</h1><p>在实际项目中我们会碰到多层嵌套的组件组合而成，但是我们如何实现嵌套路由呢？因此我们需要在 VueRouter 的参数中使用 children 配置，这样就可以很好的实现路由嵌套。<br>index.html，只有一个路由出口</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- router-view 路由出口, 路由匹配到的组件将渲染在这里 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>main.js，路由的重定向，就会在页面一加载的时候，就会将 home 组件显示出来，因为重定向指向了 home 组件，redirect 的指向与 path 的必须一致。children 里面是子路由，当然子路由里面还可以继续嵌套子路由。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line">Vue.use(VueRouter)</span><br><span class="line"></span><br><span class="line"><span class="comment">//引入两个组件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> home <span class="keyword">from</span> <span class="string">&quot;./home.vue&quot;</span></span><br><span class="line"><span class="keyword">import</span> game <span class="keyword">from</span> <span class="string">&quot;./game.vue&quot;</span></span><br><span class="line"><span class="comment">//定义路由</span></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">&quot;/&quot;</span>, <span class="attr">redirect</span>: <span class="string">&quot;/home&quot;</span> &#125;,<span class="comment">//重定向,指向了home组件</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&quot;/home&quot;</span>, <span class="attr">component</span>: home,</span><br><span class="line">        <span class="attr">children</span>: [</span><br><span class="line">            &#123; <span class="attr">path</span>: <span class="string">&quot;/home/game&quot;</span>, <span class="attr">component</span>: game &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br><span class="line"><span class="comment">//创建路由实例</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;routes&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    <span class="attr">data</span>: &#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">methods</span>: &#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    router</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>home.vue，点击显示就会将子路由显示在出来，子路由的出口必须在父路由里面，否则子路由无法显示。</p>
-<h1 id="路由之间跳转？">8. 路由之间跳转？</h1><ul>
-<li>声明式（标签跳转） <code>&lt;router-link :to=&quot;index&quot;&gt;</code></li>
-<li>编程式（ js 跳转） <code>router.push(&#39;index&#39;)</code></li>
-</ul>
-<h1 id="懒加载（按需加载路由）（常考）">9. 懒加载（按需加载路由）（常考）</h1><p>webpack 中提供了 require.ensure()来实现按需加载。以前引入路由是通过 import 这样的方式引入，改为 const 定义的方式进行引入。</p>
+<h1 id="分布式事务产生的背景？">18. 分布式事务产生的背景？</h1><p>在传统的单体项目中，多个不同的业务逻辑使用的都是同一个数据源，使用的都是同一个事务管理器，所以不会存在事务问题。 在分布式或者微服务架构中，每个服务都有自己的数据源，使用不同事务管理器，如果A服务去调用B服务，B服务执行失败了，A服务的事务和B服务的事务都会回滚，这时候是不存在事务问题的，但是如果A服务B服务执行成功之后出现异常，A服务的事务会回滚，但是B服务的事务不会回滚，此时就存在分布式事务问题。</p>
+<h1 id="seata是什么">19. seata是什么</h1><p>Seata是阿里巴巴退出的一款用来解决分布式事务问题的框架，他经过天猫双十一的考验，很有可能成为解决分布式事务问题的主流框架</p>
+<h1 id="seata术语">20. seata术语</h1><p>Seata分为三个模块，分别是TM、RM和TC(简写)。</p>
 <ul>
-<li>不进行页面按需加载引入方式：</li>
+<li>TC(transaction Coordinator)，代表seata服务器，seata是一个spring boot的jar包。</li>
+<li>TM(transaction Manager)事务管理器。</li>
+<li>RM(Resource Manager) 代表每个数据库。 Seata还用了一个XID，代表了一个分布式事务，相当于dubbo中的Request ID。  </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span>  home   <span class="keyword">from</span> <span class="string">&#x27;../../common/home.vue&#x27;</span></span><br></pre></td></tr></table></figure>
-
+<h1 id="seata流程">21. seata流程</h1><ul>
+<li>TM向TC注册全局事务，并生成全局唯一的XID。</li>
+<li>RM向TC注册分支事务，并将其纳入该XID对应的全局事务范围。</li>
+<li>RM向TC汇报资源的准备状态。</li>
+<li>TC汇总所有事务参与者的执行状态，决定分布式事务是全部提交还是全部回滚。</li>
+<li>TC通知所有RM提交/回滚事务。<br><img src="https://cdn.jsdelivr.net/gh/TheCitySnow/blog-img/202205112041594.png">  </li>
+</ul>
+<h1 id="seata流程相亲版">22. seata流程相亲版</h1><ul>
+<li>张学霸（TM）跟导师(TC)提议，为卢学霸安排对象，卢学霸生成了一个相亲id。</li>
+<li>女神（RM）向tc注册了资料，卢学霸在他的相亲id中接收到了推送。</li>
+<li>女神向卢学霸汇报自己的资料。</li>
+<li>TC汇总所有女神的资料，让卢学霸决定是否去参加相亲。</li>
+<li>TC向卢学霸汇报相亲结果。  </li>
+</ul>
+<h1 id="Seata分布式事务框架实现原理？">23. Seata分布式事务框架实现原理？</h1><p>Seata有三个组成部分：事务协调器TC：协调者、事务管理器TM：发起方、资源管理器RM：参与方</p>
 <ul>
-<li>进行页面按需加载的引入方式：</li>
+<li>（1）发起方会向协调者申请一个全局事务id，并保存到ThreadLocal中（为什么要保存到ThreadLocal中？弱引用，线程之间不会发生数据冲突）</li>
+<li>（2）Seata数据源代理发起方和参与方的数据源，将前置镜像和后置镜像写入到undo_log表中，方便后期回滚使用</li>
+<li>（3）发起方获取全局事务id，通过改写Feign客户端请求头传入全局事务id。</li>
+<li>（4）参与方从请求头中获取全局事务id保存到ThreadLocal中，并把该分支注册到SeataServer中。</li>
+<li>（5）如果没有出现异常，发起方会通知协调者，协调者通知所有分支，通过全局事务id和本地事务id删除undo_log数据，如果出现异常，通过undo_log逆向生成sql语句并执行，然后删除undo_log语句。如果处理业务逻辑代码超时，也会回滚。  </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span>  home = <span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">require</span>.ensure( [], <span class="function">() =&gt;</span> r (<span class="built_in">require</span>(<span class="string">&#x27;../../common/home.vue&#x27;</span>)))</span><br></pre></td></tr></table></figure>
-
-<h1 id="vuex-是什么？怎么使用？哪种功能场景使用它？">10. vuex 是什么？怎么使用？哪种功能场景使用它？</h1><p>vue 框架中状态管理。在 main.js 引入 store，注入。新建了一个目录 store，….. export 。场景有：单页应用中，组件之间的状态。音乐播放、登录状态、加入购物车</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 新建 store.js</span></span><br><span class="line"><span class="keyword">import</span> vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> vuex form <span class="string">&#x27;vuex&#x27;</span></span><br><span class="line">vue.use(vuex)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> vuex.store(&#123;</span><br><span class="line">	<span class="comment">//...code</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//main.js</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;./store&#x27;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
-<h1 id="vue-router-有哪几种导航钩子">11. vue-router 有哪几种导航钩子?</h1><p>三种</p>
+<h1 id="SpringBoot如何整合Seata">24. SpringBoot如何整合Seata?</h1><p>一般情况下，学一个知识不需要去学API，学的主要是思想，API会发生变化，思想几乎是不会变的</p>
 <ul>
-<li>全局导航钩子<ul>
-<li>router.beforeEach(to, from, next),</li>
-<li>router.beforeResolve(to, from, next),</li>
-<li>router.afterEach(to, from ,next)</li>
+<li>第一步：引入依赖</li>
+<li>第二步：bin下的file文件和registry文件放入到每个项目中，并修改，分组名称要保持一致</li>
+<li>第三步：yml配置seata</li>
+<li>第四步：引入DataSourceProxy配置文件</li>
+<li>第五步：添加核心主机@GlobalTransaction注解  </li>
 </ul>
-</li>
-<li>组件内钩子<ul>
-<li>beforeRouteEnter,</li>
-<li>beforeRouteUpdate,</li>
-<li>beforeRouteLeave</li>
+<h1 id="常见的分布式事务解决方案？">25. 常见的分布式事务解决方案？</h1><ul>
+<li>1、使用MQ</li>
+<li>2、使用LCN</li>
+<li>3、使用Seata</li>
+<li>4、2PC、3PC  </li>
 </ul>
-</li>
-<li>单独路由独享组件<ul>
-<li>beforeEnter</li>
-</ul>
-</li>
-</ul>
-<h1 id="自定义指令-v-check-v-focus-的方法有哪些-它有哪些钩子函数-还有哪些钩子函数参数">12. 自定义指令(v-check, v-focus) 的方法有哪些? 它有哪些钩子函数? 还有哪些钩子函数参数</h1><ul>
-<li>全局定义指令：在 vue 对象的 directive 方法里面有两个参数, 一个是指令名称, 另一个是函数。</li>
-<li>组件内定义指令：directives</li>
-<li>钩子函数: bind(绑定事件出发)、inserted(节点插入时候触发)、update(组件内相关更新)</li>
-<li>钩子函数参数： el、binding</li>
-</ul>
-<h1 id="说出至少-4-种-vue-当中的指令和它的用法">13. 说出至少 4 种 vue 当中的指令和它的用法</h1><p>v-if(判断是否隐藏)、v-for(把数据遍历出来)、v-bind(绑定属性)、v-model(实现双向绑定)</p>
-<h1 id="vue-的双向绑定的原理是什么-常考">14. vue 的双向绑定的原理是什么(常考)</h1><p>vue.js 是采用数据劫持结合发布者-订阅者模式的方式，通过 Object.defineProperty()来劫持各个属性的 setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。</p>
-<p>具体步骤：<br>第一步：需要 observe 的数据对象进行递归遍历，包括子属性对象的属性，都加上 setter 和 getter 这样的话，给这个对象的某个值赋值，就会触发 setter，那么就能监听到了数据变化</p>
-<p>第二步：compile 解析模板指令，将模板中的变量替换成数据，然后初始化渲染页面视图，并将每个指令对应的节点绑定更新函数，添加监听数据的订阅者，一旦数据有变动，收到通知，更新视图</p>
-<p>第三步：Watcher 订阅者是 Observer 和 Compile 之间通信的桥梁，主要做的事情是:</p>
-<ul>
-<li>在自身实例化时往属性订阅器(dep)里面添加自己</li>
-<li>自身必须有一个 update()方法</li>
-<li>待属性变动 dep.notice()通知时，能调用自身的 update() 方法，并触发 Compile 中绑定的回调，则功成身退。</li>
-</ul>
-<p>第四步：MVVM 作为数据绑定的入口，整合 Observer、Compile 和 Watcher 三者，通过 Observer 来监听自己的 model 数据变化，通过 Compile 来解析编译模板指令，最终利用 Watcher 搭起 Observer 和 Compile 之间的通信桥梁，达到数据变化 -&gt; 视图更新；视图交互变化(input) -&gt; 数据 model 变更的双向绑定效果。</p>
-<h1 id="vuex-相关">15. vuex 相关</h1><h1 id="vuex-有哪几种属性">16. vuex 有哪几种属性</h1><p>有 5 种，分别是 state、getter、mutation、action、module</p>
-<h1 id="vuex-的-store-特性是什么">17. vuex 的 store 特性是什么</h1><ul>
-<li>vuex 就是一个仓库，仓库里放了很多对象。其中 state 就是数据源存放地，对应于一般 vue 对象里面的 data</li>
-<li>state 里面存放的数据是响应式的，vue 组件从 store 读取数据，若是 store 中的数据发生改变，依赖这相数据的组件也会发生更新</li>
-<li>它通过 mapState 把全局的 state 和 getters 映射到当前组件的 computed 计算属性</li>
-</ul>
-<h1 id="vuex-的-getter-特性是什么">18. vuex 的 getter 特性是什么</h1><ul>
-<li>getter 可以对 state 进行计算操作，它就是 store 的计算属性</li>
-<li>虽然在组件内也可以做计算属性，但是 getters 可以在多给件之间复用</li>
-<li>如果一个状态只在一个组件内使用，是可以不用 getters</li>
-</ul>
-<h1 id="vuex-的-mutation-特性是什么">19. vuex 的 mutation 特性是什么</h1><ul>
-<li>action 类似于 muation, 不同在于：action 提交的是 mutation,而不是直接变更状态</li>
-<li>action 可以包含任意异步操作</li>
-</ul>
-<h1 id="vue-中-ajax-请求代码应该写在组件的-methods-中还是-vuex-的-action-中">20. vue 中 ajax 请求代码应该写在组件的 methods 中还是 vuex 的 action 中</h1><p>如果请求来的数据不是要被其他组件公用，仅仅在请求的组件内使用，就不需要放入 vuex 的 state 里</p>
-<p>如果被其他地方复用，请将请求放入 action 里，方便复用，并包装成 promise 返回</p>
-<h1 id="不用-vuex-会带来什么问题">21. 不用 vuex 会带来什么问题</h1><ul>
-<li>可维护性会下降，你要修改数据，你得维护 3 个地方</li>
-<li>可读性下降，因为一个组件里的数据，你根本就看不出来是从哪里来的</li>
-<li>增加耦合，大量的上传派发，会让耦合性大大的增加，本来 Vue 用 Component 就是为了减少耦合，现在这么用，和组件化的初衷相背</li>
-</ul>
-<h1 id="vuex-原理">22. vuex 原理</h1><p>vuex 仅仅是作为 vue 的一个插件而存在，不像 Redux,MobX 等库可以应用于所有框架，vuex 只能使用在 vue 上，很大的程度是因为其高度依赖于 vue 的 computed 依赖检测系统以及其插件系统，</p>
-<p>vuex 整体思想诞生于 flux,可其的实现方式完完全全的使用了 vue 自身的响应式设计，依赖监听、依赖收集都属于 vue 对对象 Property set get 方法的代理劫持。最后一句话结束 vuex 工作原理，vuex 中的 store 本质就是没有 template 的隐藏着的 vue 组件；</p>
-<h1 id="使用-Vuex-只需执行-Vue-use-Vuex-，并在-Vue-的配置中传入一个-store-对象的示例，store-是如何实现注入的？美团">23. 使用 Vuex 只需执行 Vue.use(Vuex)，并在 Vue 的配置中传入一个 store 对象的示例，store 是如何实现注入的？美团</h1><p>Vue.use(Vuex) 方法执行的是 install 方法，它实现了 Vue 实例对象的 init 方法封装和注入，使传入的 store 对象被设置到 Vue 上下文环境的$store 中。因此在 Vue Component 任意地方都能够通过 this.$store 访问到该 store。</p>
-<h1 id="state-内部支持模块配置和模块嵌套，如何实现的？美团">24. state 内部支持模块配置和模块嵌套，如何实现的？美团</h1><p>在 store 构造方法中有 makeLocalContext 方法，所有 module 都会有一个 local context，根据配置时的 path 进行匹配。所以执行如 dispatch(‘submitOrder’, payload)这类 action 时，默认的拿到都是 module 的 local state，如果要访问最外层或者是其他 module 的 state，只能从 rootState 按照 path 路径逐步进行访问。</p>
-<h1 id="在执行-dispatch-触发-action-commit-同理-的时候，只需传入-type-payload-，action-执行函数中第一个参数-store-从哪里获取的？美团">25. 在执行 dispatch 触发 action(commit 同理)的时候，只需传入(type, payload)，action 执行函数中第一个参数 store 从哪里获取的？美团</h1><p>store 初始化时，所有配置的 action 和 mutation 以及 getters 均被封装过。在执行如 dispatch(‘submitOrder’, payload)的时候，actions 中 type 为 submitOrder 的所有处理方法都是被封装后的，其第一个参数为当前的 store 对象，所以能够获取到 { dispatch, commit, state, rootState } 等数据。</p>
-<h1 id="Vuex-如何区分-state-是外部直接修改，还是通过-mutation-方法修改的？美团">26. Vuex 如何区分 state 是外部直接修改，还是通过 mutation 方法修改的？美团</h1><p>Vuex 中修改 state 的唯一渠道就是执行 commit(‘xx’, payload) 方法，其底层通过执行 this._withCommit(fn) 设置_committing 标志变量为 true，然后才能修改 state，修改完毕还需要还原_committing 变量。外部修改虽然能够直接修改 state，但是并没有修改_committing 标志位，所以只要 watch 一下 state，state change 时判断是否_committing 值为 true，即可判断修改的合法性。</p>
-<h1 id="调试时的”时空穿梭”功能是如何实现的？美团">27. 调试时的”时空穿梭”功能是如何实现的？美团</h1><p>devtoolPlugin 中提供了此功能。因为 dev 模式下所有的 state change 都会被记录下来，’时空穿梭’ 功能其实就是将当前的 state 替换为记录中某个时刻的 state 状态，利用 store.replaceState(targetState) 方法将执行 this._vm.state = state 实现。</p>
-<h1 id="axios-是什么？怎么使用？描述使用它实现登录功能的流程">28. axios 是什么？怎么使用？描述使用它实现登录功能的流程</h1><p>axios 是请求后台资源的模块。 npm i axios -S</p>
-<p>如果发送的是跨域请求，需在配置文件中 config/index.js 进行配置</p>
+<h1 id="SpringCloud-Alibaba的面试题视频参考：">26. SpringCloud Alibaba的面试题视频参考：</h1><p><a href="https://www.bilibili.com/video/av500291691">SpringCloud Alibaba的面试题视频参考</a></p>
 ]]></content>
       <categories>
         <category>面试题</category>
       </categories>
       <tags>
-        <tag>Vue</tag>
+        <tag>SpringCloud</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringBoot面试题归纳</title>
+    <url>/clover/14351.html</url>
+    <content><![CDATA[<span id="more"></span>
+
+<h1 id="SpringBoot-中的-SpringBootApplication注解？">1. SpringBoot 中的@SpringBootApplication注解？</h1><pre><code>@SpringBootApplication 包含了3个主要的注解，分别为@SpringBootConfiguration表明该类为配置类，@EnableAutoConfiguration启动自动配置功能以及@ComponentScan扫描包。
+@EnableAutoConfiguration中包含了@AutoConfigurationPackage自动配置包以及通过@Import将AutoConfigurationImportSelector 这个类导入到Spring 容器中，AutoConfigurationImportSelector会进行筛选需要在启动时加载的自动配置类，具体流程：  
+1. 读取所有jar包下的resources/META-INF 目录下的spring.factories文件，并将其中的EnableAutoConfiguration属性对应的配置类的包路径添加到集合中。
+2. 因为从spring.factories 文件获取的自动配置类太多，如果有些不必要的自动配置类都加载进内存，会造成内存浪费。所以需要对不需要的自动配置类进行过滤。
+    1）利用LinkedHashSet去重。  
+    2）通过获取要排除的自动配置类并移除，比如@SpringBootApplication中的exclude属性所包含的配置类。  
+    3）通过获取maven引入的依赖，保留这些依赖对应的配置类。  
+    4）通过一些条件注解去判断配置类是否符合创建条件。  
+</code></pre>
+<h1 id="SpringBoot-中run-方法实现逻辑">2. SpringBoot 中run 方法实现逻辑?</h1><pre><code>1. 获取并启动监听器
+2. 构造应用上下文环境
+3. 初始化应用上下文
+4. 刷新应用上下文前的准备阶段
+5. 刷新应用上下文
+6. 刷新应用上下文后的扩展接口
+</code></pre>
+<h1 id="SpringBoot-starter-机制">3. SpringBoot starter 机制?</h1><pre><code>SpringBoot中的starter是一种非常重要的机制，能够抛弃以前繁杂的配置，将其统一集成进starter，应用者只需要在maven中引入starter依赖，SpringBoot就能自动扫描到要加载的信息并启动相应的默认配置。starter让我们摆脱了各种依赖库的处理，需要配置各种信息的困扰。SpringBoot会自动通过classpath路径下的类发现需要的bean，并注册进IOC容器。SpringBoot提供了针对日常企业应用研发各种场景的spring-boot-starter依赖模块。所有这些依赖模块都遵循着约定成俗的默认配置，并允许我们调整这些配置，即遵循“约定大于配置”的理念。
+简而言之，starter就是一个外部的项目，我们需要使用它的时候就可以在当前springboot项目中引入它。
+</code></pre>
+<h1 id="SpringBoot-中的自定义starter是怎样实现的？">4. SpringBoot 中的自定义starter是怎样实现的？</h1><pre><code>首先创建一个maven项目，在pom文件中引入依赖spring-boot-autoconfigure。随后创建一个实体类以及一个配置类，配置类中将实体类注入到bean中。此时在另一个项目中的pom文件里引入刚刚创建的maven工程的依赖。发现可以通过@Autowired 获取到实体类的bean，说明自定义starter配置成功。
+</code></pre>
+]]></content>
+      <categories>
+        <category>面试题</category>
+      </categories>
+      <tags>
+        <tag>SpringBoot</tag>
       </tags>
   </entry>
   <entry>
     <title>MySQL面试53题</title>
-    <url>/2022/04/26/MySQL%E9%9D%A2%E8%AF%9553%E9%A2%98/</url>
+    <url>/clover/36577.html</url>
     <content><![CDATA[<span id="more"></span>
 
 <h1 id="Mysql中有哪几种锁？">1. Mysql中有哪几种锁？</h1><ol>
@@ -3112,7 +3113,7 @@ TEXT
   </entry>
   <entry>
     <title>Java经典基础与高级面试36题</title>
-    <url>/2022/04/26/Java%E7%BB%8F%E5%85%B8%E5%9F%BA%E7%A1%80%E4%B8%8E%E9%AB%98%E7%BA%A7%E9%9D%A2%E8%AF%9536%E9%A2%98/</url>
+    <url>/clover/40436.html</url>
     <content><![CDATA[<span id="more"></span>
 
 <h1 id="‘static’关键字是什么意思？Java中是否可以覆盖-override-一个private或者是static的方法？">1. ‘static’关键字是什么意思？Java中是否可以覆盖(override)一个private或者是static的方法？</h1><p>‘static’ 关键字表明一个成员变量或者是成员方法可以在没有所属的类的实例变量的情况下被访问。<br>Java中static方法不能被覆盖，因为方法覆盖是基于运行时动态绑定的，而static方法是编译时静态绑定的。<br>static方法跟类的任何实例都不相关，所以概念上不适用。<br>java中也不可以覆盖private的方法，因为private修饰的变量和方法只能在当前类中使用.<br>如果是其他的类继承当前类是不能访问到private变量或方法的，当然也不能覆盖。</p>
@@ -3294,7 +3295,7 @@ TEXT
   </entry>
   <entry>
     <title>BAT面试笔试33题</title>
-    <url>/2022/04/26/BAT%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AF%9533%E9%A2%98/</url>
+    <url>/clover/33363.html</url>
     <content><![CDATA[<span id="more"></span>
 
 <h1 id="JavaList面试题汇总">1. JavaList面试题汇总</h1><p>1、List集合：ArrayList、LinkedList、Vector等。</p>
@@ -3344,7 +3345,7 @@ TEXT
   </entry>
   <entry>
     <title>ES6 新特性</title>
-    <url>/2021/12/06/ES6%20%E6%96%B0%E7%89%B9%E6%80%A7/</url>
+    <url>/clover/54050.html</url>
     <content><![CDATA[<h2 id="let-和const-命令">0.1. let 和const 命令</h2><ul>
 <li>var    设置的变量会变成全局变量，循环外也可以调用。</li>
 <li>let    设置的变量为局部变量，循环外无法调用。</li>
