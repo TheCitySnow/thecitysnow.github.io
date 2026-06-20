@@ -2449,7 +2449,7 @@
     },
     "selection_record_id": "6a36ecb024d187c746dfce0c",
     "status": "stopped",
-    "stop_reason": "held above selection price; flat positive return; large drawdown; neutral volume price; relative baseline unavailable",
+    "stop_reason": "站上入选价；收益持平偏正；回撤较大；量价中性；缺少行业基准",
     "symbol": "SZ300373",
     "tracking_days": 5,
     "trade_date": "2026-06-12",
@@ -3462,7 +3462,7 @@
       "id": "6a36ecb124d187c746dfceb4",
       "industry_baseline_return_pct": null,
       "max_drawdown_pct": -22.2367,
-      "reason": "broke fail line; negative return; large drawdown; neutral volume price; relative baseline unavailable",
+      "reason": "跌破失败线；阶段收益为负；回撤较大；量价中性；缺少行业基准",
       "relative_return_pct": null,
       "return_since_selection_pct": -21.4814,
       "score_breakdown": {
@@ -3490,7 +3490,7 @@
       "id": "6a36ecb124d187c746dfceb7",
       "industry_baseline_return_pct": null,
       "max_drawdown_pct": -23.0732,
-      "reason": "broke fail line; negative return; large drawdown; neutral volume price; relative baseline unavailable",
+      "reason": "跌破失败线；阶段收益为负；回撤较大；量价中性；缺少行业基准",
       "relative_return_pct": null,
       "return_since_selection_pct": -14.6025,
       "score_breakdown": {
@@ -3518,7 +3518,7 @@
       "id": "6a36ecb124d187c746dfceba",
       "industry_baseline_return_pct": null,
       "max_drawdown_pct": -23.0732,
-      "reason": "below selection price; negative return; large drawdown; neutral volume price; relative baseline unavailable",
+      "reason": "低于入选价；阶段收益为负；回撤较大；量价中性；缺少行业基准",
       "relative_return_pct": null,
       "return_since_selection_pct": -11.6381,
       "score_breakdown": {
@@ -3546,7 +3546,7 @@
       "id": "6a36ecb124d187c746dfcebd",
       "industry_baseline_return_pct": null,
       "max_drawdown_pct": -23.0732,
-      "reason": "below selection price; negative return; large drawdown; neutral volume price; relative baseline unavailable",
+      "reason": "低于入选价；阶段收益为负；回撤较大；量价中性；缺少行业基准",
       "relative_return_pct": null,
       "return_since_selection_pct": -7.3337,
       "score_breakdown": {
@@ -3574,7 +3574,7 @@
       "id": "6a36ecb124d187c746dfcec0",
       "industry_baseline_return_pct": null,
       "max_drawdown_pct": -23.0732,
-      "reason": "held above selection price; flat positive return; large drawdown; neutral volume price; relative baseline unavailable",
+      "reason": "站上入选价；收益持平偏正；回撤较大；量价中性；缺少行业基准",
       "relative_return_pct": null,
       "return_since_selection_pct": 0.0,
       "score_breakdown": {
