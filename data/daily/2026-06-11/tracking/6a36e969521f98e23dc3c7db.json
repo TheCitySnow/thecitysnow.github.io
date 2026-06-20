@@ -2403,16 +2403,16 @@
   ],
   "item": {
     "code6": "300373",
-    "created_at": "2026-06-20T19:05:39.782432Z",
+    "created_at": "2026-06-20T19:26:33.424953Z",
     "current_conclusion": "stop",
     "current_score": 52.0,
     "exchange": "SZ",
     "fail_price": 105.37,
-    "id": "6a36e483521f98e23dc3c7a1",
-    "industry": "半导体",
+    "id": "6a36e969521f98e23dc3c7db",
+    "industry": null,
     "initial_price": 123.13,
     "initial_score": 66.3,
-    "latest_snapshot_id": "6a36e49724d187c746dfb777",
+    "latest_snapshot_id": "6a36e96924d187c746dfc8bf",
     "name": "扬杰科技",
     "risk_level": "中低",
     "score_change": {
@@ -2447,14 +2447,14 @@
       "previous_score": 34.0,
       "source": "snapshot"
     },
-    "selection_record_id": "6a36e48324d187c746dfa950",
+    "selection_record_id": "6a36e96924d187c746dfc7cc",
     "status": "stopped",
     "stop_reason": "held above selection price; flat positive return; large drawdown; neutral volume price; relative baseline unavailable",
     "symbol": "SZ300373",
     "tracking_days": 5,
-    "trade_date": "2026-06-05",
+    "trade_date": "2026-06-11",
     "trigger_price": 126.12,
-    "updated_at": "2026-06-20T19:05:39.782432Z"
+    "updated_at": "2026-06-20T19:26:33.424953Z"
   },
   "klines": [
     {
@@ -3452,118 +3452,6 @@
   },
   "snapshots": [
     {
-      "as_of_date": "2026-06-05",
-      "close_price": 102.87,
-      "conclusion": "stop",
-      "fail_status": "broken",
-      "fund_flow_features": {
-        "fund_flow_positive": null
-      },
-      "id": "6a36e49724d187c746dfb75c",
-      "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -17.7211,
-      "reason": "broke fail line; negative return; large drawdown; neutral volume price; relative baseline unavailable",
-      "relative_return_pct": null,
-      "return_since_selection_pct": -16.4542,
-      "score_breakdown": {
-        "relative_strength": 4.0,
-        "return_drawdown": 4.0,
-        "rule_line": 0.0,
-        "volume_price": 8.0
-      },
-      "score_total": 16.0,
-      "t_day_index": 1,
-      "tracking_item_id": "6a36e483521f98e23dc3c7a1",
-      "trigger_status": "not_held",
-      "volume_price_features": {
-        "amount_change_pct": null
-      }
-    },
-    {
-      "as_of_date": "2026-06-08",
-      "close_price": 94.46,
-      "conclusion": "stop",
-      "fail_status": "broken",
-      "fund_flow_features": {
-        "fund_flow_positive": null
-      },
-      "id": "6a36e49724d187c746dfb75f",
-      "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -24.3239,
-      "reason": "broke fail line; negative return; large drawdown; neutral volume price; relative baseline unavailable",
-      "relative_return_pct": null,
-      "return_since_selection_pct": -23.2843,
-      "score_breakdown": {
-        "relative_strength": 4.0,
-        "return_drawdown": 4.0,
-        "rule_line": 0.0,
-        "volume_price": 8.0
-      },
-      "score_total": 16.0,
-      "t_day_index": 2,
-      "tracking_item_id": "6a36e483521f98e23dc3c7a1",
-      "trigger_status": "not_held",
-      "volume_price_features": {
-        "amount_change_pct": null
-      }
-    },
-    {
-      "as_of_date": "2026-06-09",
-      "close_price": 107.88,
-      "conclusion": "stop",
-      "fail_status": "intact",
-      "fund_flow_features": {
-        "fund_flow_positive": null
-      },
-      "id": "6a36e49724d187c746dfb762",
-      "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -24.3239,
-      "reason": "below selection price; negative return; large drawdown; neutral volume price; relative baseline unavailable",
-      "relative_return_pct": null,
-      "return_since_selection_pct": -12.3853,
-      "score_breakdown": {
-        "relative_strength": 8.0,
-        "return_drawdown": 4.0,
-        "rule_line": 12.0,
-        "volume_price": 10.0
-      },
-      "score_total": 34.0,
-      "t_day_index": 3,
-      "tracking_item_id": "6a36e483521f98e23dc3c7a1",
-      "trigger_status": "not_held",
-      "volume_price_features": {
-        "amount_change_pct": null
-      }
-    },
-    {
-      "as_of_date": "2026-06-10",
-      "close_price": 100.4,
-      "conclusion": "stop",
-      "fail_status": "broken",
-      "fund_flow_features": {
-        "fund_flow_positive": null
-      },
-      "id": "6a36e49724d187c746dfb765",
-      "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -24.3239,
-      "reason": "broke fail line; negative return; large drawdown; neutral volume price; relative baseline unavailable",
-      "relative_return_pct": null,
-      "return_since_selection_pct": -18.4602,
-      "score_breakdown": {
-        "relative_strength": 4.0,
-        "return_drawdown": 4.0,
-        "rule_line": 0.0,
-        "volume_price": 8.0
-      },
-      "score_total": 16.0,
-      "t_day_index": 4,
-      "tracking_item_id": "6a36e483521f98e23dc3c7a1",
-      "trigger_status": "not_held",
-      "volume_price_features": {
-        "amount_change_pct": null
-      }
-    },
-    {
       "as_of_date": "2026-06-11",
       "close_price": 100.19,
       "conclusion": "stop",
@@ -3571,9 +3459,9 @@
       "fund_flow_features": {
         "fund_flow_positive": null
       },
-      "id": "6a36e49724d187c746dfb768",
+      "id": "6a36e96924d187c746dfc8b0",
       "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -24.3239,
+      "max_drawdown_pct": -20.0032,
       "reason": "broke fail line; negative return; large drawdown; neutral volume price; relative baseline unavailable",
       "relative_return_pct": null,
       "return_since_selection_pct": -18.6307,
@@ -3584,8 +3472,8 @@
         "volume_price": 8.0
       },
       "score_total": 16.0,
-      "t_day_index": 5,
-      "tracking_item_id": "6a36e483521f98e23dc3c7a1",
+      "t_day_index": 1,
+      "tracking_item_id": "6a36e969521f98e23dc3c7db",
       "trigger_status": "not_held",
       "volume_price_features": {
         "amount_change_pct": null
@@ -3599,9 +3487,9 @@
       "fund_flow_features": {
         "fund_flow_positive": null
       },
-      "id": "6a36e49724d187c746dfb76b",
+      "id": "6a36e96924d187c746dfc8b3",
       "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -24.3239,
+      "max_drawdown_pct": -22.2367,
       "reason": "broke fail line; negative return; large drawdown; neutral volume price; relative baseline unavailable",
       "relative_return_pct": null,
       "return_since_selection_pct": -21.4814,
@@ -3612,8 +3500,8 @@
         "volume_price": 8.0
       },
       "score_total": 16.0,
-      "t_day_index": 6,
-      "tracking_item_id": "6a36e483521f98e23dc3c7a1",
+      "t_day_index": 2,
+      "tracking_item_id": "6a36e969521f98e23dc3c7db",
       "trigger_status": "not_held",
       "volume_price_features": {
         "amount_change_pct": null
@@ -3627,9 +3515,9 @@
       "fund_flow_features": {
         "fund_flow_positive": null
       },
-      "id": "6a36e49724d187c746dfb76e",
+      "id": "6a36e96924d187c746dfc8b6",
       "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -24.3239,
+      "max_drawdown_pct": -23.0732,
       "reason": "broke fail line; negative return; large drawdown; neutral volume price; relative baseline unavailable",
       "relative_return_pct": null,
       "return_since_selection_pct": -14.6025,
@@ -3640,8 +3528,8 @@
         "volume_price": 8.0
       },
       "score_total": 16.0,
-      "t_day_index": 7,
-      "tracking_item_id": "6a36e483521f98e23dc3c7a1",
+      "t_day_index": 3,
+      "tracking_item_id": "6a36e969521f98e23dc3c7db",
       "trigger_status": "not_held",
       "volume_price_features": {
         "amount_change_pct": null
@@ -3655,9 +3543,9 @@
       "fund_flow_features": {
         "fund_flow_positive": null
       },
-      "id": "6a36e49724d187c746dfb771",
+      "id": "6a36e96924d187c746dfc8b9",
       "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -24.3239,
+      "max_drawdown_pct": -23.0732,
       "reason": "below selection price; negative return; large drawdown; neutral volume price; relative baseline unavailable",
       "relative_return_pct": null,
       "return_since_selection_pct": -11.6381,
@@ -3668,8 +3556,8 @@
         "volume_price": 10.0
       },
       "score_total": 34.0,
-      "t_day_index": 8,
-      "tracking_item_id": "6a36e483521f98e23dc3c7a1",
+      "t_day_index": 4,
+      "tracking_item_id": "6a36e969521f98e23dc3c7db",
       "trigger_status": "not_held",
       "volume_price_features": {
         "amount_change_pct": null
@@ -3683,9 +3571,9 @@
       "fund_flow_features": {
         "fund_flow_positive": null
       },
-      "id": "6a36e49724d187c746dfb774",
+      "id": "6a36e96924d187c746dfc8bc",
       "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -24.3239,
+      "max_drawdown_pct": -23.0732,
       "reason": "below selection price; negative return; large drawdown; neutral volume price; relative baseline unavailable",
       "relative_return_pct": null,
       "return_since_selection_pct": -7.3337,
@@ -3696,8 +3584,8 @@
         "volume_price": 10.0
       },
       "score_total": 34.0,
-      "t_day_index": 9,
-      "tracking_item_id": "6a36e483521f98e23dc3c7a1",
+      "t_day_index": 5,
+      "tracking_item_id": "6a36e969521f98e23dc3c7db",
       "trigger_status": "not_held",
       "volume_price_features": {
         "amount_change_pct": null
@@ -3711,9 +3599,9 @@
       "fund_flow_features": {
         "fund_flow_positive": null
       },
-      "id": "6a36e49724d187c746dfb777",
+      "id": "6a36e96924d187c746dfc8bf",
       "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -24.3239,
+      "max_drawdown_pct": -23.0732,
       "reason": "held above selection price; flat positive return; large drawdown; neutral volume price; relative baseline unavailable",
       "relative_return_pct": null,
       "return_since_selection_pct": 0.0,
@@ -3724,8 +3612,8 @@
         "volume_price": 10.0
       },
       "score_total": 52.0,
-      "t_day_index": 10,
-      "tracking_item_id": "6a36e483521f98e23dc3c7a1",
+      "t_day_index": 6,
+      "tracking_item_id": "6a36e969521f98e23dc3c7db",
       "trigger_status": "not_held",
       "volume_price_features": {
         "amount_change_pct": null

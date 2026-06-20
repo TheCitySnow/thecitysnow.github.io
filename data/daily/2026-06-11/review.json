@@ -1,10 +1,15 @@
 {
-  "avg_max_drawdown_pct": -19.79,
+  "avg_max_drawdown_pct": -19.18,
   "avg_relative_return_pct": null,
-  "avg_t1_return_pct": -14.78,
-  "avg_t3_return_pct": -14.21,
-  "avg_t5_return_pct": -11.07,
+  "avg_t1_return_pct": -14.58,
+  "avg_t3_return_pct": -13.25,
+  "avg_t5_return_pct": -10.07,
   "by_industry": [
+    {
+      "avg_return_pct": 0.0,
+      "industry": "unknown",
+      "tracked_count": 7
+    },
     {
       "avg_return_pct": 0.0,
       "industry": "军工电子",
@@ -47,5 +52,5 @@
     }
   ],
   "success_rate_pct": 0.0,
-  "tracked_count": 26
+  "tracked_count": 33
 }
