@@ -276,6 +276,61 @@
       "updated_at": "2026-06-20T19:11:45.625428Z"
     },
     {
+      "code6": "002179",
+      "created_at": "2026-06-20T19:15:30.667698Z",
+      "current_conclusion": "stop",
+      "current_score": 52.0,
+      "exchange": "SZ",
+      "fail_price": 37.58,
+      "id": "6a36e6d2521f98e23dc3c7c8",
+      "industry": "军工电子",
+      "initial_price": 40.78,
+      "initial_score": 68.1,
+      "latest_snapshot_id": "6a36e6d224d187c746dfc34e",
+      "name": "中航光电",
+      "risk_level": "中低",
+      "score_change": {
+        "current_score": 52.0,
+        "delta": 18.0,
+        "details": [
+          {
+            "current_value": 24.0,
+            "delta": 12.0,
+            "key": "rule_line",
+            "previous_value": 12.0
+          },
+          {
+            "current_value": 10.0,
+            "delta": 6.0,
+            "key": "return_drawdown",
+            "previous_value": 4.0
+          },
+          {
+            "current_value": 8.0,
+            "delta": 0.0,
+            "key": "relative_strength",
+            "previous_value": 8.0
+          },
+          {
+            "current_value": 10.0,
+            "delta": 0.0,
+            "key": "volume_price",
+            "previous_value": 10.0
+          }
+        ],
+        "previous_score": 34.0,
+        "source": "snapshot"
+      },
+      "selection_record_id": "6a36e6d224d187c746dfc27d",
+      "status": "stopped",
+      "stop_reason": "held above selection price; flat positive return; large drawdown; neutral volume price; relative baseline unavailable",
+      "symbol": "SZ002179",
+      "tracking_days": 5,
+      "trade_date": "2026-06-10",
+      "trigger_price": 41.27,
+      "updated_at": "2026-06-20T19:15:30.667698Z"
+    },
+    {
       "code6": "300308",
       "created_at": "2026-06-20T19:08:44.066297Z",
       "current_conclusion": "stop",
@@ -329,6 +384,61 @@
       "trade_date": "2026-06-08",
       "trigger_price": 1384.29,
       "updated_at": "2026-06-20T19:08:44.066297Z"
+    },
+    {
+      "code6": "300308",
+      "created_at": "2026-06-20T19:15:30.657157Z",
+      "current_conclusion": "stop",
+      "current_score": 52.0,
+      "exchange": "SZ",
+      "fail_price": 1207.21,
+      "id": "6a36e6d2521f98e23dc3c7c7",
+      "industry": "通信设备",
+      "initial_price": 1367.88,
+      "initial_score": 68.4,
+      "latest_snapshot_id": "6a36e6d224d187c746dfc329",
+      "name": "中际旭创",
+      "risk_level": "中",
+      "score_change": {
+        "current_score": 52.0,
+        "delta": 18.0,
+        "details": [
+          {
+            "current_value": 24.0,
+            "delta": 12.0,
+            "key": "rule_line",
+            "previous_value": 12.0
+          },
+          {
+            "current_value": 10.0,
+            "delta": 6.0,
+            "key": "return_drawdown",
+            "previous_value": 4.0
+          },
+          {
+            "current_value": 8.0,
+            "delta": 0.0,
+            "key": "relative_strength",
+            "previous_value": 8.0
+          },
+          {
+            "current_value": 10.0,
+            "delta": 0.0,
+            "key": "volume_price",
+            "previous_value": 10.0
+          }
+        ],
+        "previous_score": 34.0,
+        "source": "snapshot"
+      },
+      "selection_record_id": "6a36e6d224d187c746dfc277",
+      "status": "stopped",
+      "stop_reason": "held above selection price; flat positive return; large drawdown; neutral volume price; relative baseline unavailable",
+      "symbol": "SZ300308",
+      "tracking_days": 5,
+      "trade_date": "2026-06-10",
+      "trigger_price": 1384.29,
+      "updated_at": "2026-06-20T19:15:30.657157Z"
     },
     {
       "code6": "300373",
@@ -494,6 +604,61 @@
       "trade_date": "2026-06-09",
       "trigger_price": 126.12,
       "updated_at": "2026-06-20T19:11:45.637430Z"
+    },
+    {
+      "code6": "300373",
+      "created_at": "2026-06-20T19:15:30.677700Z",
+      "current_conclusion": "stop",
+      "current_score": 52.0,
+      "exchange": "SZ",
+      "fail_price": 105.37,
+      "id": "6a36e6d2521f98e23dc3c7c9",
+      "industry": "半导体",
+      "initial_price": 123.13,
+      "initial_score": 66.3,
+      "latest_snapshot_id": "6a36e6d324d187c746dfc373",
+      "name": "扬杰科技",
+      "risk_level": "中低",
+      "score_change": {
+        "current_score": 52.0,
+        "delta": 18.0,
+        "details": [
+          {
+            "current_value": 24.0,
+            "delta": 12.0,
+            "key": "rule_line",
+            "previous_value": 12.0
+          },
+          {
+            "current_value": 10.0,
+            "delta": 6.0,
+            "key": "return_drawdown",
+            "previous_value": 4.0
+          },
+          {
+            "current_value": 8.0,
+            "delta": 0.0,
+            "key": "relative_strength",
+            "previous_value": 8.0
+          },
+          {
+            "current_value": 10.0,
+            "delta": 0.0,
+            "key": "volume_price",
+            "previous_value": 10.0
+          }
+        ],
+        "previous_score": 34.0,
+        "source": "snapshot"
+      },
+      "selection_record_id": "6a36e6d224d187c746dfc283",
+      "status": "stopped",
+      "stop_reason": "held above selection price; flat positive return; large drawdown; neutral volume price; relative baseline unavailable",
+      "symbol": "SZ300373",
+      "tracking_days": 5,
+      "trade_date": "2026-06-10",
+      "trigger_price": 126.12,
+      "updated_at": "2026-06-20T19:15:30.677700Z"
     },
     {
       "code6": "600392",
@@ -771,6 +936,61 @@
       "updated_at": "2026-06-20T19:11:45.596419Z"
     },
     {
+      "code6": "600888",
+      "created_at": "2026-06-20T19:15:30.631914Z",
+      "current_conclusion": "stop",
+      "current_score": 52.0,
+      "exchange": "SH",
+      "fail_price": 11.34,
+      "id": "6a36e6d2521f98e23dc3c7c5",
+      "industry": "工业金属",
+      "initial_price": 13.14,
+      "initial_score": 71.2,
+      "latest_snapshot_id": "6a36e6d224d187c746dfc2df",
+      "name": "新疆众和",
+      "risk_level": "中低",
+      "score_change": {
+        "current_score": 52.0,
+        "delta": 18.0,
+        "details": [
+          {
+            "current_value": 24.0,
+            "delta": 12.0,
+            "key": "rule_line",
+            "previous_value": 12.0
+          },
+          {
+            "current_value": 10.0,
+            "delta": 6.0,
+            "key": "return_drawdown",
+            "previous_value": 4.0
+          },
+          {
+            "current_value": 8.0,
+            "delta": 0.0,
+            "key": "relative_strength",
+            "previous_value": 8.0
+          },
+          {
+            "current_value": 10.0,
+            "delta": 0.0,
+            "key": "volume_price",
+            "previous_value": 10.0
+          }
+        ],
+        "previous_score": 34.0,
+        "source": "snapshot"
+      },
+      "selection_record_id": "6a36e6d224d187c746dfc26b",
+      "status": "stopped",
+      "stop_reason": "held above selection price; flat positive return; large drawdown; neutral volume price; relative baseline unavailable",
+      "symbol": "SH600888",
+      "tracking_days": 5,
+      "trade_date": "2026-06-10",
+      "trigger_price": 13.3,
+      "updated_at": "2026-06-20T19:15:30.631914Z"
+    },
+    {
       "code6": "600961",
       "created_at": "2026-06-20T19:05:39.704026Z",
       "current_conclusion": "stop",
@@ -936,6 +1156,61 @@
       "updated_at": "2026-06-20T19:11:45.576115Z"
     },
     {
+      "code6": "600961",
+      "created_at": "2026-06-20T19:15:30.618913Z",
+      "current_conclusion": "stop",
+      "current_score": 52.0,
+      "exchange": "SH",
+      "fail_price": 25.03,
+      "id": "6a36e6d2521f98e23dc3c7c4",
+      "industry": "贵金属",
+      "initial_price": 28.82,
+      "initial_score": 73.3,
+      "latest_snapshot_id": "6a36e6d224d187c746dfc2ba",
+      "name": "株冶集团",
+      "risk_level": "中低",
+      "score_change": {
+        "current_score": 52.0,
+        "delta": 18.0,
+        "details": [
+          {
+            "current_value": 24.0,
+            "delta": 12.0,
+            "key": "rule_line",
+            "previous_value": 12.0
+          },
+          {
+            "current_value": 10.0,
+            "delta": 6.0,
+            "key": "return_drawdown",
+            "previous_value": 4.0
+          },
+          {
+            "current_value": 8.0,
+            "delta": 0.0,
+            "key": "relative_strength",
+            "previous_value": 8.0
+          },
+          {
+            "current_value": 10.0,
+            "delta": 0.0,
+            "key": "volume_price",
+            "previous_value": 10.0
+          }
+        ],
+        "previous_score": 34.0,
+        "source": "snapshot"
+      },
+      "selection_record_id": "6a36e6d224d187c746dfc265",
+      "status": "stopped",
+      "stop_reason": "held above selection price; flat positive return; large drawdown; neutral volume price; relative baseline unavailable",
+      "symbol": "SH600961",
+      "tracking_days": 5,
+      "trade_date": "2026-06-10",
+      "trigger_price": 29.18,
+      "updated_at": "2026-06-20T19:15:30.618913Z"
+    },
+    {
       "code6": "603259",
       "created_at": "2026-06-20T19:05:39.741991Z",
       "current_conclusion": "stop",
@@ -1099,6 +1374,61 @@
       "trade_date": "2026-06-09",
       "trigger_price": 104.33,
       "updated_at": "2026-06-20T19:11:45.606429Z"
+    },
+    {
+      "code6": "603259",
+      "created_at": "2026-06-20T19:15:30.642146Z",
+      "current_conclusion": "stop",
+      "current_score": 52.0,
+      "exchange": "SH",
+      "fail_price": 97.83,
+      "id": "6a36e6d2521f98e23dc3c7c6",
+      "industry": "医疗服务",
+      "initial_price": 102.72,
+      "initial_score": 69.2,
+      "latest_snapshot_id": "6a36e6d224d187c746dfc304",
+      "name": "药明康德",
+      "risk_level": "中低",
+      "score_change": {
+        "current_score": 52.0,
+        "delta": 18.0,
+        "details": [
+          {
+            "current_value": 24.0,
+            "delta": 12.0,
+            "key": "rule_line",
+            "previous_value": 12.0
+          },
+          {
+            "current_value": 10.0,
+            "delta": 6.0,
+            "key": "return_drawdown",
+            "previous_value": 4.0
+          },
+          {
+            "current_value": 8.0,
+            "delta": 0.0,
+            "key": "relative_strength",
+            "previous_value": 8.0
+          },
+          {
+            "current_value": 10.0,
+            "delta": 0.0,
+            "key": "volume_price",
+            "previous_value": 10.0
+          }
+        ],
+        "previous_score": 34.0,
+        "source": "snapshot"
+      },
+      "selection_record_id": "6a36e6d224d187c746dfc271",
+      "status": "stopped",
+      "stop_reason": "held above selection price; flat positive return; large drawdown; neutral volume price; relative baseline unavailable",
+      "symbol": "SH603259",
+      "tracking_days": 5,
+      "trade_date": "2026-06-10",
+      "trigger_price": 104.33,
+      "updated_at": "2026-06-20T19:15:30.642146Z"
     }
   ]
 }

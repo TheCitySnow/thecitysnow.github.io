@@ -2403,16 +2403,16 @@
   ],
   "item": {
     "code6": "603259",
-    "created_at": "2026-06-20T19:11:45.606429Z",
+    "created_at": "2026-06-20T19:15:30.642146Z",
     "current_conclusion": "stop",
     "current_score": 52.0,
     "exchange": "SH",
     "fail_price": 97.83,
-    "id": "6a36e5f1521f98e23dc3c7b7",
+    "id": "6a36e6d2521f98e23dc3c7c6",
     "industry": "医疗服务",
     "initial_price": 102.72,
     "initial_score": 69.2,
-    "latest_snapshot_id": "6a36e5f124d187c746dfbf04",
+    "latest_snapshot_id": "6a36e6d224d187c746dfc304",
     "name": "药明康德",
     "risk_level": "中低",
     "score_change": {
@@ -2447,14 +2447,14 @@
       "previous_score": 34.0,
       "source": "snapshot"
     },
-    "selection_record_id": "6a36e5f124d187c746dfbe37",
+    "selection_record_id": "6a36e6d224d187c746dfc271",
     "status": "stopped",
     "stop_reason": "held above selection price; flat positive return; large drawdown; neutral volume price; relative baseline unavailable",
     "symbol": "SH603259",
     "tracking_days": 5,
-    "trade_date": "2026-06-09",
+    "trade_date": "2026-06-10",
     "trigger_price": 104.33,
-    "updated_at": "2026-06-20T19:11:45.606429Z"
+    "updated_at": "2026-06-20T19:15:30.642146Z"
   },
   "klines": [
     {
@@ -3452,34 +3452,6 @@
   },
   "snapshots": [
     {
-      "as_of_date": "2026-06-09",
-      "close_price": 93.48,
-      "conclusion": "stop",
-      "fail_status": "broken",
-      "fund_flow_features": {
-        "fund_flow_positive": null
-      },
-      "id": "6a36e5f124d187c746dfbeef",
-      "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -14.0187,
-      "reason": "broke fail line; negative return; large drawdown; neutral volume price; relative baseline unavailable",
-      "relative_return_pct": null,
-      "return_since_selection_pct": -8.9953,
-      "score_breakdown": {
-        "relative_strength": 4.0,
-        "return_drawdown": 4.0,
-        "rule_line": 0.0,
-        "volume_price": 8.0
-      },
-      "score_total": 16.0,
-      "t_day_index": 1,
-      "tracking_item_id": "6a36e5f1521f98e23dc3c7b7",
-      "trigger_status": "not_held",
-      "volume_price_features": {
-        "amount_change_pct": null
-      }
-    },
-    {
       "as_of_date": "2026-06-10",
       "close_price": 97.04,
       "conclusion": "stop",
@@ -3487,9 +3459,9 @@
       "fund_flow_features": {
         "fund_flow_positive": null
       },
-      "id": "6a36e5f124d187c746dfbef2",
+      "id": "6a36e6d224d187c746dfc2f2",
       "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -14.0187,
+      "max_drawdown_pct": -9.2679,
       "reason": "broke fail line; negative return; large drawdown; neutral volume price; relative baseline unavailable",
       "relative_return_pct": null,
       "return_since_selection_pct": -5.5296,
@@ -3500,8 +3472,8 @@
         "volume_price": 8.0
       },
       "score_total": 16.0,
-      "t_day_index": 2,
-      "tracking_item_id": "6a36e5f1521f98e23dc3c7b7",
+      "t_day_index": 1,
+      "tracking_item_id": "6a36e6d2521f98e23dc3c7c6",
       "trigger_status": "not_held",
       "volume_price_features": {
         "amount_change_pct": null
@@ -3515,9 +3487,9 @@
       "fund_flow_features": {
         "fund_flow_positive": null
       },
-      "id": "6a36e5f124d187c746dfbef5",
+      "id": "6a36e6d224d187c746dfc2f5",
       "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -14.0187,
+      "max_drawdown_pct": -9.2679,
       "reason": "broke fail line; negative return; large drawdown; neutral volume price; relative baseline unavailable",
       "relative_return_pct": null,
       "return_since_selection_pct": -5.5004,
@@ -3528,8 +3500,8 @@
         "volume_price": 8.0
       },
       "score_total": 16.0,
-      "t_day_index": 3,
-      "tracking_item_id": "6a36e5f1521f98e23dc3c7b7",
+      "t_day_index": 2,
+      "tracking_item_id": "6a36e6d2521f98e23dc3c7c6",
       "trigger_status": "not_held",
       "volume_price_features": {
         "amount_change_pct": null
@@ -3543,9 +3515,9 @@
       "fund_flow_features": {
         "fund_flow_positive": null
       },
-      "id": "6a36e5f124d187c746dfbef8",
+      "id": "6a36e6d224d187c746dfc2f8",
       "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -14.0187,
+      "max_drawdown_pct": -9.2679,
       "reason": "below selection price; negative return; large drawdown; neutral volume price; relative baseline unavailable",
       "relative_return_pct": null,
       "return_since_selection_pct": -2.9303,
@@ -3556,8 +3528,8 @@
         "volume_price": 10.0
       },
       "score_total": 34.0,
-      "t_day_index": 4,
-      "tracking_item_id": "6a36e5f1521f98e23dc3c7b7",
+      "t_day_index": 3,
+      "tracking_item_id": "6a36e6d2521f98e23dc3c7c6",
       "trigger_status": "not_held",
       "volume_price_features": {
         "amount_change_pct": null
@@ -3571,9 +3543,9 @@
       "fund_flow_features": {
         "fund_flow_positive": null
       },
-      "id": "6a36e5f124d187c746dfbefb",
+      "id": "6a36e6d224d187c746dfc2fb",
       "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -14.0187,
+      "max_drawdown_pct": -9.2679,
       "reason": "below selection price; negative return; large drawdown; neutral volume price; relative baseline unavailable",
       "relative_return_pct": null,
       "return_since_selection_pct": -3.2613,
@@ -3584,8 +3556,8 @@
         "volume_price": 10.0
       },
       "score_total": 34.0,
-      "t_day_index": 5,
-      "tracking_item_id": "6a36e5f1521f98e23dc3c7b7",
+      "t_day_index": 4,
+      "tracking_item_id": "6a36e6d2521f98e23dc3c7c6",
       "trigger_status": "not_held",
       "volume_price_features": {
         "amount_change_pct": null
@@ -3599,9 +3571,9 @@
       "fund_flow_features": {
         "fund_flow_positive": null
       },
-      "id": "6a36e5f124d187c746dfbefe",
+      "id": "6a36e6d224d187c746dfc2fe",
       "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -14.0187,
+      "max_drawdown_pct": -9.2679,
       "reason": "below selection price; negative return; large drawdown; neutral volume price; relative baseline unavailable",
       "relative_return_pct": null,
       "return_since_selection_pct": -4.4393,
@@ -3612,8 +3584,8 @@
         "volume_price": 10.0
       },
       "score_total": 34.0,
-      "t_day_index": 6,
-      "tracking_item_id": "6a36e5f1521f98e23dc3c7b7",
+      "t_day_index": 5,
+      "tracking_item_id": "6a36e6d2521f98e23dc3c7c6",
       "trigger_status": "not_held",
       "volume_price_features": {
         "amount_change_pct": null
@@ -3627,9 +3599,9 @@
       "fund_flow_features": {
         "fund_flow_positive": null
       },
-      "id": "6a36e5f124d187c746dfbf01",
+      "id": "6a36e6d224d187c746dfc301",
       "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -14.0187,
+      "max_drawdown_pct": -9.2679,
       "reason": "below selection price; negative return; large drawdown; neutral volume price; relative baseline unavailable",
       "relative_return_pct": null,
       "return_since_selection_pct": -4.4003,
@@ -3640,8 +3612,8 @@
         "volume_price": 10.0
       },
       "score_total": 34.0,
-      "t_day_index": 7,
-      "tracking_item_id": "6a36e5f1521f98e23dc3c7b7",
+      "t_day_index": 6,
+      "tracking_item_id": "6a36e6d2521f98e23dc3c7c6",
       "trigger_status": "not_held",
       "volume_price_features": {
         "amount_change_pct": null
@@ -3655,9 +3627,9 @@
       "fund_flow_features": {
         "fund_flow_positive": null
       },
-      "id": "6a36e5f124d187c746dfbf04",
+      "id": "6a36e6d224d187c746dfc304",
       "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -14.0187,
+      "max_drawdown_pct": -9.2679,
       "reason": "held above selection price; flat positive return; large drawdown; neutral volume price; relative baseline unavailable",
       "relative_return_pct": null,
       "return_since_selection_pct": 0.0,
@@ -3668,8 +3640,8 @@
         "volume_price": 10.0
       },
       "score_total": 52.0,
-      "t_day_index": 8,
-      "tracking_item_id": "6a36e5f1521f98e23dc3c7b7",
+      "t_day_index": 7,
+      "tracking_item_id": "6a36e6d2521f98e23dc3c7c6",
       "trigger_status": "not_held",
       "volume_price_features": {
         "amount_change_pct": null
