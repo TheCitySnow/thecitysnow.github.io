@@ -1,15 +1,10 @@
 {
-  "avg_max_drawdown_pct": -16.35,
+  "avg_max_drawdown_pct": -14.21,
   "avg_relative_return_pct": null,
-  "avg_t1_return_pct": -13.52,
-  "avg_t3_return_pct": -8.05,
-  "avg_t5_return_pct": -1.77,
+  "avg_t1_return_pct": -10.49,
+  "avg_t3_return_pct": -6.65,
+  "avg_t5_return_pct": 0.0,
   "by_industry": [
-    {
-      "avg_return_pct": 0.0,
-      "industry": "unknown",
-      "tracked_count": 2
-    },
     {
       "avg_return_pct": 0.0,
       "industry": "军工电子",
@@ -27,6 +22,11 @@
     },
     {
       "avg_return_pct": 0.0,
+      "industry": "小金属",
+      "tracked_count": 1
+    },
+    {
+      "avg_return_pct": 0.0,
       "industry": "工业金属",
       "tracked_count": 1
     },
@@ -38,6 +38,11 @@
     {
       "avg_return_pct": 0.0,
       "industry": "通信设备",
+      "tracked_count": 1
+    },
+    {
+      "avg_return_pct": 0.0,
+      "industry": "金属新材料",
       "tracked_count": 1
     }
   ],

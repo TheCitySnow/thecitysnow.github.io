@@ -1,6 +1,61 @@
 {
   "items": [
     {
+      "code6": "000795",
+      "created_at": "2026-06-20T19:26:33.340952Z",
+      "current_conclusion": "stop",
+      "current_score": 58.0,
+      "exchange": "SZ",
+      "fail_price": 9.34,
+      "id": "6a36e969521f98e23dc3c7d6",
+      "industry": "金属新材料",
+      "initial_price": 9.84,
+      "initial_score": 72.8,
+      "latest_snapshot_id": "6a36f19424d187c746dfd6bc",
+      "name": "英洛华",
+      "risk_level": "中低",
+      "score_change": {
+        "current_score": 58.0,
+        "delta": 18.0,
+        "details": [
+          {
+            "current_value": 24.0,
+            "delta": 12.0,
+            "key": "rule_line",
+            "previous_value": 12.0
+          },
+          {
+            "current_value": 16.0,
+            "delta": 6.0,
+            "key": "return_drawdown",
+            "previous_value": 10.0
+          },
+          {
+            "current_value": 8.0,
+            "delta": 0.0,
+            "key": "relative_strength",
+            "previous_value": 8.0
+          },
+          {
+            "current_value": 10.0,
+            "delta": 0.0,
+            "key": "volume_price",
+            "previous_value": 10.0
+          }
+        ],
+        "previous_score": 40.0,
+        "source": "snapshot"
+      },
+      "selection_record_id": "6a36f19424d187c746dfd657",
+      "status": "stopped",
+      "stop_reason": "站上入选价；收益持平偏正；回撤中等；量价中性；缺少行业基准",
+      "symbol": "SZ000795",
+      "tracking_days": 5,
+      "trade_date": "2026-06-15",
+      "trigger_price": 9.96,
+      "updated_at": "2026-06-20T20:01:24.282428Z"
+    },
+    {
       "code6": "603259",
       "created_at": "2026-06-20T19:40:32.833766Z",
       "current_conclusion": "stop",
@@ -11,7 +66,7 @@
       "industry": "医疗服务",
       "initial_price": 102.72,
       "initial_score": 69.2,
-      "latest_snapshot_id": "6a36ecb124d187c746dfce6f",
+      "latest_snapshot_id": "6a36f19424d187c746dfd6e8",
       "name": "药明康德",
       "risk_level": "中低",
       "score_change": {
@@ -46,69 +101,14 @@
         "previous_score": 40.0,
         "source": "snapshot"
       },
-      "selection_record_id": "6a36ecb024d187c746dfcdfa",
+      "selection_record_id": "6a36f19424d187c746dfd665",
       "status": "stopped",
       "stop_reason": "站上入选价；收益持平偏正；回撤中等；量价中性；缺少行业基准",
       "symbol": "SH603259",
       "tracking_days": 5,
-      "trade_date": "2026-06-12",
+      "trade_date": "2026-06-15",
       "trigger_price": 104.33,
-      "updated_at": "2026-06-20T19:40:32.833766Z"
-    },
-    {
-      "code6": "000795",
-      "created_at": "2026-06-20T19:26:33.340952Z",
-      "current_conclusion": "stop",
-      "current_score": 52.0,
-      "exchange": "SZ",
-      "fail_price": 9.34,
-      "id": "6a36e969521f98e23dc3c7d6",
-      "industry": null,
-      "initial_price": 9.84,
-      "initial_score": 72.8,
-      "latest_snapshot_id": "6a36e96924d187c746dfc81f",
-      "name": "英洛华",
-      "risk_level": "中低",
-      "score_change": {
-        "current_score": 52.0,
-        "delta": 18.0,
-        "details": [
-          {
-            "current_value": 24.0,
-            "delta": 12.0,
-            "key": "rule_line",
-            "previous_value": 12.0
-          },
-          {
-            "current_value": 10.0,
-            "delta": 6.0,
-            "key": "return_drawdown",
-            "previous_value": 4.0
-          },
-          {
-            "current_value": 8.0,
-            "delta": 0.0,
-            "key": "relative_strength",
-            "previous_value": 8.0
-          },
-          {
-            "current_value": 10.0,
-            "delta": 0.0,
-            "key": "volume_price",
-            "previous_value": 10.0
-          }
-        ],
-        "previous_score": 34.0,
-        "source": "snapshot"
-      },
-      "selection_record_id": "6a36e96924d187c746dfc7ae",
-      "status": "stopped",
-      "stop_reason": "站上入选价；收益持平偏正；回撤较大；量价中性；缺少行业基准",
-      "symbol": "SZ000795",
-      "tracking_days": 5,
-      "trade_date": "2026-06-11",
-      "trigger_price": 9.96,
-      "updated_at": "2026-06-20T19:26:33.340952Z"
+      "updated_at": "2026-06-20T20:01:24.315425Z"
     },
     {
       "code6": "002179",
@@ -121,7 +121,7 @@
       "industry": "军工电子",
       "initial_price": 40.78,
       "initial_score": 68.1,
-      "latest_snapshot_id": "6a36ecb124d187c746dfcea5",
+      "latest_snapshot_id": "6a36f19424d187c746dfd714",
       "name": "中航光电",
       "risk_level": "中低",
       "score_change": {
@@ -156,14 +156,14 @@
         "previous_score": 34.0,
         "source": "snapshot"
       },
-      "selection_record_id": "6a36ecb024d187c746dfce06",
+      "selection_record_id": "6a36f19424d187c746dfd673",
       "status": "stopped",
       "stop_reason": "站上入选价；收益持平偏正；回撤较大；量价中性；缺少行业基准",
       "symbol": "SZ002179",
       "tracking_days": 5,
-      "trade_date": "2026-06-12",
+      "trade_date": "2026-06-15",
       "trigger_price": 41.27,
-      "updated_at": "2026-06-20T19:40:32.874767Z"
+      "updated_at": "2026-06-20T20:01:24.344426Z"
     },
     {
       "code6": "300308",
@@ -231,7 +231,7 @@
       "industry": "半导体",
       "initial_price": 123.13,
       "initial_score": 66.3,
-      "latest_snapshot_id": "6a36ecb124d187c746dfcec0",
+      "latest_snapshot_id": "6a36f19424d187c746dfd72a",
       "name": "扬杰科技",
       "risk_level": "中低",
       "score_change": {
@@ -266,14 +266,14 @@
         "previous_score": 34.0,
         "source": "snapshot"
       },
-      "selection_record_id": "6a36ecb024d187c746dfce0c",
+      "selection_record_id": "6a36f19424d187c746dfd67a",
       "status": "stopped",
       "stop_reason": "站上入选价；收益持平偏正；回撤较大；量价中性；缺少行业基准",
       "symbol": "SZ300373",
       "tracking_days": 5,
-      "trade_date": "2026-06-12",
+      "trade_date": "2026-06-15",
       "trigger_price": 126.12,
-      "updated_at": "2026-06-20T19:40:32.888767Z"
+      "updated_at": "2026-06-20T20:01:24.363425Z"
     },
     {
       "code6": "600392",
@@ -283,10 +283,10 @@
       "exchange": "SH",
       "fail_price": 26.04,
       "id": "6a36e969521f98e23dc3c7d9",
-      "industry": null,
+      "industry": "小金属",
       "initial_price": 31.66,
       "initial_score": 68.5,
-      "latest_snapshot_id": "6a36e96924d187c746dfc87f",
+      "latest_snapshot_id": "6a36f19424d187c746dfd6fe",
       "name": "盛和资源",
       "risk_level": "中",
       "score_change": {
@@ -321,14 +321,14 @@
         "previous_score": 34.0,
         "source": "snapshot"
       },
-      "selection_record_id": "6a36e96924d187c746dfc7c0",
+      "selection_record_id": "6a36f19424d187c746dfd66c",
       "status": "stopped",
       "stop_reason": "站上入选价；收益持平偏正；回撤较大；量价中性；缺少行业基准",
       "symbol": "SH600392",
       "tracking_days": 5,
-      "trade_date": "2026-06-11",
+      "trade_date": "2026-06-15",
       "trigger_price": 32.04,
-      "updated_at": "2026-06-20T19:26:33.379952Z"
+      "updated_at": "2026-06-20T20:01:24.330425Z"
     },
     {
       "code6": "600888",
@@ -341,7 +341,7 @@
       "industry": "工业金属",
       "initial_price": 13.14,
       "initial_score": 71.2,
-      "latest_snapshot_id": "6a36ecb124d187c746dfce54",
+      "latest_snapshot_id": "6a36f19424d187c746dfd6d2",
       "name": "新疆众和",
       "risk_level": "中低",
       "score_change": {
@@ -376,14 +376,14 @@
         "previous_score": 34.0,
         "source": "snapshot"
       },
-      "selection_record_id": "6a36ecb024d187c746dfcdf4",
+      "selection_record_id": "6a36f19424d187c746dfd65e",
       "status": "stopped",
       "stop_reason": "站上入选价；收益持平偏正；回撤较大；量价中性；缺少行业基准",
       "symbol": "SH600888",
       "tracking_days": 5,
-      "trade_date": "2026-06-12",
+      "trade_date": "2026-06-15",
       "trigger_price": 13.3,
-      "updated_at": "2026-06-20T19:40:32.821766Z"
+      "updated_at": "2026-06-20T20:01:24.299426Z"
     },
     {
       "code6": "600961",
@@ -396,7 +396,7 @@
       "industry": "贵金属",
       "initial_price": 28.82,
       "initial_score": 73.3,
-      "latest_snapshot_id": "6a36ecb024d187c746dfce39",
+      "latest_snapshot_id": "6a36f19424d187c746dfd6a6",
       "name": "株冶集团",
       "risk_level": "中低",
       "score_change": {
@@ -431,14 +431,14 @@
         "previous_score": 34.0,
         "source": "snapshot"
       },
-      "selection_record_id": "6a36ecb024d187c746dfcdee",
+      "selection_record_id": "6a36f19424d187c746dfd650",
       "status": "stopped",
       "stop_reason": "站上入选价；收益持平偏正；回撤较大；量价中性；缺少行业基准",
       "symbol": "SH600961",
       "tracking_days": 5,
-      "trade_date": "2026-06-12",
+      "trade_date": "2026-06-15",
       "trigger_price": 29.18,
-      "updated_at": "2026-06-20T19:40:32.808766Z"
+      "updated_at": "2026-06-20T20:01:24.265426Z"
     }
   ]
 }

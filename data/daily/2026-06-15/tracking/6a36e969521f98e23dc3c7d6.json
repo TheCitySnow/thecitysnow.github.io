@@ -2405,18 +2405,18 @@
     "code6": "000795",
     "created_at": "2026-06-20T19:26:33.340952Z",
     "current_conclusion": "stop",
-    "current_score": 52.0,
+    "current_score": 58.0,
     "exchange": "SZ",
     "fail_price": 9.34,
     "id": "6a36e969521f98e23dc3c7d6",
-    "industry": null,
+    "industry": "金属新材料",
     "initial_price": 9.84,
     "initial_score": 72.8,
-    "latest_snapshot_id": "6a36e96924d187c746dfc81f",
+    "latest_snapshot_id": "6a36f19424d187c746dfd6bc",
     "name": "英洛华",
     "risk_level": "中低",
     "score_change": {
-      "current_score": 52.0,
+      "current_score": 58.0,
       "delta": 18.0,
       "details": [
         {
@@ -2426,10 +2426,10 @@
           "previous_value": 12.0
         },
         {
-          "current_value": 10.0,
+          "current_value": 16.0,
           "delta": 6.0,
           "key": "return_drawdown",
-          "previous_value": 4.0
+          "previous_value": 10.0
         },
         {
           "current_value": 8.0,
@@ -2444,17 +2444,17 @@
           "previous_value": 10.0
         }
       ],
-      "previous_score": 34.0,
+      "previous_score": 40.0,
       "source": "snapshot"
     },
-    "selection_record_id": "6a36e96924d187c746dfc7ae",
+    "selection_record_id": "6a36f19424d187c746dfd657",
     "status": "stopped",
-    "stop_reason": "站上入选价；收益持平偏正；回撤较大；量价中性；缺少行业基准",
+    "stop_reason": "站上入选价；收益持平偏正；回撤中等；量价中性；缺少行业基准",
     "symbol": "SZ000795",
     "tracking_days": 5,
-    "trade_date": "2026-06-11",
+    "trade_date": "2026-06-15",
     "trigger_price": 9.96,
-    "updated_at": "2026-06-20T19:26:33.340952Z"
+    "updated_at": "2026-06-20T20:01:24.282428Z"
   },
   "klines": [
     {
@@ -3419,7 +3419,7 @@
     }
   ],
   "score_change": {
-    "current_score": 52.0,
+    "current_score": 58.0,
     "delta": 18.0,
     "details": [
       {
@@ -3429,10 +3429,10 @@
         "previous_value": 12.0
       },
       {
-        "current_value": 10.0,
+        "current_value": 16.0,
         "delta": 6.0,
         "key": "return_drawdown",
-        "previous_value": 4.0
+        "previous_value": 10.0
       },
       {
         "current_value": 8.0,
@@ -3447,66 +3447,10 @@
         "previous_value": 10.0
       }
     ],
-    "previous_score": 34.0,
+    "previous_score": 40.0,
     "source": "snapshot"
   },
   "snapshots": [
-    {
-      "as_of_date": "2026-06-11",
-      "close_price": 9.14,
-      "conclusion": "stop",
-      "fail_status": "broken",
-      "fund_flow_features": {
-        "fund_flow_positive": null
-      },
-      "id": "6a36e96924d187c746dfc810",
-      "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -9.1463,
-      "reason": "跌破失败线；阶段收益为负；回撤较大；量价中性；缺少行业基准",
-      "relative_return_pct": null,
-      "return_since_selection_pct": -7.1138,
-      "score_breakdown": {
-        "relative_strength": 4.0,
-        "return_drawdown": 4.0,
-        "rule_line": 0.0,
-        "volume_price": 8.0
-      },
-      "score_total": 16.0,
-      "t_day_index": 1,
-      "tracking_item_id": "6a36e969521f98e23dc3c7d6",
-      "trigger_status": "not_held",
-      "volume_price_features": {
-        "amount_change_pct": null
-      }
-    },
-    {
-      "as_of_date": "2026-06-12",
-      "close_price": 9.32,
-      "conclusion": "stop",
-      "fail_status": "broken",
-      "fund_flow_features": {
-        "fund_flow_positive": null
-      },
-      "id": "6a36e96924d187c746dfc813",
-      "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -9.1463,
-      "reason": "跌破失败线；阶段收益为负；回撤较大；量价中性；缺少行业基准",
-      "relative_return_pct": null,
-      "return_since_selection_pct": -5.2846,
-      "score_breakdown": {
-        "relative_strength": 4.0,
-        "return_drawdown": 4.0,
-        "rule_line": 0.0,
-        "volume_price": 8.0
-      },
-      "score_total": 16.0,
-      "t_day_index": 2,
-      "tracking_item_id": "6a36e969521f98e23dc3c7d6",
-      "trigger_status": "not_held",
-      "volume_price_features": {
-        "amount_change_pct": null
-      }
-    },
     {
       "as_of_date": "2026-06-15",
       "close_price": 9.28,
@@ -3515,20 +3459,20 @@
       "fund_flow_features": {
         "fund_flow_positive": null
       },
-      "id": "6a36e96924d187c746dfc816",
+      "id": "6a36f19424d187c746dfd6b3",
       "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -9.1463,
-      "reason": "跌破失败线；阶段收益为负；回撤较大；量价中性；缺少行业基准",
+      "max_drawdown_pct": -6.6057,
+      "reason": "跌破失败线；阶段收益为负；回撤中等；量价中性；缺少行业基准",
       "relative_return_pct": null,
       "return_since_selection_pct": -5.6911,
       "score_breakdown": {
         "relative_strength": 4.0,
-        "return_drawdown": 4.0,
+        "return_drawdown": 8.0,
         "rule_line": 0.0,
         "volume_price": 8.0
       },
-      "score_total": 16.0,
-      "t_day_index": 3,
+      "score_total": 20.0,
+      "t_day_index": 1,
       "tracking_item_id": "6a36e969521f98e23dc3c7d6",
       "trigger_status": "not_held",
       "volume_price_features": {
@@ -3543,20 +3487,20 @@
       "fund_flow_features": {
         "fund_flow_positive": null
       },
-      "id": "6a36e96924d187c746dfc819",
+      "id": "6a36f19424d187c746dfd6b6",
       "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -9.1463,
-      "reason": "低于入选价；阶段收益为负；回撤较大；量价中性；缺少行业基准",
+      "max_drawdown_pct": -6.8089,
+      "reason": "低于入选价；阶段收益为负；回撤中等；量价中性；缺少行业基准",
       "relative_return_pct": null,
       "return_since_selection_pct": -1.7276,
       "score_breakdown": {
         "relative_strength": 8.0,
-        "return_drawdown": 4.0,
+        "return_drawdown": 10.0,
         "rule_line": 12.0,
         "volume_price": 10.0
       },
-      "score_total": 34.0,
-      "t_day_index": 4,
+      "score_total": 40.0,
+      "t_day_index": 2,
       "tracking_item_id": "6a36e969521f98e23dc3c7d6",
       "trigger_status": "not_held",
       "volume_price_features": {
@@ -3571,20 +3515,20 @@
       "fund_flow_features": {
         "fund_flow_positive": null
       },
-      "id": "6a36e96924d187c746dfc81c",
+      "id": "6a36f19424d187c746dfd6b9",
       "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -9.1463,
-      "reason": "低于入选价；阶段收益为负；回撤较大；量价中性；缺少行业基准",
+      "max_drawdown_pct": -6.8089,
+      "reason": "低于入选价；阶段收益为负；回撤中等；量价中性；缺少行业基准",
       "relative_return_pct": null,
       "return_since_selection_pct": -5.0813,
       "score_breakdown": {
         "relative_strength": 8.0,
-        "return_drawdown": 4.0,
+        "return_drawdown": 10.0,
         "rule_line": 12.0,
         "volume_price": 10.0
       },
-      "score_total": 34.0,
-      "t_day_index": 5,
+      "score_total": 40.0,
+      "t_day_index": 3,
       "tracking_item_id": "6a36e969521f98e23dc3c7d6",
       "trigger_status": "not_held",
       "volume_price_features": {
@@ -3599,20 +3543,20 @@
       "fund_flow_features": {
         "fund_flow_positive": null
       },
-      "id": "6a36e96924d187c746dfc81f",
+      "id": "6a36f19424d187c746dfd6bc",
       "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -9.1463,
-      "reason": "站上入选价；收益持平偏正；回撤较大；量价中性；缺少行业基准",
+      "max_drawdown_pct": -6.8089,
+      "reason": "站上入选价；收益持平偏正；回撤中等；量价中性；缺少行业基准",
       "relative_return_pct": null,
       "return_since_selection_pct": 0.0,
       "score_breakdown": {
         "relative_strength": 8.0,
-        "return_drawdown": 10.0,
+        "return_drawdown": 16.0,
         "rule_line": 24.0,
         "volume_price": 10.0
       },
-      "score_total": 52.0,
-      "t_day_index": 6,
+      "score_total": 58.0,
+      "t_day_index": 4,
       "tracking_item_id": "6a36e969521f98e23dc3c7d6",
       "trigger_status": "not_held",
       "volume_price_features": {
