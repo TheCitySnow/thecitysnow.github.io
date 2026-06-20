@@ -1,10 +1,11 @@
 {
   "available_trade_dates": [
     "2026-06-05",
-    "2026-06-08"
+    "2026-06-08",
+    "2026-06-09"
   ],
-  "generated_at": "2026-06-20T19:09:59.558429+00:00",
-  "latest_trade_date": "2026-06-08",
+  "generated_at": "2026-06-20T19:13:31.495275+00:00",
+  "latest_trade_date": "2026-06-09",
   "retention_trade_days": 90,
   "schema_version": 1
 }
