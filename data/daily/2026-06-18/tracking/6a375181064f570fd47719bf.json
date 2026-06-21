@@ -2404,32 +2404,32 @@
   "item": {
     "code6": "002179",
     "created_at": "2026-06-21T02:50:41.262853Z",
-    "current_conclusion": "stop",
-    "current_score": 58.0,
+    "current_conclusion": "continue",
+    "current_score": 68.1,
     "exchange": "SZ",
     "fail_price": 37.58,
     "id": "6a375181064f570fd47719bf",
     "industry": "军工电子",
     "initial_price": 40.78,
     "initial_score": 68.1,
-    "latest_snapshot_id": "6a37519224d187c746dfeb23",
+    "latest_snapshot_id": null,
     "name": "中航光电",
     "risk_level": "中低",
     "score_change": {
-      "current_score": 58.0,
-      "delta": -10.1,
+      "current_score": 68.1,
+      "delta": 0.0,
       "details": [],
       "previous_score": 68.1,
       "source": "initial"
     },
     "selection_record_id": "6a37518124d187c746dfdff9",
-    "status": "stopped",
-    "stop_reason": "站上入选价；收益持平偏正；回撤中等；量价中性；缺少行业基准",
+    "status": "active",
+    "stop_reason": null,
     "symbol": "SZ002179",
     "tracking_days": 5,
     "trade_date": "2026-06-18",
     "trigger_price": 41.27,
-    "updated_at": "2026-06-21T02:50:41.262853Z"
+    "updated_at": "2026-06-21T02:58:15.048288Z"
   },
   "klines": [
     {
@@ -3394,40 +3394,11 @@
     }
   ],
   "score_change": {
-    "current_score": 58.0,
-    "delta": -10.1,
+    "current_score": 68.1,
+    "delta": 0.0,
     "details": [],
     "previous_score": 68.1,
     "source": "initial"
   },
-  "snapshots": [
-    {
-      "as_of_date": "2026-06-18",
-      "close_price": 40.78,
-      "conclusion": "stop",
-      "fail_status": "intact",
-      "fund_flow_features": {
-        "fund_flow_positive": null
-      },
-      "id": "6a37519224d187c746dfeb23",
-      "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -6.6182,
-      "reason": "站上入选价；收益持平偏正；回撤中等；量价中性；缺少行业基准",
-      "relative_return_pct": null,
-      "return_since_selection_pct": 0.0,
-      "score_breakdown": {
-        "relative_strength": 8.0,
-        "return_drawdown": 16.0,
-        "rule_line": 24.0,
-        "volume_price": 10.0
-      },
-      "score_total": 58.0,
-      "t_day_index": 1,
-      "tracking_item_id": "6a375181064f570fd47719bf",
-      "trigger_status": "not_held",
-      "volume_price_features": {
-        "amount_change_pct": null
-      }
-    }
-  ]
+  "snapshots": []
 }

@@ -2404,32 +2404,32 @@
   "item": {
     "code6": "600392",
     "created_at": "2026-06-21T02:50:41.245853Z",
-    "current_conclusion": "stop",
-    "current_score": 52.0,
+    "current_conclusion": "continue",
+    "current_score": 68.5,
     "exchange": "SH",
     "fail_price": 26.04,
     "id": "6a375181064f570fd47719be",
     "industry": "小金属",
     "initial_price": 31.66,
     "initial_score": 68.5,
-    "latest_snapshot_id": "6a37518f24d187c746dfe94b",
+    "latest_snapshot_id": null,
     "name": "盛和资源",
     "risk_level": "中",
     "score_change": {
-      "current_score": 52.0,
-      "delta": -16.5,
+      "current_score": 68.5,
+      "delta": 0.0,
       "details": [],
       "previous_score": 68.5,
       "source": "initial"
     },
     "selection_record_id": "6a37518124d187c746dfdff2",
-    "status": "stopped",
-    "stop_reason": "站上入选价；收益持平偏正；回撤较大；量价中性；缺少行业基准",
+    "status": "active",
+    "stop_reason": null,
     "symbol": "SH600392",
     "tracking_days": 5,
     "trade_date": "2026-06-18",
     "trigger_price": 32.04,
-    "updated_at": "2026-06-21T02:50:41.245853Z"
+    "updated_at": "2026-06-21T02:58:15.036715Z"
   },
   "klines": [
     {
@@ -3394,40 +3394,11 @@
     }
   ],
   "score_change": {
-    "current_score": 52.0,
-    "delta": -16.5,
+    "current_score": 68.5,
+    "delta": 0.0,
     "details": [],
     "previous_score": 68.5,
     "source": "initial"
   },
-  "snapshots": [
-    {
-      "as_of_date": "2026-06-18",
-      "close_price": 31.66,
-      "conclusion": "stop",
-      "fail_status": "intact",
-      "fund_flow_features": {
-        "fund_flow_positive": null
-      },
-      "id": "6a37518f24d187c746dfe94b",
-      "industry_baseline_return_pct": null,
-      "max_drawdown_pct": -8.4018,
-      "reason": "站上入选价；收益持平偏正；回撤较大；量价中性；缺少行业基准",
-      "relative_return_pct": null,
-      "return_since_selection_pct": 0.0,
-      "score_breakdown": {
-        "relative_strength": 8.0,
-        "return_drawdown": 10.0,
-        "rule_line": 24.0,
-        "volume_price": 10.0
-      },
-      "score_total": 52.0,
-      "t_day_index": 1,
-      "tracking_item_id": "6a375181064f570fd47719be",
-      "trigger_status": "not_held",
-      "volume_price_features": {
-        "amount_change_pct": null
-      }
-    }
-  ]
+  "snapshots": []
 }
