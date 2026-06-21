@@ -1,0 +1,46 @@
+{
+  "avg_max_drawdown_pct": null,
+  "avg_relative_return_pct": null,
+  "avg_t1_return_pct": null,
+  "avg_t3_return_pct": null,
+  "avg_t5_return_pct": null,
+  "by_industry": [
+    {
+      "avg_return_pct": null,
+      "industry": "军工电子",
+      "tracked_count": 0
+    },
+    {
+      "avg_return_pct": null,
+      "industry": "医疗服务",
+      "tracked_count": 0
+    },
+    {
+      "avg_return_pct": null,
+      "industry": "半导体",
+      "tracked_count": 0
+    },
+    {
+      "avg_return_pct": null,
+      "industry": "小金属",
+      "tracked_count": 0
+    },
+    {
+      "avg_return_pct": null,
+      "industry": "工业金属",
+      "tracked_count": 0
+    },
+    {
+      "avg_return_pct": null,
+      "industry": "贵金属",
+      "tracked_count": 0
+    },
+    {
+      "avg_return_pct": null,
+      "industry": "金属新材料",
+      "tracked_count": 0
+    }
+  ],
+  "success_rate_pct": null,
+  "tracked_count": 7
+}
