@@ -1,46 +1,13 @@
 {
-  "avg_max_drawdown_pct": null,
-  "avg_relative_return_pct": null,
-  "avg_t1_return_pct": null,
-  "avg_t3_return_pct": null,
-  "avg_t5_return_pct": null,
-  "by_industry": [
-    {
-      "avg_return_pct": null,
-      "industry": "军工电子",
-      "tracked_count": 1
-    },
-    {
-      "avg_return_pct": null,
-      "industry": "医疗服务",
-      "tracked_count": 1
-    },
-    {
-      "avg_return_pct": null,
-      "industry": "半导体",
-      "tracked_count": 1
-    },
-    {
-      "avg_return_pct": null,
-      "industry": "小金属",
-      "tracked_count": 1
-    },
-    {
-      "avg_return_pct": null,
-      "industry": "工业金属",
-      "tracked_count": 1
-    },
-    {
-      "avg_return_pct": null,
-      "industry": "贵金属",
-      "tracked_count": 1
-    },
-    {
-      "avg_return_pct": null,
-      "industry": "金属新材料",
-      "tracked_count": 1
-    }
-  ],
-  "success_rate_pct": null,
-  "tracked_count": 7
+  "schema_version": 1,
+  "encrypted": true,
+  "encryption": {
+    "algorithm": "AES-GCM",
+    "kdf": "PBKDF2-SHA256",
+    "iterations": 210000,
+    "salt": "pPXhF8SCfhQgcJuSy5NR1g==",
+    "iv": "1Gm7N3u8ilNgm3x9",
+    "ciphertext": "Se3hS7nt4u7z+NqKv4d/LlrcgGrP2ha7Ib1gLV/Brqq9Xpl2Ep9M3wEUdyjJrA7SwtM7sV9cyImr5aiBiXGda6S6bn4uX70y8tbybp+maGGig3ponxUGDt3Rs3vH67ptxnJ5UQm/wYmGnkTD5FfL3i1LyYHfoggeT+EdtTgwrLebIWMTrGFVg8GWmMlKHX+YavscIpsK99zKZINeGDGyYOhtebFOXXwItXX/86BdpFcI2PHowDQuYpgYuXLiFhu2Ut+pWpVZZDSsiKkB+Uz2LI1W1hCIxvje+keMiURX9WLEubpvcMBi73QDq5dYgVbEWR40Gm0ArpM4YvrtMdBkRHF8x77yEgtfrs47yQGNzoVe1eS2GBtazyvaJlEAjYaO43xv4PJsQmWIMbn7ZLHkrOL9a8k5XeXMcaROmF1UEZbCSgGpJ3edQkuKScNpgKA5gksdSH0R2qIMc11Uu9htiu3TgFQ8nnM+R4pBPAH6TGLKtkQxQs1U4OQRpac5yqt5qJx+IhsCaeqsJf74wPRk6RFzTyKYd/RXxBjQv3XiKtRV8rSsYPwvxS6z/yD8y98JbBvZKjzDINbg4CtMRctGR5wmO39sJRaKt4T5ECqfSKsIMUuvrQu1loAXwEHlBZVRH8fcfWT8foMpMlqfbWt+EmyKmSamxMvtvYloELBdf4fvDgcoVGKBRv59PPKyeH7nj/DMYNffERm+rPvtq5m3FWziK3Wx7Ct4WB20/xRsJI1T3mZ0DlosFuFKcI9uk4jfiygZ54DxzuRyRvURr1itc4sPkf10Q7fbDJofileQD5Z9ju+Jj1Uv5r29fi80P0D0zwIocrvHr5YDWQ5NTYTdUeb1MXCOsPPJlEPDOFGFFTmLjNO0f8kPSQ2fmwHWOed8gaYX7zYxxFRWLjpECxfjGYpVOiKmMXYgydXLzCKtrHR4T2TPzURNZ0nSBXRAScXV9r3LQyJbOo43lS6IeD2yYu7he/P4nqSe1ygVm+trPtdWLikEmz1llnkiV4C7wnkibA0fuMINVvgPsrwSPbDLMrTvJ9Mp53eGvsdzDZp4itmcxCrrwRnrmxJN8960IiK9upoKODDb5SM8jsmk/3gzYLgUaL/gSzFg1XggvOD6oYQjlHkVXSEcV1czVjti6fhTbcmdBAxAAM7cR9JAHSua0LYhBzq1nLR3rzV8wHwYXIvZnW3QNHEIRH8VQjii3ZCVA8Yo8ehxhvGE+yyUT45EmxOEowszbKoBLUJ0PymBibUMDoQZNHZvvJc6BDUq1xEwMMEtTofUorH6+CUvGeyTC1Xix7+TnX9txo9+puixsbbHJSQf0wIdoA==",
+    "plaintext_type": "application/json"
+  }
 }
