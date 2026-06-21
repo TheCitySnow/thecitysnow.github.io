@@ -1,13 +1,46 @@
 {
-  "schema_version": 1,
-  "encrypted": true,
-  "encryption": {
-    "algorithm": "AES-GCM",
-    "kdf": "PBKDF2-SHA256",
-    "iterations": 10000,
-    "salt": "GH/UEhzKDOxoVBg8/Elldg==",
-    "iv": "SS6G7rhm9n3nk4jx",
-    "ciphertext": "cIjPzxPkplswN4VP+atTksGxj8da6NSj2MTgEn4JB9/a36ASX34/QNwMGPwQiAu9RBkhLy7OnovhuVO57HJDe+k8BB2ZGQva6K1mRiEGOMj1IElB/m8Xux18Jy7tMbhHp4DljqFWOUnwBVg+jmgW/6eVx4o+84So7tKxw6kJrJprxA+sC2m/8VMpu9PzbGjEuF8uI1R9RUlWJqNYuTvgGenE/IJgYOq6jo+1AGt5Zkgb1dzD39MIjris58Pp4w9WxGB8i8DgcNBg731NsIqCoiDs7N9LQKhM4Uev7iNEewfsu66Kip1TCLRYZYvTmSYPdDgaEHm4kOvCMLDe6tdPX/yMJktRqjGkW83icdgYzwC7qF2Sm9F894kz8RSflAFb8VhjuBKOy4saPdkO8DjOK8HZwQcaoJtEIU2ojK4Ac5R80GTDdoAblg0J8lZqWGddOAakyU60HfoLQPV2qQ/5u/1/N2z7BWvOT0JMptQNw+gCEyllqyw/bPVvK9Aem1aV3R38geyH1NRg5bAEblPN8R0ET/pgk50mWB1V9WrJ6kVuLrsr40RwSIOymavBbNF/0fH0dDMnfOFZxjubW1FCWDuLnfaSAy31PsW/rzYJc1l/mkEn3QdZmMCDESIg54AldIhYRbd6BOFvrfyCEopvhxrS7/qheJdYjD8yGH5krH2bUxP5wf5KWrrCy8asXaHimuE8Ckc6IXTA9xSMFbifdvm/yMdPKb22a1h+zlml8eHPXY94HbdyrJ1yGFu/uTjIhlAk8r/k18yf8vGMLdwob5iuwEiOCM+cr36w0lcMPSpzHWmMs/mfRxCVLGbNE3zeuLGnSCDCD37DR5c18DCVbAwkCQPAgVsnpH3SCeN6Egxwuudgbfz2l5Q7C0YChwyyG8PBdoqfqt6znOvq7G6Rez4EpLsHUnGAoK6D9xni88/GJz0XOajvdCbLaGKwR8fYNF4jCa3C7BnoHrwzmA0GN6AETS8qwSPYIH32c/K05IQAOwJyYs4F5NOD598NA4Bixt5MIqyMdIEQGYmecR7HUnxSMgy0hWzQ7WRMyzE3jq8oYl+X5Zxlip6f81cgdeJF/cpTuRWRmljooAp/Rrt6aAEzVEpaL7Kr7QNEBhaYICCKWn2K6bj5X366s13NUnE8qAU2UG75JGRstplVZNhyay+Kq6KkpSJXyWpt1PbxY6iPVuzd6fcIteSdDot//m7kXuTBY4JNFWdWQ9YQr8/1q2Aa8V3bimF3bypcUT84w8p0MqMjszkY793WWNUuaCBBGgibwm8QsVPvYQsZihWZmuzCQsDopFDtF04/bTKaa33Pg8bmfB08ag==",
-    "plaintext_type": "application/json"
-  }
+  "avg_max_drawdown_pct": null,
+  "avg_relative_return_pct": null,
+  "avg_t1_return_pct": null,
+  "avg_t3_return_pct": null,
+  "avg_t5_return_pct": null,
+  "by_industry": [
+    {
+      "avg_return_pct": null,
+      "industry": "军工电子",
+      "tracked_count": 0
+    },
+    {
+      "avg_return_pct": null,
+      "industry": "医疗服务",
+      "tracked_count": 0
+    },
+    {
+      "avg_return_pct": null,
+      "industry": "半导体",
+      "tracked_count": 0
+    },
+    {
+      "avg_return_pct": null,
+      "industry": "小金属",
+      "tracked_count": 0
+    },
+    {
+      "avg_return_pct": null,
+      "industry": "工业金属",
+      "tracked_count": 0
+    },
+    {
+      "avg_return_pct": null,
+      "industry": "贵金属",
+      "tracked_count": 0
+    },
+    {
+      "avg_return_pct": null,
+      "industry": "金属新材料",
+      "tracked_count": 0
+    }
+  ],
+  "success_rate_pct": null,
+  "tracked_count": 7
 }

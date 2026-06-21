@@ -1,13 +1,9 @@
 {
-  "schema_version": 1,
-  "encrypted": true,
-  "encryption": {
-    "algorithm": "AES-GCM",
-    "kdf": "PBKDF2-SHA256",
-    "iterations": 10000,
-    "salt": "GH/UEhzKDOxoVBg8/Elldg==",
-    "iv": "H7M+1anHGIUf4KmO",
-    "ciphertext": "2xIi0Dxqg19Vq20RUmOZL7Mx7uVmQ5itvLGxquVRuHVzi5RCGgnMVgAWJsS+vuevKBEramKlMOytNbhk57gOwBrXIEZG/JXaOkChWoq4grHuZwtDrdn0MISQl3p0vWVACrFtdc1tl2AjAqrNfB1NPi9XnxHpeMiQV3P1o4HOTVCa1KuOwH8xQDDSIemabYqRRrYBTDDeioy1pvqJzteBAtlJhCi+rdP9crVXQaUY4Y0ubamVAgUg9bKDQcSwnkHFRlK+4gxnIaKlagyHy+BFIcQg8D8pqu+5R/HEg/TN",
-    "plaintext_type": "application/json"
-  }
+  "available_trade_dates": [
+    "2026-06-18"
+  ],
+  "generated_at": "2026-06-21T11:17:33.012704+00:00",
+  "latest_trade_date": "2026-06-18",
+  "retention_trade_days": 1,
+  "schema_version": 1
 }
