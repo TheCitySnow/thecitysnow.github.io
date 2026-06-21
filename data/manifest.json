@@ -4,10 +4,10 @@
   "encryption": {
     "algorithm": "AES-GCM",
     "kdf": "PBKDF2-SHA256",
-    "iterations": 210000,
-    "salt": "pPXhF8SCfhQgcJuSy5NR1g==",
-    "iv": "o+rTPn4dqC9ccsC4",
-    "ciphertext": "1/rtHr/095YuRbzxsP0n8jgGTGjYRPXBGYDsjDAfGZ3p9DO+fsDNys/ECttwVPyur3VHCr5zd1QzYJaZAv62x654JCAOBS55TpOka6Gjxi0XaO0z5swB3+x+DtBB9MPfK8iMkKZq7rQwog51EBqiN3ktZY/6t31oCDQznFz8sZe87x4if0x9ZwvRKDr/oy+yKig4soW/790vDPoEgmmUE1qR9lMGuo83Dup6ADy2NEiqSE+lAcloj8FsKwRaaTebp8qqUwXRJeCQDS7uPZ+Rx2Da7vMOcdT4VAV6G1bs",
+    "iterations": 50000,
+    "salt": "KdgpAfFuh1saeiyXMKzIcQ==",
+    "iv": "f5eKf0x14OB5iqrc",
+    "ciphertext": "RpRySaprsdYBmFVrwwiiFkDHXhgvzV5qRVfxDU9BulBLKrZsZFNtVKDiSxvaMIJKwBOy969eexHhMXaHWB1a62MhGGbaV+uIvNVGUmQpqta+eqAKz68aebJsGsh7nrpS34gY+Xovlw8vpX+dmYH8BTYzuP8wA0LxyU/dduyNTYJcHNXy8jg0gM4F9TRV9pAieTN3waTgSeNsbKV151VYzW9gJq12E2PCnPakkCv1Hqhpg0S8D4eeuIfbt5NKKXYz+NoS6JPCz32RQG2jtQDP5TpgFXJP4iRBtd6svY5c",
     "plaintext_type": "application/json"
   }
 }
