@@ -1,13 +1,1 @@
-{
-  "schema_version": 1,
-  "encrypted": true,
-  "encryption": {
-    "algorithm": "AES-GCM",
-    "kdf": "PBKDF2-SHA256",
-    "iterations": 10000,
-    "salt": "luMVPFjlmKmek1gJxIQDDg==",
-    "iv": "dY66cL5uFS8NmaCA",
-    "ciphertext": "LvFcQvtuXCInsBf2gt4ycAL0UdN3RvsK9g4TBiaAv6cVmaXjURx7psqHMeR5AS/+b7E528kMafv3z2QlordKAmd4hGr7OUr4tYgE716fShxmQrjFRx4p+VuP147nP/mhhUYl8RLyMOCSwxmXeA7vC3BydEu6LgJ7uVnAXkvFufBBBHMkmV3FxZdrxZbr9efXIHNSbLc6pwEPDcqpeEkmGDC3+vfm70hwS+7RFvd7m5v4Ie+eeSYdRlG53XRda7/pEAwVVtCPI73VPgic8m+HTKlHJ1tB9rBvQ8p5s54f",
-    "plaintext_type": "application/json"
-  }
-}
+{"schema_version":1,"encrypted":true,"encryption":{"algorithm":"AES-GCM","kdf":"PBKDF2-SHA256","iterations":10000,"salt":"luMVPFjlmKmek1gJxIQDDg==","iv":"bppTiYLKI0d5e2RR","ciphertext":"H3FZq4NWPL24WbLNoUKv4iXIgwzqRfqG86l8xsxTRNoPX4fGL+GxDoyXXVwPYLW2Rsr9SZFGX++dYMnJZv0CdeO+YYUSZ3TQFEwvlZqtsAVOx64XNDeHt/hqF8ZiLHC4EoQVHVUDphhsRzWR8hjANqVA7FwPCgJX1cl3iIrBEWzRrukJj4J8IciL1+0CrlbTtp4Xdg6MwIrkwAsQXUjc2n2FZugtb1U1zm5hn/Hn9oiyvMDLC4EZQZ0=","plaintext_type":"application/json"}}
