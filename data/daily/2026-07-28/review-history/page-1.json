@@ -1,0 +1,1 @@
+{"schema_version":1,"encrypted":true,"encryption":{"algorithm":"AES-GCM","kdf":"PBKDF2-SHA256","iterations":10000,"salt":"luMVPFjlmKmek1gJxIQDDg==","iv":"WvVitV2MAcX4nTD8","ciphertext":"XOSUvS8wvCK4BDuioSB7p3CJGJ98HAEs93+hNcPOiY1mUjTNhk34os6mrUx0DVAYczk9Ea2/zrXCgG5Ve1RHUlG9R8S0mjO8/SEcYvSq2YI=","plaintext_type":"application/json"}}
