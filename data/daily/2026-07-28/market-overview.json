@@ -1,1 +1,1 @@
-{"schema_version":1,"encrypted":true,"encryption":{"algorithm":"AES-GCM","kdf":"PBKDF2-SHA256","iterations":10000,"salt":"luMVPFjlmKmek1gJxIQDDg==","iv":"hIDhvawEURo/j0ht","ciphertext":"KFrdje5TtUz4ndQezP4T+luWJUNnQoxnBb5R/GtBRdW5EQM=","plaintext_type":"application/json"}}
+{"schema_version":1,"encrypted":true,"encryption":{"algorithm":"AES-GCM","kdf":"PBKDF2-SHA256","iterations":10000,"salt":"luMVPFjlmKmek1gJxIQDDg==","iv":"HFPZCtzlk6EHxWrJ","ciphertext":"+zNeMCNh87bsNebV6vN8eKK9rkRq1VS7+JTVr78HQCS/oDI=","plaintext_type":"application/json"}}
